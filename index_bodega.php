@@ -1,5 +1,5 @@
 <?php
-//Buscar en base de datos
+//Buscar en base de datos de mi mama
 $tabla="pp_bodega";
 $ruta="upld_$tabla";
 $stmt2=$db_pdo->prepare("SELECT id_$tabla, nombre, titulo, texto  FROM $tabla  WHERE shown='$vlr_bd_si' and deleted='$vlr_bd_no'  ORDER BY id_$tabla DESC  LIMIT 1  OFFSET 0;");
