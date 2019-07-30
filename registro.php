@@ -104,23 +104,23 @@ include_once "registro_sigoclub.php";
                 </div>
                 <div class="input-field col l7 m6 s5">
                   <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedula"]); ?>">
-                  <label for="cedula" class="black-text">Documento de Identidad <span style="color:red">*</span></label>
+                  <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l3 m3 s3">
                   <button id="check" onClick="Buscar()" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</button>
                 </div>
               </div>
             </div>
-            <div class="col s12 m9 l9">
+            <div class="col s12 m12 l9">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ambos nombres si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" required="" aria-required="true" value="<?php echo($_POST["nombre1"]); ?>">
-                  <label for="nombre1" class="black-text">Primer Nombre <span style="color:red">*</span></label>
+                  <label for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre2" name="nombre2" type="text" value="<?php echo($_POST["nombre2"]); ?>">
-                  <label for="nombre2" class="black-text">Segundo Nombre</label>
+                  <label for="nombre2" class="black-text">Segundo nombre</label>
                 </div>
               </div>        
             </div>
@@ -129,23 +129,23 @@ include_once "registro_sigoclub.php";
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ambos apellidos si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" required="" aria-required="true" value="<?php echo($_POST["apellido1"]); ?>">
-                  <label for="apellido1" class="black-text">Primer Apellido <span style="color:red">*</span></label>
+                  <label for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido2" name="apellido2" type="text" value="<?php echo($_POST["apellido2"]); ?>">
-                  <label for="apellido2" class="black-text">Segundo Apellido</label>
+                  <label for="apellido2" class="black-text">Segundo apellido</label>
                 </div>
               </div>        
             </div>
             <div class="col s12 m3 l3">
               <div class="row">
-                <div class="col s12 m6">
+                <div class="col s12 m3">
                   <p>
                     <input id="sexo_f" name="sexo_f" type="checkbox" onchange="toggle_chckbx(this.value, 'sexo_m');" <?php if($_POST["sexo_f"]!="") echo("checked"); ?> />
                     <label for="sexo_f">F</label>
                   </p>
                 </div>
-                <div class="col s12 m6">
+                <div class="col s12 m3">
                   <p>
                   <input id="sexo_m" name="sexo_m" type="checkbox" onchange="toggle_chckbx(this.value, 'sexo_f');" <?php if($_POST["sexo_m"]!="") echo("checked"); ?> />
                     <label for="sexo_m">M</label>
@@ -160,7 +160,7 @@ include_once "registro_sigoclub.php";
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Fecha de nacimiento del usuario (dd/mm/AAAA)">date_range</i>
                   <input id="fecha_emplea" name="fecha_nac" type="text" class="datepicker validate" required aria-required="true">
-                  <label for="fecha_emplea" class="black-text">Fecha de Nacimiento <span style="color:red">*</span></label>
+                  <label for="fecha_emplea" class="black-text">Fecha de nacimiento <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ include_once "registro_sigoclub.php";
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Telefono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
                   <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" required aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
-                  <label for="telefono" class="black-text">Numero de Telefono Celular <span style="color:red">*</span></label>
+                  <label for="telefono" class="black-text">Numero de teléfono celular <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -184,59 +184,58 @@ include_once "registro_sigoclub.php";
             </div>
             <div class="col s12 m12">
               <div class="row">
-                <div class="input-field col l3 s12">
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Avenida/Calle,Urbanización/Barrio/Sector,Edificio/Casa,N0 Apto/Casa,Punto de referencia">location_on</i>
-
+                <div class="input-field col l3 m12 s12">
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Parroquia,Zona residencial,Tipo de residencia">location_on</i>
                   <select>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Seleccione una opción</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                   </select>
-                  <label>Materialize Select</label>
+                  <label>Estado <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l3 s12">
+                <div class="input-field col l3 m12 s12">
                   <select>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Seleccione una opción</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                   </select>
-                  <label>Materialize Select</label>
+                  <label>Municipio <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l2 s12">
+                <div class="input-field col l2 m12 s12">
                   <select>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Seleccione una opción</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                   </select>
-                  <label>Materialize Select</label>
+                  <label>Parroquia <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l2 s12">
+                <div class="input-field col l2 m6 s12">
                   <select>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Seleccione una opción</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                   </select>
-                  <label>Materialize Select</label>
+                  <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l2 s12">
+                <div class="input-field col l2 m6 s12">
                   <select>
-                    <option value="" disabled selected>Choose your option</option>
+                    <option value="" disabled selected>Seleccione una opción</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                   </select>
-                  <label>Materialize Select</label>
+                  <label>Tipo de residencia <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Avenida/Calle,Urbanización/Barrio/Sector,Edificio/Casa,N0 Apto/Casa,Punto de referencia">location_on</i>
+                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Edificio/Casa,N° Apto/Casa,Punto de referencia">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
                   <label  for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
@@ -261,7 +260,6 @@ include_once "registro_sigoclub.php";
   <!-- begin: Footer -->
   <?php include_once "inc_footer.php"; ?>
   <!-- end: Footer -->
-
 
   <!--  Scripts-->
   <script src="js/jquery-2.1.1.min.js"></script>
