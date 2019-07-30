@@ -184,10 +184,61 @@ include_once "registro_sigoclub.php";
             </div>
             <div class="col s12 m12">
               <div class="row">
+                <div class="input-field col l3 s12">
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Avenida/Calle,Urbanización/Barrio/Sector,Edificio/Casa,N0 Apto/Casa,Punto de referencia">location_on</i>
+
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+                <div class="input-field col l3 s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+                <div class="input-field col l2 s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+                <div class="input-field col l2 s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+                <div class="input-field col l2 s12">
+                  <select>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                  <label>Materialize Select</label>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m12">
+              <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Avenida/Calle,Urbanización/Barrio/Sector,Edificio/Casa,N0 Apto/Casa,Punto de referencia">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
-                  <label  for="direccion" class="black-text">Dirección Principal <span style="color:red">*</span></label>
+                  <label  for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
