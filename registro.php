@@ -245,7 +245,7 @@ include_once "registro_sigoclub.php";
       labelMonthNext: 'Mes siguiente',
       labelMonthPrev: 'Mes anterior',
 
-      // The title label to use for the dropdown selectorsdfdfd
+      // The title label to use for the dropdown selectorsdfdfd mi mama
       labelMonthSelect: 'Seleccione un mes',
       labelYearSelect: 'Seleccione un año',
 
