@@ -36,6 +36,45 @@ include_once "registro_sigoclub.php";
 <!DOCTYPE html>
 <html lang="es">
 
+<script src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#estado').on('change',function(){
+        var estadoID = $(this).val();
+        if(estadoID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                data:'estado_id='+estadoID,
+                success:function(html){
+                    $('#municipio').html(html);
+                    // $('#municipio').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        // }else{
+        //     $('#estado').html('<option value="">Select country first</option>');
+        //     $('#city').html('<option value="">Select state first</option>'); 
+        // }
+    });
+    
+    $('#municipio').on('change',function(){
+        var municipioID = $(this).val();
+        if(municipioID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxData.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                data:'municipio_id='+municipioID,
+                success:function(html){
+                    $('#parroquia').html(html);
+                }
+            }); 
+        // }else{
+        //     $('#city').html('<option value="">Select state first</option>'); 
+        // }
+    });
+});
+</script>
+
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -186,47 +225,68 @@ include_once "registro_sigoclub.php";
               <div class="row">
                 <div class="input-field col l3 m12 s12">
                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Parroquia,Zona residencial,Tipo de residencia">location_on</i>
-                  <select>
-                    <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                  <select name="estado" id="estado">
+                    <option value="0" disabled selected>Seleccione una opción</option>
+                    <option value="1">Amazonas</option>
+                    <option value="2">Anzoátegui</option>
+                    <option value="3">Apure</option>
+                    <option value="4">Aragua</option>
+                    <option value="5">Barinas</option>
+                    <option value="6">Bolívar</option>
+                    <option value="7">Carabobo</option>
+                    <option value="8">Cojedes</option>
+                    <option value="9">Delta Amacuro</option>
+                    <option value="10">Distrito Capital</option>
+                    <option value="11">Falcón</option>
+                    <option value="12">Guárico</option>
+                    <option value="13">Lara</option>
+                    <option value="14">Mérida</option>
+                    <option value="15">Miranda</option>
+                    <option value="16">Monagas</option>
+                    <option value="17">Nueva Esparta</option>
+                    <option value="18">Portuguesa</option>
+                    <option value="19">Sucre</option>
+                    <option value="20">Táchira</option>
+                    <option value="21">Trujillo</option>
+                    <option value="22">Vargas</option>
+                    <option value="23">Yaracuy</option>
+                    <option value="24">Zulia</option>
                   </select>
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l3 m12 s12">
-                  <select>
-                    <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                  <select name="municipio" id="municipio">
+                    <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l2 m12 s12">
-                  <select>
-                    <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                  <select name="parroquia" id="parroquia">
+                    <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l2 m6 s12">
-                  <select>
-                    <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                  <select name="zonaRes" id="zonaRes">
+                    <option value="0" disabled selected>Seleccione una opción</option>
+                    <?php
+                        // $query = $mysqli -> query ("SELECT * FROM paises");
+                        // ACOMODAR NOMBRES DE CAMPOS QUE TRAE DE LA BBDD
+	                      $zonaRes=$db_pdo->prepare("SELECT * FROM zonaRes");
+                        while ($valores = mysqli_fetch_array($zonaRes)) {
+                          echo '<option value="'.$valores[id].'">'.$valores[nombre].'</option>';
+                        }
+                    ?>
                   </select>
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l2 m6 s12">
-                  <select>
+                  <select name="tipoRes" id="tipoRes">
                     <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="1">Apartamento</option>
+                    <option value="2">Casa</option>
+                    <option value="3">Quinta</option>
+                    <option value="4">Otro</option>
                   </select>
                   <label>Tipo de residencia <span style="color:red">*</span></label>
                 </div>
