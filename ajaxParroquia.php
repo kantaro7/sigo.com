@@ -21,7 +21,7 @@
             echo '<option value="0">Seleccione una opción</option>';
             foreach($parroquias as $pa){
             // while($row = $parroquias->fetch_assoc()){ 
-                echo '<option value="'.$pa['id'].'">'.$pa['parroquia'].'</option>';
+                echo '<option value="'.$pa['id'].'">'.utf8_decode($pa['parroquia']).'</option>';
             }
         }else{
             echo '<option value="">Parroquias no disponibles</option>';

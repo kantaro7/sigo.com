@@ -239,7 +239,7 @@
                      <?php
                         foreach($zona as $zo){
                           $cadenaZo = '<option value="'.$zo['id'].'">'.$zo['nombre'].'</option>';
-                          var_dump($cadenaZo);
+                          var_dump(utf8_decode($cadenaZo));
                         }
                      ?>
                   </select>
@@ -251,7 +251,7 @@
                   <?php
                       foreach($vivienda as $vivi){
                         $cadenaVivi = '<option value="'.$vivi['id'].'">'.$vivi['nombre'].'</option>';
-                        var_dump($cadenaVivi);
+                        var_dump(utf8_decode($cadenaVivi));
                       }
                     ?>
                   </select>

@@ -18,7 +18,7 @@
             echo '<option value="0">Seleccione una opción</option>';
             foreach($municipios as $muni){
             // while($row = $municipios->fetch_assoc()){ 
-                echo '<option value="'.$muni['id'].'">'.$muni['municipio'].'</option>';
+                echo '<option value="'.$muni['id'].'">'.utf8_decode($muni['municipio']).'</option>';
             }
         }else{
             echo '<option value="">Municipios no disponibles</option>';
