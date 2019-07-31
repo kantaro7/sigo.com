@@ -1,13 +1,13 @@
 <?php
-
+    header("Content-Type: text/html;charset=utf-8");
     //Load Basic Configuration, Database & General Rutines
     include_once "admin/lib_php/config.php";          // Constantes Globales
     include_once "admin/lib_php/general.php";         // Funciones varias
 
     //Connect to Database
     $db_pdo=new PDO("mysql:host=$host;dbname=$base", $user, $pass);
-
-    if(isset($_POST["id"]) && !empty($_POST["id"])){
+    $acentos = $db_pdo->query("SET NAMES 'utf8'");
+    // if(isset($_POST["id"]) && !empty($_POST["id"])){
         //Obtiene todas las parroquias
 	    $st=$db_pdo->prepare("SELECT * FROM us_parroquias WHERE id_municipio = ".$_POST['id']." ORDER BY parroquia ASC");
         
@@ -26,6 +26,6 @@
         }else{
             echo '<option value="">Parroquias no disponibles</option>';
         }
-    }
+    // }
 
 ?>
