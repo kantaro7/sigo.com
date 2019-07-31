@@ -194,21 +194,22 @@
                     <option value="7">Carabobo</option>
                     <option value="8">Cojedes</option>
                     <option value="9">Delta Amacuro</option>
-                    <option value="10">Distrito Capital</option>
-                    <option value="11">Falcón</option>
-                    <option value="12">Guárico</option>
-                    <option value="13">Lara</option>
-                    <option value="14">Mérida</option>
-                    <option value="15">Miranda</option>
-                    <option value="16">Monagas</option>
-                    <option value="17">Nueva Esparta</option>
-                    <option value="18">Portuguesa</option>
-                    <option value="19">Sucre</option>
-                    <option value="20">Táchira</option>
-                    <option value="21">Trujillo</option>
-                    <option value="22">Vargas</option>
-                    <option value="23">Yaracuy</option>
-                    <option value="24">Zulia</option>
+                    <option value="10">Falcón</option>
+                    <option value="11">Guárico</option>
+                    <option value="12">Lara</option>
+                    <option value="13">Mérida</option>
+                    <option value="14">Miranda</option>
+                    <option value="15">Monagas</option>
+                    <option value="16">Nueva Esparta</option>
+                    <option value="17">Portuguesa</option>
+                    <option value="18">Sucre</option>
+                    <option value="19">Táchira</option>
+                    <option value="20">Trujillo</option>
+                    <option value="21">Vargas</option>
+                    <option value="22">Yaracuy</option>
+                    <option value="23">Zulia</option>
+                    <option value="24">Distrito Capital</option>
+                    <option value="25">Dependencias Federales</option>
                   </select>
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
