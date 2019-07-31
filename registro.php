@@ -82,10 +82,10 @@
                 <div class="col s10 m10 l10">
                   <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB</h4>
                 </div>
-                <div class="input-field col s2 m2 l2">
+                <!-- <div class="input-field col s2 m2 l2">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
-                </div>
+                </div> -->
               </div>
              
             </div>
@@ -103,9 +103,9 @@
                   <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedula"]); ?>">
                   <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l3 m3 s3">
+                <!-- <div class="input-field col l3 m3 s3">
                   <button id="check" onClick="Buscar()" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</button>
-                </div>
+                </div> -->
               </div>
             </div>
             <div class="col s12 m12 l9">
