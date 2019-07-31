@@ -1,79 +1,39 @@
 <?php
-//Iniciar sesión
-session_start();
+    //Iniciar sesión
+    session_start();
 
-//Configure Page headers
-header('P3P: CP="CAO PSA OUR"');
-header("Cache-control: private");
+    //Configure Page headers
+    header('P3P: CP="CAO PSA OUR"');
+    header("Cache-control: private");
 
-// Configure Error Displaying
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+    // Configure Error Displaying
+    error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-//Load Basic Configuration, Database & General Rutines
-include_once "admin/lib_php/config.php";          // Constantes Globales
-include_once "admin/lib_php/general.php";         // Funciones varias
+    //Load Basic Configuration, Database & General Rutines
+    include_once "admin/lib_php/config.php";          // Constantes Globales
+    include_once "admin/lib_php/general.php";         // Funciones varias
 
-//Connect to Database
-$db_pdo=new PDO("mysql:host=$host;dbname=$base", $user, $pass);
+    //Connect to Database
+    $db_pdo=new PDO("mysql:host=$host;dbname=$base", $user, $pass);
 
-//Establecer variable random para evitar cache de fotos
-$random=md5(uniqid(rand(), 1));
+    //Establecer variable random para evitar cache de fotos
+    $random=md5(uniqid(rand(), 1));
 
-//Indicador de Lenguaje
-$lng="esp";
+    //Indicador de Lenguaje
+    $lng="esp";
 
-//Indicador de Menú
-$act_menu=0;
-//Configuración de Footer
-$ftr_clr="page-footer #b71c1c red darken-4";
-$ftr_img="img/producto/sigo_rojo.png";
+    //Indicador de Menú
+    $act_menu=0;
+    //Configuración de Footer
+    $ftr_clr="page-footer #b71c1c red darken-4";
+    $ftr_img="img/producto/sigo_rojo.png";
 
-//Incorporar Emisión de Emails
-include_once "registro_sigoclub.php";
-
+    //Incorporar Emisión de Emails
+    include_once "registro_sigoclub.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
-<script src="jquery-2.1.1.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#estado').on('change',function(){
-        var estadoID = $(this).val();
-        if(estadoID){
-            $.ajax({
-                type:'POST',
-                url:'ajaxData.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
-                data:'estado_id='+estadoID,
-                success:function(html){
-                    $('#municipio').html(html);
-                    // $('#municipio').html('<option value="">Select state first</option>'); 
-                }
-            }); 
-        // }else{
-        //     $('#estado').html('<option value="">Select country first</option>');
-        //     $('#city').html('<option value="">Select state first</option>'); 
-        // }
-    });
-    
-    $('#municipio').on('change',function(){
-        var municipioID = $(this).val();
-        if(municipioID){
-            $.ajax({
-                type:'POST',
-                url:'ajaxData.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
-                data:'municipio_id='+municipioID,
-                success:function(html){
-                    $('#parroquia').html(html);
-                }
-            }); 
-        // }else{
-        //     $('#city').html('<option value="">Select state first</option>'); 
-        // }
-    });
-});
-</script>
 
 <head>
 
@@ -96,7 +56,6 @@ $(document).ready(function(){
 
 <body>
 
-
   <!-- begin: Header -->
   <?php include_once "inc_header.php"; ?>
   <!-- end: Header -->
@@ -105,7 +64,6 @@ $(document).ready(function(){
   <!-- begin: Slider -->
   <?php include_once "contacto_slider.php"; ?>
   <!-- end: Slider -->
-
 
   <!-- begin: Formularios -->
   <div class="section" style="padding: 0">
@@ -223,8 +181,8 @@ $(document).ready(function(){
             </div>
             <div class="col s12 m12">
               <div class="row">
-                <div class="input-field col l3 m12 s12">
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado,Municipio,Parroquia,Zona residencial,Tipo de residencia">location_on</i>
+                <div class="input-field col l4 m12 s12">
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
                   <select name="estado" id="estado">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
@@ -254,39 +212,48 @@ $(document).ready(function(){
                   </select>
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l3 m12 s12">
+                <div class="input-field col l4 m12 s12">
                   <select name="municipio" id="municipio">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l2 m12 s12">
+                <div class="input-field col l4 m12 s12">
+                  <select name="ciudad" id="ciudad">
+                    <option value="0" disabled selected>Seleccione una opción</option>
+                  </select>
+                  <label>Ciudad <span style="color:red">*</span></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col l4 m12 s12">
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Parroquia, Zona residencial, Tipo de residencia">location_on</i>
                   <select name="parroquia" id="parroquia">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l2 m6 s12">
-                  <select name="zonaRes" id="zonaRes">
+                <div class="input-field col l4 m6 s12">
+                  <select name="zona" id="zona">
                     <option value="0" disabled selected>Seleccione una opción</option>
-                    <?php
-                        // $query = $mysqli -> query ("SELECT * FROM paises");
-                        // ACOMODAR NOMBRES DE CAMPOS QUE TRAE DE LA BBDD
-	                      $zonaRes=$db_pdo->prepare("SELECT * FROM zonaRes");
-                        while ($valores = mysqli_fetch_array($zonaRes)) {
-                          echo '<option value="'.$valores[id].'">'.$valores[nombre].'</option>';
-                        }
-                    ?>
+                     <?php
+                        foreach($zona as $zo){
+                          $cadenaZo = '<option value="'.$zo['id'].'">'.$zo['nombre'].'</option>';
+                          var_dump($cadenaZo);
+                        }
+                     ?>
                   </select>
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l2 m6 s12">
-                  <select name="tipoRes" id="tipoRes">
-                    <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="1">Apartamento</option>
-                    <option value="2">Casa</option>
-                    <option value="3">Quinta</option>
-                    <option value="4">Otro</option>
+                <div class="input-field col l4 m6 s12">
+                  <select name="vivienda" id="vivienda">
+                  <option value="0" disabled selected>Seleccione una opción</option>
+                  <?php
+                      foreach($vivienda as $vivi){
+                        $cadenaVivi = '<option value="'.$vivi['id'].'">'.$vivi['nombre'].'</option>';
+                        var_dump($cadenaVivi);
+                      }
+                    ?>
                   </select>
                   <label>Tipo de residencia <span style="color:red">*</span></label>
                 </div>
@@ -297,7 +264,7 @@ $(document).ready(function(){
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Edificio/Casa,N° Apto/Casa,Punto de referencia">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
-                  <label  for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
+                  <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -335,6 +302,58 @@ $(document).ready(function(){
     });        
   </script>
   <!-- fin slider-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#estado').on('change',function(){
+      console.log($(this).val());
+        var estadoID = $(this).val();
+        if(estadoID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxMunicipio.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                data:'id='+estadoID,
+                success:function(html){
+                    $('#municipio').html(html);
+                    document.getElementById('parroquia').value=0;
+                    $('select').material_select();
+                }
+            }); 
+          }
+    });
+    
+    $('#estado').on('change',function(){
+      console.log($(this).val());
+        var estadoID = $(this).val();
+        if(estadoID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxCiudad.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                data:'id='+estadoID,
+                success:function(html){
+                    $('#ciudad').html(html);
+                    $('select').material_select();
+                }
+            }); 
+          }
+    });
+
+    $('#municipio').on('change',function(){
+        var municipioID = $(this).val();
+        if(municipioID){
+            $.ajax({
+                type:'POST',
+                url:'ajaxParroquia.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                data:'id='+municipioID,
+                success:function(html){
+                    $('#parroquia').html(html);
+                    $('select').material_select();
+                }
+            }); 
+          }
+    });
+});
+</script>
 
   <!-- Carousel -->
   <script>

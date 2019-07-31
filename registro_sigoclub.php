@@ -2,6 +2,14 @@
 
 $pattern="/^(0?[1-9]|[12][0-9]|[3][01])[\/|-](0?[1-9]|[1][12])[\/|-]((19|20)?[0-9]{2})$/";
 
+$st1=$db_pdo->prepare("SELECT * FROM us_vivienda");
+$st1->execute();
+$vivienda = $st1->fetchAll();
+
+$st2=$db_pdo->prepare("SELECT * FROM us_zona");
+$st2->execute();
+$zona = $st2->fetchAll();
+
 if($_POST["prcs"]=="S"){
 	$cedula = $_POST["tipo"]."-".$_POST["cedula"];
 	$cedulas=$db_pdo->prepare("SELECT id  FROM us_sigoclub WHERE cedula = '".$cedula."' limit 1");
@@ -55,8 +63,9 @@ if($_POST["prcs"]=="S"){
 		if(isset($_POST["sexo_f"])) $sexo="F";
 		if(isset($_POST["sexo_m"])) $sexo="M";
 		
-		$sql="INSERT INTO us_sigoclub (nombre1, nombre2, apellido1, apellido2, cedula, sexo, fecha_nac, celular, correo, direccion) 
-			VALUES ('".$_POST["nombre1"]."', '".$_POST["nombre2"]."', '".$_POST["apellido1"]."', '".$_POST["apellido2"]."', '".$cedula."', '".$sexo."', '".$date."', '".$_POST["telefono"]."', '".$_POST["correo"]."', '".$_POST["direccion"]."')";
+		$sql="INSERT INTO us_sigoclub (nombre1, nombre2, apellido1, apellido2, cedula, sexo, fecha_nac, celular, correo, id_ciudad, id_parroquia, id_vivienda, id_zona, direccion) 
+			VALUES ('".$_POST["nombre1"]."', '".$_POST["nombre2"]."', '".$_POST["apellido1"]."', '".$_POST["apellido2"]."', '".$cedula."', '".$sexo."', '".$date."', '".$_POST["telefono"]."', '".$_POST["correo"]."', '".$_POST["ciudad"]."', '".$_POST["parroquia"]."', '".$_POST["vivienda"]."', '".$_POST["zona"]."', '".$_POST["direccion"]."')";
+
 		$stmt1=$db_pdo->prepare($sql);
 		if($stmt1===false){
 			trigger_error($db_pdo->error, E_USER_ERROR);

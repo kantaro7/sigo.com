@@ -9,19 +9,19 @@
 
     // if(isset($_POST["municipio"]) && !empty($_POST["municipio"])){
         //Get all city data
-	    $st=$db_pdo->prepare("SELECT * FROM us_municipios WHERE id_estado = ".$_POST['id']." ORDER BY municipio ASC");
-        $st->execute();
-        $municipios = $st->fetchAll();
         
-        //Display cities list
-        if(count($municipios) > 0){
+        $st1=$db_pdo->prepare("SELECT * FROM us_ciudades WHERE id_estado = ".$_POST['id']." ORDER BY ciudad ASC");
+        $st1->execute();
+        $ciudades = $st1->fetchAll();
+        
+        if(count($ciudades) > 0){
             echo '<option value="0">Seleccione una opción</option>';
-            foreach($municipios as $muni){
-            // while($row = $municipios->fetch_assoc()){ 
-                echo '<option value="'.$muni['id'].'">'.$muni['municipio'].'</option>';
+            foreach($ciudades as $ciu){
+            // while($row = $ciudades->fetch_assoc()){ 
+                echo '<option value="'.$ciu['id'].'">'.$ciu['ciudad'].'</option>';
             }
         }else{
-            echo '<option value="">Municipios no disponibles</option>';
+            echo '<option value="">Ciudades no disponibles</option>';
         }
     // }
 
