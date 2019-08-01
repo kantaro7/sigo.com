@@ -91,11 +91,10 @@
             <div class="col s12 m12 l12">
               <div class="row">
                 <div class="input-field col l2 m3 s4">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Cedula venezolana natural, juridíca o extranjera"> chrome_reader_mode</i>
+                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Cédula venezolana natural, jurídíca o extranjera"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" required aria-required="true">
                     <option value="V">V</option>
                     <option value="E">E</option>
-                    <option value="J">J</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
@@ -163,7 +162,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Telefono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
+                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
                   <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" required aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
                   <label for="telefono" class="black-text">Numero de teléfono celular <span style="color:red">*</span></label>
                 </div>
@@ -262,7 +261,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Edificio/Casa,N° Apto/Casa,Punto de referencia">location_on</i>
+                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
                   <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
@@ -289,11 +288,13 @@
 
   <!--  Scripts-->
   <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/jquery.validate.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/sweetalert2.js"></script>
   <script src="js/mascara.js"></script>
   <script src="js/moment.js"></script>
+  <!-- <script src="js/datePicker.js"></script> -->
 
   <!-- inicio slider-->
   <script>
@@ -312,7 +313,7 @@ $(document).ready(function(){
             $.ajax({
                 type:'POST',
                 encoding:"UTF-8",
-                url:'ajaxMunicipio.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                url:'ajaxMunicipio.php',
                 data:'id='+estadoID,
                 success:function(html){
                     $('#municipio').html(html);
@@ -331,7 +332,7 @@ $(document).ready(function(){
             $.ajax({
                 type:'POST',
                 encoding:"UTF-8",
-                url:'ajaxCiudad.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                url:'ajaxCiudad.php',
                 data:'id='+estadoID,
                 success:function(html){
                     $('#ciudad').html(html);
@@ -347,7 +348,7 @@ $(document).ready(function(){
             $.ajax({
                 type:'POST',
                 encoding:"UTF-8",
-                url:'ajaxParroquia.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
+                url:'ajaxParroquia.php',
                 data:'id='+municipioID,
                 success:function(html){
                     $('#parroquia').html(html);
@@ -370,8 +371,8 @@ $(document).ready(function(){
     $('select').material_select();
     $('#fecha_emplea').pickadate({
       selectMonths: true, // Creates a dropdown to control month
-      selectYears: 120,    // Creates a dropdown of 15 years to control year
-      //max: true,          // Limits the date to 'today'
+      selectYears: 150,    // Creates a dropdown of 15 years to control year
+      max: true,          // Limits the date to 'today'
 
       // The title label to use for the month nav buttons
       labelMonthNext: 'Mes siguiente',
@@ -397,8 +398,6 @@ $(document).ready(function(){
       //Otros ajustes
       format: 'dd/mm/yyyy',
       formatSubmit: 'dd/mm/yyyy',
-      minDate: new Date(1900,1-1,1), maxDate: '-18Y',
-      yearRange: '-110:-18',
 
       onSet: function(){
         if(validarFormatoFecha($('#fecha_emplea').val())){
@@ -407,7 +406,13 @@ $(document).ready(function(){
       }
 
     });
-    
+
+
+///////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////
+
     $('.datepicker').on('mousedown',function(event){
       event.preventDefault();
     })
@@ -561,60 +566,27 @@ $(document).ready(function(){
       var years = moment().diff(fechanacimiento, 'years');
       console.log(years);
       return years > 18;
-      // FormValidation.Validator.mayorEdad = {
-      //     validate: function(validator, $field, options) {
-      //         var value = $field.val();
-      //         var fechanacimiento = moment(value, "DD-MM-YYYY");
-            
-      //         if(!fechanacimiento.isValid())
-      //             return false;
-            
-      //         var years = moment().diff(fechanacimiento, 'years');
-            
-      //         return years > 18;
-      //     }
-      //   };
-
-        // $('#empleate').formValidation({
-        //     // feedbackIcons: {
-        //     //     valid: 'glyphicon glyphicon-ok',
-        //     //     invalid: 'glyphicon glyphicon-remove',
-        //     //     validating: 'glyphicon glyphicon-refresh'
-        //     // },
-        //     fields: {
-        //       fecha_nac: {
-        //             validators: {
-        //                 // notEmpty: {
-        //                 //     message: 'La fecha de nacimiento es requerida'
-        //                 // },
-        //                 mayorEdad: {
-        //                     message: 'No es mayor de edad'
-        //                 }
-        //             }
-        //         }
-        //     }
-        // });
     }
 
     function frm_vld_emplea(){
       var mnsj=""
       
-      if( (!document.getElementById("sexo_f").checked) && (!document.getElementById("sexo_m").checked) ) mnsj+=" - Debe seleccionar su sexo.<br>";
-      if(document.getElementById("fecha_emplea").value.length==0) mnsj+=" - Debe indicar su Fecha de nacimiento.<br>";
-      if(!validarFecha(document.getElementById("fecha_emplea").value)) mnsj+=" - Debe ser mayor de edad.<br>";
-      if(document.getElementById("nombre1").value.length==0) mnsj+=" - Debe indicar su nombre.<br>";
-      if(document.getElementById("apellido1").value.length==0) mnsj+=" - Debe indicar su apellido.<br>";
       if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar su cédula.<br>";
       if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida.<br>";
+      if(document.getElementById("nombre1").value.length==0) mnsj+=" - Debe indicar su nombre.<br>";
+      if(document.getElementById("apellido1").value.length==0) mnsj+=" - Debe indicar su apellido.<br>";
+      if( (!document.getElementById("sexo_f").checked) && (!document.getElementById("sexo_m").checked) ) mnsj+=" - Debe seleccionar su sexo.<br>";
+      if(document.getElementById("fecha_emplea").value.length==0) mnsj+=" - Debe indicar su fecha de nacimiento.<br>";
+      if(!validarFecha(document.getElementById("fecha_emplea").value)) mnsj+=" - Debe ser mayor de edad.<br>";
       if(document.getElementById("telefono").value.length==0) mnsj+=" - Debe indicar su teléfono celular.<br>";
-      if(document.getElementById("direccion").value.length==0) mnsj+=" - Debe indicar su dirección.<br>";
-      if(document.getElementById("direccion").value.length<10) mnsj+=" - Debe indicar una dirección más detallada.<br>";
-      if(document.getElementById("estado").value==0) mnsj+=" - Debe indicar su estado.<br>";
-      if(document.getElementById("municipio").value==0) mnsj+=" - Debe indicar su municipio.<br>";
-      if(document.getElementById("parroquia").value==0) mnsj+=" - Debe indicar su parroquia.<br>";
-      if(document.getElementById("ciudad").value==0) mnsj+=" - Debe indicar su ciudad.<br>";
-      if(document.getElementById("zona").value==0) mnsj+=" - Debe indicar su zona residencial.<br>";
+      if(document.getElementById("estado").value==0) mnsj+=" - Debe indicar un estado.<br>";
+      if(document.getElementById("municipio").value==0) mnsj+=" - Debe indicar un municipio.<br>";
+      if(document.getElementById("parroquia").value==0) mnsj+=" - Debe indicar una parroquia.<br>";
+      if(document.getElementById("ciudad").value==0) mnsj+=" - Debe indicar una ciudad.<br>";
+      if(document.getElementById("zona").value==0) mnsj+=" - Debe indicar una zona residencial.<br>";
       if(document.getElementById("vivienda").value==0) mnsj+=" - Debe indicar su tipo de vivienda.<br>";
+      if(document.getElementById("direccion").value.length==0) mnsj+=" - Debe indicar los detalles de su dirección.<br>";
+      if(document.getElementById("direccion").value.length<10) mnsj+=" - Debe indicar su dirección más detallada.<br>";
 
       if(mnsj!=""){
         swal.fire({
