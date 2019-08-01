@@ -181,7 +181,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col l4 m12 s12">
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Parroquia">location_on</i>
                   <select name="estado" id="estado">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
@@ -193,6 +193,8 @@
                     <option value="7">Carabobo</option>
                     <option value="8">Cojedes</option>
                     <option value="9">Delta Amacuro</option>
+                    <option value="25">Dependencias Federales</option>
+                    <option value="24">Distrito Capital</option>
                     <option value="10">Falcón</option>
                     <option value="11">Guárico</option>
                     <option value="12">Lara</option>
@@ -207,8 +209,6 @@
                     <option value="21">Vargas</option>
                     <option value="22">Yaracuy</option>
                     <option value="23">Zulia</option>
-                    <option value="24">Distrito Capital</option>
-                    <option value="25">Dependencias Federales</option>
                   </select>
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
@@ -219,19 +219,19 @@
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="ciudad" id="ciudad">
-                    <option value="0" disabled selected>Seleccione una opción</option>
-                  </select>
-                  <label>Ciudad <span style="color:red">*</span></label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col l4 m12 s12">
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Parroquia, Zona residencial, Tipo de residencia">location_on</i>
                   <select name="parroquia" id="parroquia">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col l4 m12 s12">
+                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
+                  <select name="ciudad" id="ciudad">
+                    <option value="0" disabled selected>Seleccione una opción</option>
+                  </select>
+                  <label>Ciudad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
                   <select name="zona" id="zona">
