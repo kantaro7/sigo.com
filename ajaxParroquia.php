@@ -24,7 +24,7 @@
                 echo '<option value="'.$pa['id'].'">'.utf8_decode($pa['parroquia']).'</option>';
             }
         }else{
-            echo '<option value="">Parroquias no disponibles</option>';
+            echo '<option value="-1">Parroquias no disponibles</option>';
         }
     // }
 

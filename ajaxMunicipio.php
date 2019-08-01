@@ -21,7 +21,7 @@
                 echo '<option value="'.$muni['id'].'">'.utf8_decode($muni['municipio']).'</option>';
             }
         }else{
-            echo '<option value="">Municipios no disponibles</option>';
+            echo '<option value="-1">Municipios no disponibles</option>';
         }
     // }
 

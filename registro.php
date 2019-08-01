@@ -182,7 +182,7 @@
               <div class="row">
                 <div class="input-field col l4 m12 s12">
                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
-                  <select name="estado" id="estado" required aria-required="true" value="<?php echo($_POST["estado"]); ?>">
+                  <select name="estado" id="estado" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
                     <option value="2">Anzoátegui</option>
@@ -213,13 +213,13 @@
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="municipio" id="municipio" required aria-required="true" value="<?php echo($_POST["municipio"]); ?>">
+                  <select name="municipio" id="municipio" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="parroquia" id="parroquia" required aria-required="true" value="<?php echo($_POST["parroquia"]); ?>">
+                  <select name="parroquia" id="parroquia" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
@@ -228,13 +228,13 @@
               <div class="row">
                 <div class="input-field col l4 m12 s12">
                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
-                  <select name="ciudad" id="ciudad" required aria-required="true" value="<?php echo($_POST["ciudad"]); ?>">
+                  <select name="ciudad" id="ciudad" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="zona" id="zona" required aria-required="true" value="<?php echo($_POST["zona"]); ?>">
+                  <select name="zona" id="zona" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                      <?php
                         foreach($zona as $zo){
@@ -246,7 +246,7 @@
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="vivienda" id="vivienda" required aria-required="true" value="<?php echo($_POST["vivienda"]); ?>">
+                  <select name="vivienda" id="vivienda" required aria-required="true">
                   <option value="0" disabled selected>Seleccione una opción</option>
                   <?php
                       foreach($vivienda as $vivi){
@@ -293,6 +293,7 @@
   <script src="js/init.js"></script>
   <script src="js/sweetalert2.js"></script>
   <script src="js/mascara.js"></script>
+  <script src="js/moment.js"></script>
 
   <!-- inicio slider-->
   <script>
@@ -549,23 +550,77 @@ $(document).ready(function(){
 
   <!-- Validación Formulario 1 y 2 -->
   <script language="JavaScript">
+
+    function validarFecha(fecha){
+      if(fecha.length==0){
+        return false;
+      }
+      var fechanacimiento = moment(fecha, "DD-MM-YYYY");
+      if(!fechanacimiento.isValid())
+          return false;
+      var years = moment().diff(fechanacimiento, 'years');
+      console.log(years);
+      return years > 18;
+      // FormValidation.Validator.mayorEdad = {
+      //     validate: function(validator, $field, options) {
+      //         var value = $field.val();
+      //         var fechanacimiento = moment(value, "DD-MM-YYYY");
+            
+      //         if(!fechanacimiento.isValid())
+      //             return false;
+            
+      //         var years = moment().diff(fechanacimiento, 'years');
+            
+      //         return years > 18;
+      //     }
+      //   };
+
+        // $('#empleate').formValidation({
+        //     // feedbackIcons: {
+        //     //     valid: 'glyphicon glyphicon-ok',
+        //     //     invalid: 'glyphicon glyphicon-remove',
+        //     //     validating: 'glyphicon glyphicon-refresh'
+        //     // },
+        //     fields: {
+        //       fecha_nac: {
+        //             validators: {
+        //                 // notEmpty: {
+        //                 //     message: 'La fecha de nacimiento es requerida'
+        //                 // },
+        //                 mayorEdad: {
+        //                     message: 'No es mayor de edad'
+        //                 }
+        //             }
+        //         }
+        //     }
+        // });
+    }
+
     function frm_vld_emplea(){
       var mnsj=""
-
-      if( (!document.getElementById("sexo_f").checked) && (!document.getElementById("sexo_m").checked) ) mnsj+=" - Debe seleccionar su Sexo.\n";
-      if(document.getElementById("fecha_emplea").value.length==0) mnsj+=" - Debe indicar su Fecha de Nacimiento.\n";
-      if(document.getElementById("nombre1").value.length==0) mnsj+=" - Debe indicar su nombre.\n";
-      if(document.getElementById("apellido1").value.length==0) mnsj+=" - Debe indicar su apellido.\n";
-      if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar su cedula.\n";
-      if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cedula valida.\n";
-      if(document.getElementById("telefono").value.length==0) mnsj+=" - Debe indicar su telefono celular.\n";
-      if(document.getElementById("direccion").value.length==0) mnsj+=" - Debe indicar su direccion.\n";
+      
+      if( (!document.getElementById("sexo_f").checked) && (!document.getElementById("sexo_m").checked) ) mnsj+=" - Debe seleccionar su sexo.<br>";
+      if(document.getElementById("fecha_emplea").value.length==0) mnsj+=" - Debe indicar su Fecha de nacimiento.<br>";
+      if(!validarFecha(document.getElementById("fecha_emplea").value)) mnsj+=" - Debe ser mayor de edad.<br>";
+      if(document.getElementById("nombre1").value.length==0) mnsj+=" - Debe indicar su nombre.<br>";
+      if(document.getElementById("apellido1").value.length==0) mnsj+=" - Debe indicar su apellido.<br>";
+      if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar su cédula.<br>";
+      if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida.<br>";
+      if(document.getElementById("telefono").value.length==0) mnsj+=" - Debe indicar su teléfono celular.<br>";
+      if(document.getElementById("direccion").value.length==0) mnsj+=" - Debe indicar su dirección.<br>";
+      if(document.getElementById("direccion").value.length<10) mnsj+=" - Debe indicar una dirección más detallada.<br>";
+      if(document.getElementById("estado").value==0) mnsj+=" - Debe indicar su estado.<br>";
+      if(document.getElementById("municipio").value==0) mnsj+=" - Debe indicar su municipio.<br>";
+      if(document.getElementById("parroquia").value==0) mnsj+=" - Debe indicar su parroquia.<br>";
+      if(document.getElementById("ciudad").value==0) mnsj+=" - Debe indicar su ciudad.<br>";
+      if(document.getElementById("zona").value==0) mnsj+=" - Debe indicar su zona residencial.<br>";
+      if(document.getElementById("vivienda").value==0) mnsj+=" - Debe indicar su tipo de vivienda.<br>";
 
       if(mnsj!=""){
         swal.fire({
           type: 'warning',
           title: 'Advertencia',
-          text: "Debe verificar las siguientes condiciones:\n\n"+mnsj
+          html: "Debe verificar las siguientes condiciones:<br>"+mnsj
         })
       }
       
@@ -576,15 +631,12 @@ $(document).ready(function(){
 
     function frm_vld_contac(){
       var mnsj=""
-
-
       if(mnsj!=""){
         swal.fire({
           type: 'warning',
           title: 'Advertencia',
-          text: "Debe verificar las siguientes condiciones:\n\n"+mnsj
+          html: "Debe verificar las siguientes condiciones:<br>"+mnsj
         })
-        //alert("Debe verificar las siguientes condiciones:\n\n"+mnsj);
       }
       
       if(mnsj!="") return false;
@@ -602,7 +654,7 @@ $(document).ready(function(){
     <script language="javascript">
       swal.fire({
           type: 'success',
-          title: 'Exito',
+          title: 'Éxito',
           text: "Registro almacenado exitosamente"
         })
     </script>
@@ -614,7 +666,7 @@ $(document).ready(function(){
       swal.fire({
           type: 'warning',
           title: 'Advertencia',
-          text: "Debe verificar las siguientes condiciones:\n\n<?php echo(html_encode($_SESSION["save_error"])); ?>"
+          html: "Debe verificar las siguientes condiciones:<br/><?php echo(html_encode($_SESSION["save_error"])); ?>"
         })
     </script>
     <?php 

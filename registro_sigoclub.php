@@ -57,7 +57,6 @@ if($_POST["prcs"]=="S"){
 
 	$diff = $fecha->diff($hoy);
 
-
 	if($cedulaV && $celularV && !$futuro && ($diff->y >= 18)){
 		$sexo="I";
 		if(isset($_POST["sexo_f"])) $sexo="F";
@@ -82,10 +81,10 @@ if($_POST["prcs"]=="S"){
 
 	}elseif(!$celularV && !$celularV){
 		$_POST["prcs"]="";
-		$_SESSION["save_error"]="El telefono y la cedula ingresados ya existen en nuestra base de datos";
+		$_SESSION["save_error"]="El teléfono y la cédula ingresados ya existen en nuestra base de datos";
 	}elseif(!$celularV){
 		$_POST["prcs"]="";
-		$_SESSION["save_error"]="El telefono ingresado ya existe en nuestra base de datos";
+		$_SESSION["save_error"]="El teléfono ingresado ya existe en nuestra base de datos";
 	}elseif($futuro){
 		$_POST["prcs"]="";
 		$_SESSION["save_error"]="La fecha de nacimiento no puede ser mayor a la de hoy";
@@ -94,7 +93,7 @@ if($_POST["prcs"]=="S"){
 		$_SESSION["save_error"]="Debe de ser mayor de edad para registrarse en el sistema";
 	}else{
 		$_POST["prcs"]="";
-		$_SESSION["save_error"]="La cedula ingresada ya existe en nuestra base de datos";
+		$_SESSION["save_error"]="La cédula ingresada ya existe en nuestra base de datos";
 	}
 }
 ?>

@@ -21,7 +21,7 @@
                 echo '<option value="'.$ciu['id'].'">'.utf8_decode($ciu['ciudad']).'</option>';
             }
         }else{
-            echo '<option value="">Ciudades no disponibles</option>';
+            echo '<option value="-1">Ciudades no disponibles</option>';
         }
     // }
 
