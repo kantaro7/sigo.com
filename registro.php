@@ -91,7 +91,7 @@
             <div class="col s12 m12 l12">
               <div class="row">
                 <div class="input-field col l2 m3 s4">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Cédula venezolana natural, jurídíca o extranjera"> chrome_reader_mode</i>
+                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" required aria-required="true">
                     <option value="V">V</option>
                     <option value="E">E</option>
