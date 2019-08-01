@@ -182,7 +182,7 @@
               <div class="row">
                 <div class="input-field col l4 m12 s12">
                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
-                  <select name="estado" id="estado" required aria-required="true">
+                  <select name="estado" id="estado" required aria-required="true" value="<?php echo($_POST["estado"]); ?>">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
                     <option value="2">Anzoátegui</option>
@@ -213,13 +213,13 @@
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="municipio" id="municipio" required aria-required="true">
+                  <select name="municipio" id="municipio" required aria-required="true" value="<?php echo($_POST["municipio"]); ?>">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="parroquia" id="parroquia">
+                  <select name="parroquia" id="parroquia" required aria-required="true" value="<?php echo($_POST["parroquia"]); ?>">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
@@ -228,13 +228,13 @@
               <div class="row">
                 <div class="input-field col l4 m12 s12">
                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
-                  <select name="ciudad" id="ciudad">
+                  <select name="ciudad" id="ciudad" required aria-required="true" value="<?php echo($_POST["ciudad"]); ?>">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="zona" id="zona" required aria-required="true">
+                  <select name="zona" id="zona" required aria-required="true" value="<?php echo($_POST["zona"]); ?>">
                     <option value="0" disabled selected>Seleccione una opción</option>
                      <?php
                         foreach($zona as $zo){
@@ -246,7 +246,7 @@
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="vivienda" id="vivienda" required aria-required="true">
+                  <select name="vivienda" id="vivienda" required aria-required="true" value="<?php echo($_POST["vivienda"]); ?>">
                   <option value="0" disabled selected>Seleccione una opción</option>
                   <?php
                       foreach($vivienda as $vivi){
