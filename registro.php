@@ -238,8 +238,8 @@
                     <option value="0" disabled selected>Seleccione una opción</option>
                      <?php
                         foreach($zona as $zo){
-                          $cadenaZo = '<option value="'.$zo['id'].'">'.$zo['nombre'].'</option>';
-                          var_dump(utf8_decode($cadenaZo));
+                          $cadenaZo = '<option value="'.$zo['id'].'">'.utf8_decode($zo['nombre']).'</option>';
+                          var_dump($cadenaZo);
                         }
                      ?>
                   </select>
@@ -250,8 +250,8 @@
                   <option value="0" disabled selected>Seleccione una opción</option>
                   <?php
                       foreach($vivienda as $vivi){
-                        $cadenaVivi = '<option value="'.$vivi['id'].'">'.$vivi['nombre'].'</option>';
-                        var_dump(utf8_decode($cadenaVivi));
+                        $cadenaVivi = '<option value="'.$vivi['id'].'">'.utf8_decode($vivi['nombre']).'</option>';
+                        var_dump($cadenaVivi);
                       }
                     ?>
                   </select>
@@ -315,6 +315,7 @@ $(document).ready(function(){
                 data:'id='+estadoID,
                 success:function(html){
                     $('#municipio').html(html);
+                    console.log(html);
                     document.getElementById('parroquia').value=0;
                     $('select').material_select();
                 }

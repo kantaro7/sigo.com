@@ -5,7 +5,7 @@
     include_once "admin/lib_php/general.php";         // Funciones varias
 
     //Connect to Database
-    $db_pdo=new PDO("mysql:host=$host;dbname=$base", $user, $pass);
+    $db_pdo=new PDO("mysql:host=$host;dbname=$base", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\''));
     $acentos = $db_pdo->query("SET NAMES 'utf8'");
     // if(isset($_POST["id"]) && !empty($_POST["id"])){
         //Obtiene todas las parroquias
