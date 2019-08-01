@@ -181,16 +181,8 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col l4 m12 s12">
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
                   <select name="estado" id="estado" required aria-required="true">
-=======
->>>>>>> Stashed changes
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Parroquia">location_on</i>
-                  <select name="estado" id="estado">
->>>>>>> master
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
                     <option value="2">Anzoátegui</option>
@@ -227,15 +219,7 @@
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-<<<<<<< Updated upstream
                   <select name="parroquia" id="parroquia">
-=======
-<<<<<<< HEAD
-                  <select name="ciudad" id="ciudad" required aria-required="true">
-=======
-                  <select name="parroquia" id="parroquia">
->>>>>>> master
->>>>>>> Stashed changes
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
@@ -243,18 +227,8 @@
               </div>
               <div class="row">
                 <div class="input-field col l4 m12 s12">
-<<<<<<< Updated upstream
                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
                   <select name="ciudad" id="ciudad">
-=======
-<<<<<<< HEAD
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Parroquia, Zona residencial, Tipo de residencia">location_on</i>
-                  <select name="parroquia" id="parroquia" required aria-required="true">
-=======
-                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
-                  <select name="ciudad" id="ciudad">
->>>>>>> master
->>>>>>> Stashed changes
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
