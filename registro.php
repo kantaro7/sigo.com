@@ -181,8 +181,16 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col l4 m12 s12">
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
+                  <select name="estado" id="estado" required aria-required="true">
+=======
+>>>>>>> Stashed changes
                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Parroquia">location_on</i>
                   <select name="estado" id="estado">
+>>>>>>> master
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
                     <option value="2">Anzoátegui</option>
@@ -213,13 +221,21 @@
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="municipio" id="municipio">
+                  <select name="municipio" id="municipio" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
+<<<<<<< Updated upstream
                   <select name="parroquia" id="parroquia">
+=======
+<<<<<<< HEAD
+                  <select name="ciudad" id="ciudad" required aria-required="true">
+=======
+                  <select name="parroquia" id="parroquia">
+>>>>>>> master
+>>>>>>> Stashed changes
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
@@ -227,14 +243,24 @@
               </div>
               <div class="row">
                 <div class="input-field col l4 m12 s12">
+<<<<<<< Updated upstream
                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
                   <select name="ciudad" id="ciudad">
+=======
+<<<<<<< HEAD
+                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Parroquia, Zona residencial, Tipo de residencia">location_on</i>
+                  <select name="parroquia" id="parroquia" required aria-required="true">
+=======
+                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
+                  <select name="ciudad" id="ciudad">
+>>>>>>> master
+>>>>>>> Stashed changes
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="zona" id="zona">
+                  <select name="zona" id="zona" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                      <?php
                         foreach($zona as $zo){
@@ -246,7 +272,7 @@
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="vivienda" id="vivienda">
+                  <select name="vivienda" id="vivienda" required aria-required="true">
                   <option value="0" disabled selected>Seleccione una opción</option>
                   <?php
                       foreach($vivienda as $vivi){
@@ -270,7 +296,6 @@
             </div>
             <input name="prcs" id="prcs" type="hidden" value="S" />   
             <div class="col s12 m12 center" style="margin-top: 6px">
-                    
               <button class="btn waves-effect waves-light" type="submit" onclick="return frm_vld_emplea();"><i class="material-icons right">send</i>Registrar</button>
             </div>
 
@@ -311,6 +336,7 @@ $(document).ready(function(){
         if(estadoID){
             $.ajax({
                 type:'POST',
+                encoding:"UTF-8",
                 url:'ajaxMunicipio.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
                 data:'id='+estadoID,
                 success:function(html){
@@ -329,6 +355,7 @@ $(document).ready(function(){
         if(estadoID){
             $.ajax({
                 type:'POST',
+                encoding:"UTF-8",
                 url:'ajaxCiudad.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
                 data:'id='+estadoID,
                 success:function(html){
@@ -344,6 +371,7 @@ $(document).ready(function(){
         if(municipioID){
             $.ajax({
                 type:'POST',
+                encoding:"UTF-8",
                 url:'ajaxParroquia.php',  ///es llamado por Ajax y sirve para obtener los datos de las ciudades de la base de datos.
                 data:'id='+municipioID,
                 success:function(html){
