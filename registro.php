@@ -109,7 +109,7 @@
             <div class="col s12 m12 l9">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
-                  <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Ambos nombres si los posee">account_circle</i>
+                  <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Primer y segundo nombre si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" required="" aria-required="true" value="<?php echo($_POST["nombre1"]); ?>">
                   <label for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
                 </div>
@@ -122,7 +122,7 @@
             <div class="col s12 m12 l9">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
-                  <i class="material-icons prefix tooltipped" id="tapellidos" data-position="top" data-tooltip="Ambos apellidos si los posee">account_circle</i>
+                  <i class="material-icons prefix tooltipped" id="tapellidos" data-position="top" data-tooltip="Primer y segundo apellido si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" required="" aria-required="true" value="<?php echo($_POST["apellido1"]); ?>">
                   <label for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
                 </div>
@@ -164,7 +164,7 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
                   <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" required aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
-                  <label for="telefono" class="black-text">Numero de teléfono celular <span style="color:red">*</span></label>
+                  <label for="telefono" class="black-text">Número de teléfono celular <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col l4 m12 s12">
-                <i class="material-icons prefix tooltipped" id="testado" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
+                <i class="material-icons prefix tooltipped" id="testado" data-position="top" data-tooltip="Estado, Municipio, Parroquia">location_on</i>
                   <select name="estado" id="estado" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
