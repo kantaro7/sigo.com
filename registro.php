@@ -299,30 +299,34 @@
     <div class="modal-content">
       <h5 style="text-align:center;">TÉRMINOS Y CONDICIONES DE AFILIACIÓN AL PROGRAMA “SIGO CLUB”</h5>
       <div>
-        <br><br>Estos términos y condiciones regulan la afiliación de los clientes en el programa SIGO CLUB, y a su vez la compra en los establecimientos SIGO PRECIOS BAJOS CERCA DE TI. Los cuales comprenden los siguientes aspectos.
-        <br><br>A.	Generalidades
-        <br><br>La actividad de los clientes afiliados al programa SIGO CLUB se regirá por estos Términos y Condiciones, por lo que cualquier persona interesada en adquirir productos a bajos costos en los establecimientos SIGO PRECIOS BAJOS CERCA DE TI, deberá aceptar estos Términos y Condiciones, los cuales tienen carácter vinculante. 
+        <br><br> Estos términos y condiciones regulan la afiliación de los clientes en el programa SIGO CLUB, y a su vez la compra en los establecimientos SIGO PRECIOS BAJOS CERCA DE TI. Los cuales comprenden los siguientes aspectos:
+        <br><br> A.	Generalidades
+        <br><br> La actividad de los clientes afiliados al programa SIGO CLUB se regirá por estos Términos y Condiciones, por lo que cualquier persona interesada en adquirir productos a bajos costos en los establecimientos SIGO PRECIOS BAJOS CERCA DE TI, deberá aceptar estos Términos y Condiciones; los cuales tienen carácter vinculante. 
 
-        <br><br>B.	Definiciones
-        <br><br>A fin de facilitar una correcta comprensión de los términos que son utilizados, se detalla a continuación la definición de aquellos que son especialmente relevantes:
-        <br>a.	SIGO CLUB, es un programa que va dirigido a todos nuestros clientes, cuyo propósito es compensar la fidelidad y lealtad con la organización SIGO, S.A., en el que el afiliado podrá adquirir productos a bajos costos en los establecimientos SIGO PRECIOS BAJOS CERCA DE TI.  
-        <br>b.	Clientes SIGO CLUB, son aquellas personas naturales y jurídicas, que previo cumplimiento de los requisitos de afiliación, se encuentran autorizados a la compra o adquisición de productos en las tiendas o establecimientos “SIGO PRECIOS CERCA DE TI”.
-        <br>c.	SIGO PRECIOS BAJOS CERCA DE TI, son establecimientos comerciales en los suburbios de la región insular (en las zonas más alejadas y necesitadas del territorio neoespartano), en el cual las personas de dichas localidades podrán comprar productos a precios más económicos, que los estándares del mercado nacional.
-        <br>d.	SIGO CRÉDITOS, es una herramienta a favor de los Clientes SIGO CLUB, para abonar cantidades de dinero a una cuenta asociada al número de cédula del Cliente SIGO CLUB, a través del depósito bancario o abono por transferencia electrónica a las cuentas de SIGO, S.A., dicho monto será acreditado a su cuenta personal y podrá ser canjeado a través de las tiendas y/o sucursales SIGO en el territorio insular.
+        <br><br> B.	Definiciones
+
+        <br><br> A fin de facilitar una correcta comprensión de los términos que son utilizados, se detalla a continuación la definición de aquellos que son especialmente relevantes:
+        <br>a.	SIGO CLUB es un programa que va dirigido a todos nuestros clientes, cuyo propósito es compensar la fidelidad y lealtad con la organización SIGO, S.A., en el que el afiliado podrá adquirir productos a bajos costos en los establecimientos SIGO PRECIOS BAJOS CERCA DE TI.  
+        <br>b.	Clientes SIGO CLUB son aquellas personas naturales y jurídicas, que previo cumplimiento de los requisitos de afiliación, se encuentran autorizados a la compra o adquisición de productos en las tiendas o establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
+        <br>c.	SIGO PRECIOS BAJOS CERCA DE TI son establecimientos comerciales en los suburbios de la región insular (en las zonas más alejadas y necesitadas del territorio neoespartano), en el cual las personas de dichas localidades podrán comprar productos a precios más económicos, que los estándares del mercado nacional.
+        <br>d.	SIGO CRÉDITOS es una herramienta a favor de los Clientes SIGO CLUB, para abonar cantidades de dinero a una cuenta asociada al número de cédula del Cliente SIGO CLUB, a través del depósito bancario o abono por transferencia electrónica a las cuentas de SIGO, S.A., dicho monto será acreditado a su cuenta personal y podrá ser canjeado a través de las tiendas y/o sucursales SIGO en el territorio insular.
 
         <br><br>C.	Declaraciones
-        <br><br>a.	SIGO PRECIOS BAJOS CERCA DE TI, es un programa de la exclusiva propiedad de la sociedad mercantil SIGO, S.A. (en adelante denominada SIGO).
+
+        <br><br>a.	SIGO PRECIOS BAJOS CERCA DE TI es un programa de la exclusiva propiedad de la sociedad mercantil SIGO, S.A. (en adelante denominada SIGO).
         <br>b.	SIGO manifiesta que la afiliación al programa SIGO CLUB, corresponde exclusivamente a los clientes que cumplan con los requisitos de afiliación, y que sean aprobados por el comité de afiliación.
-        <br>c.	SIGO, se reserva el derecho de modificar el contenido del programa de afiliación SIGO CLUB, ya sea en forma permanente o transitoria, sin aviso previo y/o consentimiento de los Clientes SIGO CLUB, en cualquier momento y a su exclusivo criterio.
+        <br>c.	SIGO se reserva el derecho de modificar el contenido del programa de afiliación SIGO CLUB, ya sea en forma permanente o transitoria, sin aviso previo y/o consentimiento de los Clientes SIGO CLUB, en cualquier momento y a su exclusivo criterio.
 
         <br><br>D.	Registro de los Clientes SIGO CLUB
+
         <br><br>La afiliación a SIGO CLUB, se realiza gratuitamente a través de la página web www.sigo.com.ve, los interesados deberán completar el formulario de afiliación establecido en dicho sitio web.
-        <br>Las personas interesadas deberán realizar su registro o afiliación de forma personal, asimismo deberán cumplir con los requisitos de afiliación al Programa SIGO CLUB, previa aprobación del comité de afiliación. La aceptación de las solicitudes de registro es una decisión exclusiva de SIGO, quien en cualquier momento podrá determinar el rechazo o cancelación de la afiliación, por situaciones como: brindar información falsa en el registro; realizar actos o acciones que vulneren y/o afecten las instalaciones de la empresa, su operación o las normas legales en general; estar vinculado en investigaciones penales en contra de SIGO, entre otras.
+        <br>Las personas interesadas deberán realizar su registro o afiliación de forma personal, asimismo deberán cumplir con los requisitos de afiliación al Programa SIGO CLUB, previa aprobación del comité de afiliación. La aceptación de las solicitudes de registro es una decisión exclusiva de SIGO, quien en cualquier momento podrá determinar el rechazo o cancelación de la afiliación, por situaciones como: brindar información falsa en el registro, realizar actos o acciones que vulneren y/o afecten las instalaciones de la empresa, su operación o las normas legales en general; estar vinculado en investigaciones penales en contra de SIGO, entre otras.
         <br>Toda la información que los clientes proporcionen al momento de su registro deberá ser verdadera, exacta y completa. Los clientes son los únicos y exclusivos responsables de la información que brindan y de las consecuencias que generen con la inexactitud o falsedad de la información suministrada. 
 
         <br><br>E.	Procedimiento de compra en los establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
         <br><br>La compra o adquisición de productos en los establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”, se realizará de la siguiente forma:
-        <br>a.	El Cliente SIGO CLUB, deberá presentar su cédula de identidad laminada.
+
+        <br><br>a.	El Cliente SIGO CLUB deberá presentar su cédula de identidad laminada.
         <br>b.	El Cliente SIGO CLUB podrá pagar su compra de una manera rápida, cómoda y segura, con tarjetas de débito, a través de puntos de venta y SIGO CRÉDITOS.
         <br>c.	No será aceptado el pago en dinero efectivo, ello en aras de incentivar las medidas del ejecutivo nacional del uso e implementación de la banca electrónica y pago a través de puntos de venta, y como una medida de seguridad y reducción de robos en general contra los establecimientos, clientes, trabajadores y población aledaña a las tiendas o establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
         <br>d.	No existen limitantes en cuanto a la cantidad del monto abonar en el programa SIGO CRÉDITOS. Asimismo los montos acreditados o abonados a SIGO CRÉDITOS, no poseen fecha de vencimiento, por lo que el Cliente SIGO CLUB está en la libertad de disponer de su saldo de acuerdo a sus necesidades de compra.
@@ -333,21 +337,26 @@
         <br><br>La información personal que el Cliente SIGO CLUB proporciona a SIGO cuando realiza la afiliación o al utilizar nuestros página web www.sigo.com.ve para el registro, son considerados  datos privados, es decir, no están disponibles al público. SIGO se compromete a no compartir ni revelar esta información, salvo que el Cliente SIGO CLUB autorice a compartir dicha información, o esté obligado legalmente a responder a citaciones judiciales y/o cualquier requerimiento de las autoridades administrativas.
 
         <br><br>G.	Responsabilidades 
+
         <br><br>a.	Al realizar la afiliación al programa SIGO CLUB, los Clientes SIGO CLUB aceptan en forma expresa que el registro se realiza bajo su consentimiento y voluntad. Ni SIGO, ni sus directores, empleados o representantes garantizan que el acceso indefinido al programa de afiliación.
         <br>b.	Bajo ningún concepto los directores, empleados o representantes de SIGO serán responsables por cualquier daño directo, indirecto, incidental, especial o punitivo que pudiera ser causado por:
-        <br>i.	Daños de cualquier naturaleza a la persona o a la propiedad emergentes de su acceso a la instalaciones de las tiendas o establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
+
+        <br><br>i.	Daños de cualquier naturaleza a la persona o a la propiedad emergentes de su acceso a las instalaciones de las tiendas o establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
         <br>ii.	Cualquier interrupción o cese temporal o definitivo del programa SIGO CLUB, que corresponda a fallas en el sistema, como por ejemplo interrupción en la transmisión de datos del Cliente SIGO CLUB y/o SIGO CREDITOS. 
         <br>iii.	Cualquier acceso no autorizado a nuestros servidores seguros y/o toda información almacenada en dicho servidor.
         <br>iv.	El contenido de términos de uso distinto al establecido y publicado en la página web  www.sigo.com.ve.
-        <br>v.	La conducta no adecuada o ilicitica de cualquier Cliente SIGO CLUB o sus trabajadores.
+        <br>v.	La conducta no adecuada o ilícita de cualquier Cliente SIGO CLUB o sus trabajadores.
         <br>vi.	Errores, omisiones, interrupciones, supresiones, defectos, demoras en la operación o transmisión, desperfectos en las líneas de comunicación, robo o destrucción, acceso no autorizado a cualquier comunicación de los Cliente SIGO CLUB o su alteración, ni por errores humanos o acciones deliberadas de terceros que pudieran interrumpir o alterar el normal desarrollo del programa SIGO CLUB.
-        <br>c.	Los Clientes SIGO CLUB se comprometen a indemnizar y mantener indemne y libre de daños a SIGO, sus subsidiarias, empresas vinculadas contra toda y cualquier acción o juicio de responsabilidad, reclamo, denuncia, penalidad, intereses, costos, gastos, honorarios y/o multas iniciado por terceros debido a conductas ilícitas o no adecuadas en los establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
+
+        <br><br>c.	Los Clientes SIGO CULB se comprometen a indemnizar y mantener indemne y libre de daños a SIGO, sus subsidiarias, empresas vinculadas contra toda y cualquier acción o juicio de responsabilidad, reclamo, denuncia, penalidad, intereses, costos, gastos, honorarios y/o multas iniciado por terceros debido a conductas ilícitas o no adecuadas en los establecimientos “SIGO PRECIOS BAJOS CERCA DE TI”.
 
         <br><br>H.	Otras Consideraciones
-        <br><br>a.	La oferta de los productos en los establecimientos “SIGO PRECIOS BAJOS CERCA DE TI” se encuentra sujeta a la disponibilidad de stock al momento de las compras en las tiendas así como a la vigencia en las ofertas que establezca SIGO. De esta manera los precios, disponibilidad, y ofertas contenidas en dichas tiendas pueden variar sin previo aviso.
+
+        <br><br>a.	La oferta de los productos en los establecimientos “SIGO PRECIOS BAJOS CERCA DE TI” se encuentra sujeta a la disponibilidad de stock al momento de las compras en las tiendas, así como a la vigencia en las ofertas que establezca SIGO. De esta manera los precios, disponibilidad, y ofertas contenidas en dichas tiendas pueden variar sin previo aviso.
         <br>b.	Los clientes afiliados a SIGO CLUB manifiestan que la información que han entregado es de carácter público y corresponde a información estrictamente comercial que no está sujeta a reserva alguna.
         <br>c.	SIGO, se reserva el derecho de modificar los Términos y Condiciones, a fin de adaptarlos a nuevos requerimientos establecidos en las leyes y demás normativas que rigen en el país, o por cualquier otro motivo que le permita mejorar el uso del programa SIGO CLUB. Por lo que el Cliente SIGO CLUB, deberá revisar periódicamente estos Términos y Condiciones.
         <br>d.	Los presentes Términos y Condiciones se regirán e interpretarán de acuerdo con las leyes de la República Bolivariana de Venezuela. Cualquier controversia que derive de este documento se someterá a los jueces de la jurisdicción del Estado Nueva Esparta.
+
       </div>
     </div>
     <div class="modal-footer" style="text-align:center;">
