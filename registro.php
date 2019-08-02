@@ -91,7 +91,7 @@
             <div class="col s12 m12 l12">
               <div class="row">
                 <div class="input-field col l2 m3 s4">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
+                  <i class="material-icons prefix tooltipped" id="tcedula" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" required aria-required="true">
                     <option value="V">V</option>
                     <option value="E">E</option>
@@ -109,7 +109,7 @@
             <div class="col s12 m12 l9">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ambos nombres si los posee">account_circle</i>
+                  <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Ambos nombres si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" required="" aria-required="true" value="<?php echo($_POST["nombre1"]); ?>">
                   <label for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
                 </div>
@@ -122,7 +122,7 @@
             <div class="col s12 m12 l9">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ambos apellidos si los posee">account_circle</i>
+                  <i class="material-icons prefix tooltipped" id="tapellidos" data-position="top" data-tooltip="Ambos apellidos si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" required="" aria-required="true" value="<?php echo($_POST["apellido1"]); ?>">
                   <label for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
                 </div>
@@ -153,7 +153,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Fecha de nacimiento del usuario (dd/mm/AAAA)">date_range</i>
+                  <i class="material-icons prefix tooltipped" id="tfecha" data-position="top" data-tooltip="Fecha de nacimiento del usuario (dd/mm/AAAA)">date_range</i>
                   <input id="fecha_emplea" name="fecha_nac" type="text" class="datepicker validate" required aria-required="true">
                   <label for="fecha_emplea" class="black-text">Fecha de nacimiento <span style="color:red">*</span></label>
                 </div>
@@ -162,7 +162,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
+                  <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
                   <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" required aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
                   <label for="telefono" class="black-text">Numero de teléfono celular <span style="color:red">*</span></label>
                 </div>
@@ -171,7 +171,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Opcional: dirección de correo personal (usuarioCorreo12@email.com)">mail</i>
+                  <i class="material-icons prefix tooltipped" id="tcorreo" data-position="top" data-tooltip="Opcional: dirección de correo personal (usuarioCorreo12@email.com)">mail</i>
                   <input id="correo" name="correo" type="email" class="validate" value="<?php echo($_POST["correo"]); ?>">
                   <label for="correo" class="black-text" >Email</label>
                 </div>
@@ -180,7 +180,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col l4 m12 s12">
-                <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
+                <i class="material-icons prefix tooltipped" id="testado" data-position="top" data-tooltip="Estado, Municipio, Ciudad">location_on</i>
                   <select name="estado" id="estado" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
@@ -226,7 +226,7 @@
               </div>
               <div class="row">
                 <div class="input-field col l4 m12 s12">
-                 <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
+                 <i class="material-icons prefix tooltipped" id="tciudad" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
                   <select name="ciudad" id="ciudad" required aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
@@ -261,7 +261,7 @@
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
+                  <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
                   <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
@@ -306,6 +306,64 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+
+  $('#cedula').on('focus',function(){
+    $('#tcedula').trigger('mouseover');
+  });
+  $('#cedula').on('blur',function(){
+    $('#tcedula').trigger('mouseout');
+  });
+
+  $('#nombre1').on('focus',function(){
+    $('#tnombres').trigger('mouseover');
+  });
+  $('#nombre1').on('blur',function(){
+    $('#tnombres').trigger('mouseout');
+  });
+
+  $('#nombre2').on('focus',function(){
+    $('#tnombres').trigger('mouseover');
+  });
+  $('#nombre2').on('blur',function(){
+    $('#tnombres').trigger('mouseout');
+  });
+
+  $('#apellido1').on('focus',function(){
+    $('#tapellidos').trigger('mouseover');
+  });
+  $('#apellido1').on('blur',function(){
+    $('#tapellidos').trigger('mouseout');
+  });
+
+  $('#apellido2').on('focus',function(){
+    $('#tapellidos').trigger('mouseover');
+  });
+  $('#apellido2').on('blur',function(){
+    $('#tapellidos').trigger('mouseout');
+  });
+
+  $('#telefono').on('focus',function(){
+    $('#ttelefono').trigger('mouseover');
+  });
+  $('#telefono').on('blur',function(){
+    $('#ttelefono').trigger('mouseout');
+  });
+
+  $('#correo').on('focus',function(){
+    $('#tcorreo').trigger('mouseover');
+  });
+  $('#correo').on('blur',function(){
+    $('#tcorreo').trigger('mouseout');
+  });
+
+  $('#direccion').on('focus',function(){
+    $('#tdireccion').trigger('mouseover');
+  });
+  $('#direccion').on('blur',function(){
+    $('#tdireccion').trigger('mouseout');
+  });
+
+  
     $('#estado').on('change',function(){
       console.log($(this).val());
         var estadoID = $(this).val();
