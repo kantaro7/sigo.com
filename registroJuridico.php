@@ -29,7 +29,7 @@
     $ftr_img="img/producto/sigo_rojo.png";
 
     //Incorporar Emisión de Emails
-    include_once "registro_sigoclub.php";
+    include_once "registro_empresas.php";
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,11 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <link rel="shortcut icon" href="img/fav.png" type="image/x-icon"/>
   <link href="css/Icon.css" rel="stylesheet">
-
+  <style type="text/css">
+    .swal2-select{
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -78,8 +82,8 @@
 
             <div class="col s12 m12 l12">
               <div class="row">
-                <div class="col s10 m10 l10">
-                  <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB</h4>
+                <div class="col s10 m10 l10" id="sigoclub">
+                  <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB (Empresas) </h4>
                 </div>
                 <!-- <div class="input-field col s2 m2 l2">
                   <input type="checkbox" id="validar" name="validar" />
@@ -212,7 +216,7 @@
                 <div class="row" style="margin-bottom: 0px;">
                   <input name="rep" id="rep" type="hidden" value="0" /> 
                   <div class="col l12 m12 s12" style="margin-left: 45px;">
-                    <h6 class="black-text" >Representante Legal</h6>
+                    <h6 class="black-text" >Representante legal</h6>
                   </div>
                 </div>
                 <div class="row">
@@ -227,8 +231,8 @@
                     <input id="cedularl" onkeypress="return soloNumeros(event)" name="cedularl" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedularl"]); ?>">
                     <label for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                   </div>
-                  <div class="input-field col l3 m3 s3">
-                    <button id="checkrl" onClick="Buscar()" class="btn waves-effect waves-light" name="checkrl" value="checkrl"><i class="material-icons right">search</i>Buscar</button>
+                  <div class="input-field col l1 m1 s1">
+                    <button id="checkrl" onClick="Buscar()" class="btn waves-effect waves-light" name="checkrl" value="checkrl"><i class="material-icons right">search</i></button>
                   </div>
                 </div>
                 <div class="row" id="datosRepresentanteRow" style="display:none;">
@@ -268,7 +272,7 @@
                   <label for="cedulapa1" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l3 m3 s3">
-                  <button id="checkpa1" onClick="Buscar()" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1"><i class="material-icons right">search</i>Buscar</button>
+                  <button id="checkpa1" onClick="Buscar()" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1"><i class="material-icons right">search</i></button>
                 </div>
               </div>
               <div class="row" id="datosAutorizado1Row" style="display:none;">
@@ -311,7 +315,7 @@
                     <label for="cedulapa2" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                   </div>
                   <div class="input-field col l3 m3 s3">
-                    <button id="checkpa2" onClick="Buscar()" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2"><i class="material-icons right">search</i>Buscar</button>
+                    <button id="checkpa2" onClick="Buscar()" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2"><i class="material-icons right">search</i></button>
                   </div>
                 </div>
                 <div class="row" id="datosAutorizado2Row" style="display:none;">
@@ -807,15 +811,13 @@ $(document).ready(function(){
 
       if(document.getElementById("razonSocial").value.length==0) mnsj+=" - Debe indicar la razón social de la empresa.<br>";
       if(document.getElementById("razonComercial").value.length==0) mnsj+=" - Debe indicar la razón comercial de la empresa.<br>";
-      if(document.getElementById("telefono").value.length==0) mnsj+=" - Debe indicar su teléfono celular.<br>";
+      if(document.getElementById("telefono1").value.length==0) mnsj+=" - Debe indicar un teléfono de contacto.<br>";
       if(document.getElementById("estado").value==0) mnsj+=" - Debe indicar un estado.<br>";
       if(document.getElementById("municipio").value==0) mnsj+=" - Debe indicar un municipio.<br>";
       if(document.getElementById("parroquia").value==0) mnsj+=" - Debe indicar una parroquia.<br>";
       if(document.getElementById("ciudad").value==0) mnsj+=" - Debe indicar una ciudad.<br>";
-      if(document.getElementById("zona").value==0) mnsj+=" - Debe indicar una zona residencial.<br>";
-      if(document.getElementById("vivienda").value==0) mnsj+=" - Debe indicar su tipo de vivienda.<br>";
-      if(document.getElementById("direccion").value.length==0) mnsj+=" - Debe indicar los detalles de su dirección.<br>";
-      if(document.getElementById("direccion").value.length<10) mnsj+=" - Debe indicar su dirección más detallada.<br>";
+      if(document.getElementById("direccion").value.length==0) mnsj+=" - Debe indicar los detalles de la dirección.<br>";
+      if(document.getElementById("direccion").value.length<10) mnsj+=" - Debe indicar una dirección más detallada.<br>";
 
       if(mnsj!=""){
         swal.fire({
@@ -856,19 +858,18 @@ $(document).ready(function(){
       swal.fire({
           type: 'success',
           title: 'Éxito',
-          text: "Registro almacenado exitosamente"
-        })
+          html: "Registro almacenado exitosamente"
+        });
     </script>
     <?php 
   } else if($_SESSION["save_error"]!="" && $_SESSION["save_error"]!="OK"){
     ?>
     <script language="javascript">
-      Materialize.toast('<b>No se pudo guardar el registro, Revise y trate de nuevo!</b>', 8000, 'red');
       swal.fire({
           type: 'warning',
           title: 'Advertencia',
-          html: "Debe verificar las siguientes condiciones:<br/><?php echo(html_encode($_SESSION["save_error"])); ?>"
-        })
+          html: "Debe verificar las siguientes condiciones:<br><?php echo(html_encode($_SESSION["save_error"])); ?>"
+        });
     </script>
     <?php 
   }

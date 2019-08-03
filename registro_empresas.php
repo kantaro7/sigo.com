@@ -2,21 +2,13 @@
 
 $pattern = "/^(0?[1-9]|[12][0-9]|[3][01])[\/|-](0?[1-9]|[1][12])[\/|-]((19|20)?[0-9]{2})$/";
 
-$st1 = $db_pdo->prepare("SELECT * FROM us_vivienda");
-$st1->execute();
-$vivienda = $st1->fetchAll();
-
-$st2 = $db_pdo->prepare("SELECT * FROM us_zona");
-$st2->execute();
-$zona = $st2->fetchAll();
-
 if ($_POST["prcs"] == "S") {
 	$rif = $_POST["tipo"] . "-" . $_POST["documento"];
-	$idR = $_POST["idRepresentante"];
-	$idA1 = $_POST["idAutorizado1"];
-	$idA2 = $_POST["idAutorizado2"];
+	$idR = $_POST["rep"];
+	$idA1 = $_POST["aut1"];
+	$idA2 = $_POST["aut2"];
 
-	$rifes = $db_pdo->prepare("SELECT id  FROM us_empresas WHERE rif = '" . $rif . "' limit 1");
+	$rifes = $db_pdo->prepare("SELECT id FROM us_empresas WHERE rif = '" . $rif . "' limit 1");
 	if ($rifes === false) {
 		trigger_error($db_pdo->error, E_USER_ERROR);
 	}
@@ -31,8 +23,8 @@ if ($_POST["prcs"] == "S") {
 		$rifesV = true;
 	}
 
-	$celulares1 = $db_pdo->prepare("SELECT id  FROM us_empresas WHERE telefono1 = '" . $_POST["telefono1"] . "' OR telefono2 = '" . $_POST["telefono1"] . "' limit 1");
-	$celulares2 = $db_pdo->prepare("SELECT id  FROM us_empresas WHERE telefono1 = '" . $_POST["telefono2"] . "' OR telefono2 = '" . $_POST["telefono2"] . "' limit 1");
+	$celulares1 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE telefono1 = '" . $_POST["telefono1"] . "' OR telefono2 = '" . $_POST["telefono1"] . "' limit 1");
+	$celulares2 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE telefono2 = '" . $_POST["telefono2"] . "' OR telefono2 = '" . $_POST["telefono2"] . "' limit 1");
 	if ($celulares1 === false || $celulares2 === false) {
 		trigger_error($db_pdo->error, E_USER_ERROR);
 	}
@@ -73,7 +65,7 @@ if ($_POST["prcs"] == "S") {
 		$_SESSION["save_error"] = "El teléfono principal ingresado ya existe en nuestra base de datos";
 	} elseif (!$celular2) {
 		$_POST["prcs"] = "";
-		$_SESSION["save_error"] = "El teléfono scundario ingresado ya existe en nuestra base de datos";
+		$_SESSION["save_error"] = "El teléfono secundario ingresado ya existe en nuestra base de datos";
 	} else {
 		$_POST["prcs"] = "";
 		$_SESSION["save_error"] = "El rif ingresado ya existe en nuestra base de datos";
