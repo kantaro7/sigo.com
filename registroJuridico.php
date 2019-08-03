@@ -901,7 +901,7 @@ $(document).ready(function(){
               if(e.length==1){
                   $('#datosAutorizado1Row').removeAttr('style');
                   $('#datosAutorizado1Row').attr('style','display:block !important;');
-                  $('#rep').val(e[0].id);
+                  $('#aut1').val(e[0].id);
                   $('#datoAutorizado1Cedula').text(e[0].cedula);
                   $('#datoAutorizado1Nombre').text(e[0].nombre1);
                   $('#datosAutorizado1Apellido').text(e[0].apellido1);
@@ -940,7 +940,7 @@ $(document).ready(function(){
               if(e.length==1){
                   $('#datosAutorizado2Row').removeAttr('style');
                   $('#datosAutorizado2Row').attr('style','display:block !important;');
-                  $('#rep').val(e[0].id);
+                  $('#aut2').val(e[0].id);
                   $('#datoAutorizado2Cedula').text(e[0].cedula);
                   $('#datoAutorizado2Nombre').text(e[0].nombre1);
                   $('#datosAutorizado2Apellido').text(e[0].apellido1);
