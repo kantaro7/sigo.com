@@ -232,19 +232,19 @@
                     <label for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                   </div>
                   <div class="input-field col l1 m1 s1">
-                    <button id="checkrl" onClick="Buscar()" class="btn waves-effect waves-light" name="checkrl" value="checkrl"><i class="material-icons right">search</i></button>
+                    <a id="checkrl" class="btn waves-effect waves-light" name="checkrl" value="checkrl"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                   </div>
                 </div>
                 <div class="row" id="datosRepresentanteRow" style="display:none;">
-                  <div class="col l2 m3 s4">
+                  <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
                     <div class="row">
-                      <div class="col l3 m3 s3">
+                      <div class="col l2 m2 s2">
                         <span id="datosRepresentanteCedula"></span>                      
                       </div>
-                      <div class="col l4 m4 s4">
+                      <div class="col l3 m3 s3">
                         <span id="datosRepresentanteNombre"></span>
                       </div>
-                      <div class="col l4 m4 s4">
+                      <div class="col l3 m3 s3">
                         <span id="datosRepresentanteApellido"></span>
                       </div>
                     </div>
@@ -272,13 +272,13 @@
                   <label for="cedulapa1" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l3 m3 s3">
-                  <button id="checkpa1" onClick="Buscar()" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1"><i class="material-icons right">search</i></button>
+                  <a id="checkpa1" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
               <div class="row" id="datosAutorizado1Row" style="display:none;">
-                  <div class="col l2 m3 s4">
+                  <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
                     <div class="row">
-                      <div class="col l3 m3 s3">
+                      <div class="col l2 m2 s2">
                         <span id="datoAutorizado1Cedula"></span>                      
                       </div>
                       <div class="col l3 m3 s3">
@@ -315,13 +315,13 @@
                     <label for="cedulapa2" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                   </div>
                   <div class="input-field col l3 m3 s3">
-                    <button id="checkpa2" onClick="Buscar()" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2"><i class="material-icons right">search</i></button>
+                    <a id="checkpa2" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                   </div>
                 </div>
                 <div class="row" id="datosAutorizado2Row" style="display:none;">
-                  <div class="col l2 m3 s4">
+                  <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
                     <div class="row">
-                      <div class="col l3 m3 s3">
+                      <div class="col l2 m2 s2">
                         <span id="datoAutorizado2Cedula"></span>                      
                       </div>
                       <div class="col l3 m3 s3">
@@ -846,6 +846,126 @@ $(document).ready(function(){
 
       return true;
     }
+
+     $('#checkrl').on('click',function(){
+       var rif = $('#tipo1').val()+'-'+$('#cedularl').val();
+       console.log(rif);
+        
+      if(rif){
+        $.ajax({
+            type:'POST',
+            encoding:"UTF-8",
+            url:'ajaxSigoclub.php',
+            data:'cedula='+rif,
+            success:function(e){
+              e = JSON.parse(e);
+              if(e.length==1){
+                  $('#datosRepresentanteRow').removeAttr('style');
+                  $('#datosRepresentanteRow').attr('style','display:block !important;');
+                  $('#rep').val(e[0].id);
+                  $('#datosRepresentanteCedula').text(e[0].cedula);
+                  $('#datosRepresentanteNombre').text(e[0].nombre1);
+                  $('#datosRepresentanteApellido').text(e[0].apellido1);
+                
+              }else{
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "La cédula que busca no está registrada.<br>¿Desea registrarla?",
+                  showConfirmButton: true,
+                  confirmButtonText: "Si",
+                  closeOnConfirm: false,
+                  showCancelButton: true,
+                  cancelButtonText: "No"
+                }).then((result) => {
+                  if (result.value) {
+                    window.open('registro.php', '_blank');
+                  }
+                })
+              }
+            }
+          });
+        }
+      }); 
+      ///////////
+      $('#checkpa1').on('click',function(){
+       var ced = $('#tipo2').val()+'-'+$('#cedulapa1').val();
+      if(ced){
+        $.ajax({
+            type:'POST',
+            encoding:"UTF-8",
+            url:'ajaxSigoclub.php',
+            data:'cedula='+ced,
+            success:function(e){
+              e = JSON.parse(e);
+              if(e.length==1){
+                  $('#datosAutorizado1Row').removeAttr('style');
+                  $('#datosAutorizado1Row').attr('style','display:block !important;');
+                  $('#rep').val(e[0].id);
+                  $('#datoAutorizado1Cedula').text(e[0].cedula);
+                  $('#datoAutorizado1Nombre').text(e[0].nombre1);
+                  $('#datosAutorizado1Apellido').text(e[0].apellido1);
+                  $('#datosAutorizado1Tlf').text(e[0].celular);
+              }else{
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "La cédula que busca no está registrada.<br>¿Desea registrarla?",
+                  showConfirmButton: true,
+                  confirmButtonText: "Si",
+                  closeOnConfirm: false,
+                  showCancelButton: true,
+                  cancelButtonText: "No"
+                }).then((result) => {
+                  if (result.value) {
+                    window.open('registro.php', '_blank');
+                  }
+                })
+              }
+            }
+          });
+        }
+      }); 
+      //////////////
+      $('#checkpa2').on('click',function(){
+       var ced2 = $('#tipo3').val()+'-'+$('#cedulapa2').val();
+      if(ced2){
+        $.ajax({
+            type:'POST',
+            encoding:"UTF-8",
+            url:'ajaxSigoclub.php',
+            data:'cedula='+ced2,
+            success:function(e){
+              e = JSON.parse(e);
+              if(e.length==1){
+                  $('#datosAutorizado2Row').removeAttr('style');
+                  $('#datosAutorizado2Row').attr('style','display:block !important;');
+                  $('#rep').val(e[0].id);
+                  $('#datoAutorizado2Cedula').text(e[0].cedula);
+                  $('#datoAutorizado2Nombre').text(e[0].nombre1);
+                  $('#datosAutorizado2Apellido').text(e[0].apellido1);
+                  $('#datosAutorizado2Tlf').text(e[0].celular);
+              }else{
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "La cédula que busca no está registrada.<br>¿Desea registrarla?",
+                  showConfirmButton: true,
+                  confirmButtonText: "Si",
+                  closeOnConfirm: false,
+                  showCancelButton: true,
+                  cancelButtonText: "No"
+                }).then((result) => {
+                  if (result.value) {
+                    window.open('registro.php', '_blank');
+                  }
+                })
+              }
+            }
+          });
+        }
+      }); 
+      ///////////////
   </script>
 
 
