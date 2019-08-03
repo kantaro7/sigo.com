@@ -21,5 +21,3 @@
     }else{
         echo '<option value="-1">Ciudades no disponibles</option>';
     }
-
-?>
