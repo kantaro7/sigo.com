@@ -486,7 +486,6 @@ include_once "registro_empresas.php";
       }
 
       cadena22 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
-      $('#cedulapa1').val(cadena);
 
       if (cadena22.length < 7 && cadena22.length >= 1) {
         $('#cedulapa1').removeClass("valid").addClass("invalid");
@@ -502,7 +501,6 @@ include_once "registro_empresas.php";
         $('#checkpa1').removeAttr("disabled");
       }
       cadena22 = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
-      $('#cedularl').val(cadena);
 
       if (cadena22.length < 7 && cadena22.length >= 1) {
         $('#cedularl').removeClass("valid").addClass("invalid");
