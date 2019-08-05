@@ -586,6 +586,53 @@ include_once "registro_empresas.php";
         $('#tcedulapa2').trigger('mouseout');
       });
 
+      $('#telefono1').on('blur', function() {
+        var telefono = $(this).val();
+        if (telefono) {
+          $.ajax({
+            type: 'POST',
+            encoding: "UTF-8",
+            url: 'ajaxTelefono.php',
+            data: 'telefono=' + telefono,
+            async: true,
+            success: function(existe) {
+              if (existe == 1) {
+                $('#telefono1').val('');
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "Este número de teléfono no es válido o ya existe en el sistema"
+                });
+              }
+            }
+          });
+        }
+      });
+
+      $('#telefono2').on('blur', function() {
+        var telefono = $(this).val();
+        if (telefono) {
+          $.ajax({
+            type: 'POST',
+            encoding: "UTF-8",
+            url: 'ajaxTelefono.php',
+            data: 'telefono=' + telefono,
+            async: true,
+            success: function(existe) {
+              if (existe == 1) {
+                $('#telefono2').val('');
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "Este número de teléfono no es válido o ya existe en el sistema"
+                });
+              }
+            }
+          });
+        }
+      });
+
+
 
       $('#estado').on('change', function() {
         console.log($(this).val());
