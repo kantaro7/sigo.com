@@ -57,7 +57,6 @@ if ($_POST["prcs"] == "S") {
 		$st1 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE rif = '" . $rif . "' limit 1");
 		$st1->execute();
 		$id = $st1->fetchAll();
-		var_dump($id);
 		$id = $id[0][0];
 
 
