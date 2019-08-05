@@ -454,7 +454,7 @@
                   $('#telefonoLabel').addClass('active');
                   $('#correo').val(e[0].correo);
                   $('#correoLabel').addClass('active');
-                  console.log(e[0].id_parroquia);              
+                  console.log(e[0].id_ciudad);              
                   $.ajax({
                     type:'POST',
                     encoding:"UTF-8",
@@ -462,7 +462,6 @@
                     data:'id='+e[0].id_parroquia,
                     success:function(a){
                         a = JSON.parse(a);
-                        console.log(a[0].id_municipio);              
                         // estado
                         $('#estado').val(a[0].id_estado).trigger('change');
                         $('select').material_select();
@@ -475,15 +474,15 @@
                           setTimeout(function(){
                             $('#parroquia').val(e[0].id_parroquia).trigger('change');
                             $('select').material_select();
-                          },50);
-                        },50);
+                          },500);
+                        },500);
                     }
                   }); 
                   $('#zona').prop('selectedIndex',e[0].id_zona);
                   $('#zona').trigger('change');
                   $('#vivienda').prop('selectedIndex',e[0].id_vivienda);
                   $('#vivienda').trigger('change');
-                  $('#direccion').val(e[0].direccion);
+                  $('#direccion').val(decodeURIComponent(escape( e[0].direccion)));
                   $('#direccionLabel').addClass('active');
                     
                   $('select').material_select();
@@ -516,11 +515,11 @@
             title: 'Advertencia',
             html: 'Debe ingresar credenciales válidas para continuar.<br>'+
               '<div class="input-field col s2 m2 l2">'+
-              ' <input type="text" id="swal-input1" name="swal-input1"/>'+
+              ' <input type="text" id="swal-input1" name="swal-input1" maxlength="50" />'+
               ' <label for="swal-input1">Usuario</label>'+
               '</div>'+
               '<div class="input-field col s2 m2 l2">'+
-              '  <input type="password" id="swal-input2" name="swal-input2"/>'+
+              '  <input type="password" id="swal-input2" name="swal-input2" maxlength="50" />'+
               '  <label for="swal-input2">Contraseña</label>'+
               '</div>'+
               '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
