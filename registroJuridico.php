@@ -588,7 +588,8 @@ include_once "registro_empresas.php";
 
       $('#telefono1').on('blur', function() {
         var telefono = $(this).val();
-        if (telefono) {
+
+        if (telefono != $('#telefono2').val()) {
           $.ajax({
             type: 'POST',
             encoding: "UTF-8",
@@ -606,12 +607,19 @@ include_once "registro_empresas.php";
               }
             }
           });
+        } else {
+          $('#telefono1').val('');
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "Los números de teléfono deben ser distintos"
+          });
         }
       });
 
       $('#telefono2').on('blur', function() {
         var telefono = $(this).val();
-        if (telefono) {
+        if (telefono != $('#telefono1').val()) {
           $.ajax({
             type: 'POST',
             encoding: "UTF-8",
@@ -620,7 +628,7 @@ include_once "registro_empresas.php";
             async: true,
             success: function(existe) {
               if (existe == 1) {
-                $('#telefono2').val('');
+                $('#telefono1').val('');
                 swal.fire({
                   type: 'warning',
                   title: 'Advertencia',
@@ -628,6 +636,13 @@ include_once "registro_empresas.php";
                 });
               }
             }
+          });
+        } else {
+          $('#telefono2').val('');
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "Los números de teléfono deben ser distintos"
           });
         }
       });
@@ -756,6 +771,8 @@ include_once "registro_empresas.php";
       }
 
     })
+
+
     var formatNumber = {
       separador: ".", // separador para los miles
       sepDecimal: ',', // separador para los decimales
@@ -778,12 +795,12 @@ include_once "registro_empresas.php";
 
     /////////////////////////////////
     $('#cedulapa2').on('change', function() {
-      var cadena0 = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
+      var cadena0 = $('#cedularl').val();
       var cadenaAux = $('#auxCedpa2').val();
-      var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
-      var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
+      var cadena1 = $('#cedulapa1').val();
+      var cadena2 = $('#cedulapa2').val();
 
-      if (cadena2 > 0) {
+      if (cadena2.length > 0) {
         if (cadena2 == cadena0 || cadena2 == cadena1) {
           swal.fire({
             type: 'warning',
@@ -796,17 +813,18 @@ include_once "registro_empresas.php";
         if (cadena2 != cadenaAux) {
           $('#datosAutorizado2Row').removeAttr('style');
           $('#datosAutorizado2Row').attr('style', 'display:none !important;');
+          $('#aut2').val(0);
         }
       }
     });
 
     $('#cedulapa1').on('change', function() {
-      var cadena0 = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
+      var cadena0 = $('#cedularl');
       var cadenaAux = $('#auxCedpa1').val();
-      var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
-      var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
+      var cadena1 = $('#cedulapa1').val();
+      var cadena2 = $('#cedulapa2').val();
 
-      if (cadena1 > 0) {
+      if (cadena1.length > 0) {
         if (cadena1 == cadena0 || cadena1 == cadena2) {
           swal.fire({
             type: 'warning',
@@ -819,17 +837,18 @@ include_once "registro_empresas.php";
         if (cadena1 != cadenaAux) {
           $('#datosAutorizado1Row').removeAttr('style');
           $('#datosAutorizado1Row').attr('style', 'display:none !important;');
+          $('#aut1').val(0);
         }
       }
     });
 
     $('#cedularl').on('change', function() {
-      var cadena0 = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
+      var cadena0 = $('#cedularl').val();
       var cadenaAux = $('#auxCedrep').val();
-      var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
-      var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
+      var cadena1 = $('#cedulapa1').val();
+      var cadena2 = $('#cedulapa2').val();
 
-      if (cadena0 > 0) {
+      if (cadena0.length > 0) {
         if (cadena0 == cadena1 || cadena0 == cadena2) {
           swal.fire({
             type: 'warning',
@@ -842,6 +861,7 @@ include_once "registro_empresas.php";
         if (cadena0 != cadenaAux) {
           $('#datosRepresentanteRow').removeAttr('style');
           $('#datosRepresentanteRow').attr('style', 'display:none !important;');
+          $('#rep').val(0);
         }
       } else {
         $('#checkrl').attr("disabled", "disabled");
@@ -853,34 +873,22 @@ include_once "registro_empresas.php";
       var cadena = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
       $('#cedulapa2').val(cadena);
 
-      if (cadena.length < 7 && cadena.length >= 1) {
+      if (cadena.length < 7 && cadena.length > 0) {
         $('#cedulapa2').removeClass("valid").addClass("invalid");
         $('#checkpa2').attr("disabled", "disabled");
       } else {
         $('#cedulapa2').removeClass("invalid").addClass("valid");
-        $('#checkpa2').removeAttr("disabled");
-      }
-
-      if (cadena == "") {
-        $('#checkpa2').attr("disabled", "disabled");
-      } else {
         $('#checkpa2').removeAttr("disabled");
       }
     });
 
     $('#cedulapa2').on('blur', function() {
       var cadena = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
-      if (cadena.length < 7 && cadena.length >= 1) {
+      if (cadena.length < 7 && cadena.length > 0) {
         $('#cedulapa2').removeClass("valid").addClass("invalid");
         $('#checkpa2').attr("disabled", "disabled");
       } else {
         $('#cedulapa2').removeClass("invalid").addClass("valid");
-        $('#checkpa2').removeAttr("disabled");
-      }
-
-      if (cadena == "") {
-        $('#checkpa2').attr("disabled", "disabled");
-      } else {
         $('#checkpa2').removeAttr("disabled");
       }
     });
@@ -889,34 +897,22 @@ include_once "registro_empresas.php";
       var cadena = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
       $('#cedulapa1').val(cadena);
 
-      if (cadena.length < 7 && cadena.length >= 1) {
+      if (cadena.length < 7 && cadena.length > 0) {
         $('#cedulapa1').removeClass("valid").addClass("invalid");
         $('#checkpa1').attr("disabled", "disabled");
       } else {
         $('#cedulapa1').removeClass("invalid").addClass("valid");
-        $('#checkpa1').removeAttr("disabled");
-      }
-
-      if (cadena == "") {
-        $('#checkpa1').attr("disabled", "disabled");
-      } else {
         $('#checkpa1').removeAttr("disabled");
       }
     });
 
     $('#cedulapa1').on('blur', function() {
       var cadena = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
-      if (cadena.length < 7 && cadena.length >= 1) {
+      if (cadena.length < 7 && cadena.length > 0) {
         $('#cedulapa1').removeClass("valid").addClass("invalid");
         $('#checkpa1').attr("disabled", "disabled");
       } else {
         $('#cedulapa1').removeClass("invalid").addClass("valid");
-        $('#checkpa1').removeAttr("disabled");
-      }
-
-      if (cadena == "") {
-        $('#checkpa1').attr("disabled", "disabled");
-      } else {
         $('#checkpa1').removeAttr("disabled");
       }
     });
@@ -925,34 +921,22 @@ include_once "registro_empresas.php";
       var cadena = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
       $('#cedularl').val(cadena);
 
-      if (cadena.length < 7 && cadena.length >= 1) {
+      if (cadena.length < 7 && cadena.length > 0) {
         $('#cedularl').removeClass("valid").addClass("invalid");
         $('#checkrl').attr("disabled", "disabled");
       } else {
         $('#cedularl').removeClass("invalid").addClass("valid");
-        $('#checkrl').removeAttr("disabled");
-      }
-
-      if (cadena == "") {
-        $('#checkrl').attr("disabled", "disabled");
-      } else {
         $('#checkrl').removeAttr("disabled");
       }
     });
 
     $('#cedularl').on('blur', function() {
       var cadena = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
-      if (cadena.length < 7 && cadena.length >= 1) {
+      if (cadena.length < 7 && cadena.length > 0) {
         $('#cedularl').removeClass("valid").addClass("invalid");
         $('#checkrl').attr("disabled", "disabled");
       } else {
         $('#cedularl').removeClass("invalid").addClass("valid");
-        $('#checkrl').removeAttr("disabled");
-      }
-
-      if (cadena == "") {
-        $('#checkrl').attr("disabled", "disabled");
-      } else {
         $('#checkrl').removeAttr("disabled");
       }
     });
