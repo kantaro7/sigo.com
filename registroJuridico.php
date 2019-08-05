@@ -1076,12 +1076,11 @@ include_once "registro_empresas.php";
                 html: "La cédula que busca no está registrada.<br>¿Desea registrarla?",
                 showConfirmButton: true,
                 confirmButtonText: "Si",
-                closeOnConfirm: false,
                 showCancelButton: true,
                 cancelButtonText: "No"
               }).then((result) => {
                 if (result.value) {
-                  window.open('registro.php', '_blank');
+                  window.open('registro.php?cedula=' + $('#cedularl').val() + '&tipo=' + $('#tipo1').val(), '_blank');
                 }
               })
             }
@@ -1120,12 +1119,11 @@ include_once "registro_empresas.php";
                 html: "La cédula que busca no está registrada.<br>¿Desea registrarla?",
                 showConfirmButton: true,
                 confirmButtonText: "Si",
-                closeOnConfirm: false,
                 showCancelButton: true,
                 cancelButtonText: "No"
               }).then((result) => {
                 if (result.value) {
-                  window.open('registro.php', '_blank');
+                  window.open('registro.php?cedula=' + $('#cedulapa1').val() + '&tipo=' + $('#tipo2').val(), '_blank');
                 }
               })
             }
@@ -1164,12 +1162,11 @@ include_once "registro_empresas.php";
                 html: "La cédula que busca no está registrada.<br>¿Desea registrarla?",
                 showConfirmButton: true,
                 confirmButtonText: "Si",
-                closeOnConfirm: false,
                 showCancelButton: true,
                 cancelButtonText: "No"
               }).then((result) => {
                 if (result.value) {
-                  window.open('registro.php', '_blank');
+                  window.open('registro.php?cedula=' + $('#cedulapa2').val() + '&tipo=' + $('#tipo3').val(), '_blank');
                 }
               })
             }
