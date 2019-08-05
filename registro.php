@@ -77,11 +77,11 @@
           <form class="formValidate" id="empleate" name="empleate" method="post" action="" enctype="multipart/form-data">
 
             <div class="col s12 m12 l12">
-              <div class="row">
+              <div class="row" style="display: flex;">
                 <div class="col s10 m10 l10">
                   <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB</h4>
                 </div>
-                <!-- <div class="input-field col s2 m2 l2">
+                <!-- <div class="input-field col s2 m2 l2" style="margin: auto 0px !important;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div> -->
@@ -97,25 +97,25 @@
               <div class="row">
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedula" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
-                  <select id="tipo" name="tipo" class="validate" required aria-required="true">
+                  <select id="tipo" name="tipo" class="validate" aria-required="true">
                     <option value="V">V</option>
                     <option value="E">E</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
-                  <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedula"]); ?>">
+                  <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedula"]); ?>">
                   <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
-                <!-- <div class="input-field col l3 m3 s3">
+                <div class="input-field col l3 m3 s3" style="display:none;">
                   <button id="check" onClick="Buscar()" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</button>
-                </div> -->
+                </div>
               </div>
             </div>
             <div class="col s12 m12 l9">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Primer y segundo nombre si los posee">account_circle</i>
-                  <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" required="" aria-required="true" value="<?php echo($_POST["nombre1"]); ?>">
+                  <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" aria-required="true" value="<?php echo($_POST["nombre1"]); ?>">
                   <label for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col s12 m6 l6">
@@ -128,7 +128,7 @@
               <div class="row">
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" id="tapellidos" data-position="top" data-tooltip="Primer y segundo apellido si los posee">account_circle</i>
-                  <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" required="" aria-required="true" value="<?php echo($_POST["apellido1"]); ?>">
+                  <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" aria-required="true" value="<?php echo($_POST["apellido1"]); ?>">
                   <label for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col s12 m6 l6">
@@ -159,7 +159,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="tfecha" data-position="top" data-tooltip="Fecha de nacimiento del usuario (dd/mm/AAAA)">date_range</i>
-                  <input id="fecha_emplea" name="fecha_nac" type="text" class="datepicker validate" required aria-required="true">
+                  <input id="fecha_emplea" name="fecha_nac" type="text" class="datepicker validate" aria-required="true">
                   <label for="fecha_emplea" class="black-text">Fecha de nacimiento <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -168,7 +168,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
-                  <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" required aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
+                  <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
                   <label for="telefono" class="black-text">Número de teléfono celular <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -186,7 +186,7 @@
               <div class="row">
                 <div class="input-field col l4 m12 s12">
                 <i class="material-icons prefix tooltipped" id="testado" data-position="top" data-tooltip="Estado, Municipio, Parroquia">location_on</i>
-                  <select name="estado" id="estado" required aria-required="true">
+                  <select name="estado" id="estado" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
                     <option value="2">Anzoátegui</option>
@@ -217,13 +217,13 @@
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="municipio" id="municipio" required aria-required="true">
+                  <select name="municipio" id="municipio" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
-                  <select name="parroquia" id="parroquia" required aria-required="true">
+                  <select name="parroquia" id="parroquia" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
@@ -232,13 +232,13 @@
               <div class="row">
                 <div class="input-field col l4 m12 s12">
                  <i class="material-icons prefix tooltipped" id="tciudad" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
-                  <select name="ciudad" id="ciudad" required aria-required="true">
+                  <select name="ciudad" id="ciudad" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="zona" id="zona" required aria-required="true">
+                  <select name="zona" id="zona" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                      <?php
                         foreach($zona as $zo){
@@ -250,7 +250,7 @@
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m6 s12">
-                  <select name="vivienda" id="vivienda" required aria-required="true">
+                  <select name="vivienda" id="vivienda" aria-required="true">
                   <option value="0" disabled selected>Seleccione una opción</option>
                   <?php
                       foreach($vivienda as $vivi){
@@ -267,7 +267,7 @@
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
-                  <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
+                  <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
                   <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -278,7 +278,7 @@
                 <div class="col s12 m12 center" style="margin-top: 6px">
                   <a class="waves-effect waves-light btn modal-trigger" data-target="condiciones">Ver términos y condiciones</a>
                   <div class="input-field col s12 m12 l12">
-                    <input type="checkbox" id="okCondiciones" name="okCondiciones" />
+                    <input type="checkbox" id="okCondiciones" name="okCondiciones" value="false" />
                     <label for="okCondiciones">He leído, entendido y aceptado los términos y condiciones aquí establecidos</label>
                    </div>
                 </div>
@@ -398,126 +398,156 @@
   <!-- fin slider-->
 
 <script type="text/javascript">
-$(document).ready(function(){
+  $(document).ready(function(){
+    
+    $("#okCondiciones").attr('value', 'false');
 
-  $('#condiciones').modal();
-
-  $('#cedula').on('focus',function(){
-    $('#tcedula').trigger('mouseover');
-  });
-  $('#cedula').on('blur',function(){
-    $('#tcedula').trigger('mouseout');
-  });
-
-  $('#nombre1').on('focus',function(){
-    $('#tnombres').trigger('mouseover');
-  });
-  $('#nombre1').on('blur',function(){
-    $('#tnombres').trigger('mouseout');
-  });
-
-  $('#nombre2').on('focus',function(){
-    $('#tnombres').trigger('mouseover');
-  });
-  $('#nombre2').on('blur',function(){
-    $('#tnombres').trigger('mouseout');
-  });
-
-  $('#apellido1').on('focus',function(){
-    $('#tapellidos').trigger('mouseover');
-  });
-  $('#apellido1').on('blur',function(){
-    $('#tapellidos').trigger('mouseout');
-  });
-
-  $('#apellido2').on('focus',function(){
-    $('#tapellidos').trigger('mouseover');
-  });
-  $('#apellido2').on('blur',function(){
-    $('#tapellidos').trigger('mouseout');
-  });
-
-  $('#telefono').on('focus',function(){
-    $('#ttelefono').trigger('mouseover');
-  });
-  $('#telefono').on('blur',function(){
-    $('#ttelefono').trigger('mouseout');
-  });
-
-  $('#correo').on('focus',function(){
-    $('#tcorreo').trigger('mouseover');
-  });
-  $('#correo').on('blur',function(){
-    $('#tcorreo').trigger('mouseout');
-  });
-
-  $('#direccion').on('focus',function(){
-    $('#tdireccion').trigger('mouseover');
-  });
-  $('#direccion').on('blur',function(){
-    $('#tdireccion').trigger('mouseout');
-  });
-
-  
-
-
-    $('#estado').on('change',function(){
-      console.log($(this).val());
-        var estadoID = $(this).val();
-        if(estadoID){
-            $.ajax({
-                type:'POST',
-                encoding:"UTF-8",
-                url:'ajaxMunicipio.php',
-                data:'id='+estadoID,
-                success:function(html){
-                    $('#municipio').html(html);
-                    console.log(html);
-                    document.getElementById('parroquia').value=0;
-                    $('select').material_select();
+    /////     check validar  /////////////////////////
+    $('#validar').on('change',function(){
+      if ($('#validar').is(':checked')) {
+        swal.fire({
+                type: 'warning',
+                title: 'Advertencia',
+                html: "Debe ingresar credenciales válidas para continuar.<br>"+
+                      '<input id="swal-input1" class="">'+
+                      '<input id="swal-input2" class="">',
+                showConfirmButton: true,
+                confirmButtonText: "Continuar",
+                closeOnConfirm: false,
+                showCancelButton: true,
+                cancelButtonText: "Cancelar",
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              }).then((result) => {
+                if (result.value) {
+                  // window.open('registro.php', '_blank');
                 }
-            }); 
-          }
+              })
+      }
     });
     
-    $('#estado').on('change',function(){
-      console.log($(this).val());
-        var estadoID = $(this).val();
-        if(estadoID){
-            $.ajax({
-                type:'POST',
-                encoding:"UTF-8",
-                url:'ajaxCiudad.php',
-                data:'id='+estadoID,
-                success:function(html){
-                    $('#ciudad').html(html);
-                    $('select').material_select();
-                }
-            }); 
-          }
+    //////////////////////////////
+
+    $('#condiciones').modal();
+
+    $('#cedula').on('focus',function(){
+      $('#tcedula').trigger('mouseover');
+    });
+    $('#cedula').on('blur',function(){
+      $('#tcedula').trigger('mouseout');
     });
 
-    $('#municipio').on('change',function(){
-        var municipioID = $(this).val();
-        if(municipioID){
-            $.ajax({
-                type:'POST',
-                encoding:"UTF-8",
-                url:'ajaxParroquia.php',
-                data:'id='+municipioID,
-                success:function(html){
-                    $('#parroquia').html(html);
-                    $('select').material_select();
-                }
-            }); 
-          }
+    $('#nombre1').on('focus',function(){
+      $('#tnombres').trigger('mouseover');
     });
-});
+    $('#nombre1').on('blur',function(){
+      $('#tnombres').trigger('mouseout');
+    });
+
+    $('#nombre2').on('focus',function(){
+      $('#tnombres').trigger('mouseover');
+    });
+    $('#nombre2').on('blur',function(){
+      $('#tnombres').trigger('mouseout');
+    });
+
+    $('#apellido1').on('focus',function(){
+      $('#tapellidos').trigger('mouseover');
+    });
+    $('#apellido1').on('blur',function(){
+      $('#tapellidos').trigger('mouseout');
+    });
+
+    $('#apellido2').on('focus',function(){
+      $('#tapellidos').trigger('mouseover');
+    });
+    $('#apellido2').on('blur',function(){
+      $('#tapellidos').trigger('mouseout');
+    });
+
+    $('#telefono').on('focus',function(){
+      $('#ttelefono').trigger('mouseover');
+    });
+    $('#telefono').on('blur',function(){
+      $('#ttelefono').trigger('mouseout');
+    });
+
+    $('#correo').on('focus',function(){
+      $('#tcorreo').trigger('mouseover');
+    });
+    $('#correo').on('blur',function(){
+      $('#tcorreo').trigger('mouseout');
+    });
+
+    $('#direccion').on('focus',function(){
+      $('#tdireccion').trigger('mouseover');
+    });
+    $('#direccion').on('blur',function(){
+      $('#tdireccion').trigger('mouseout');
+    });
+
+      $('#estado').on('change',function(){
+        console.log($(this).val());
+          var estadoID = $(this).val();
+          if(estadoID){
+              $.ajax({
+                  type:'POST',
+                  encoding:"UTF-8",
+                  url:'ajaxMunicipio.php',
+                  data:'id='+estadoID,
+                  success:function(html){
+                      $('#municipio').html(html);
+                      console.log(html);
+                      document.getElementById('parroquia').value=0;
+                      $('select').material_select();
+                  }
+              }); 
+            }
+      });
+      
+      $('#estado').on('change',function(){
+        console.log($(this).val());
+          var estadoID = $(this).val();
+          if(estadoID){
+              $.ajax({
+                  type:'POST',
+                  encoding:"UTF-8",
+                  url:'ajaxCiudad.php',
+                  data:'id='+estadoID,
+                  success:function(html){
+                      $('#ciudad').html(html);
+                      $('select').material_select();
+                  }
+              }); 
+            }
+      });
+
+      $('#municipio').on('change',function(){
+          var municipioID = $(this).val();
+          if(municipioID){
+              $.ajax({
+                  type:'POST',
+                  encoding:"UTF-8",
+                  url:'ajaxParroquia.php',
+                  data:'id='+municipioID,
+                  success:function(html){
+                      $('#parroquia').html(html);
+                      $('select').material_select();
+                  }
+              }); 
+            }
+      });
+  });
 </script>
 
   <!-- Carousel -->
   <script>
     $(document).ready(function(){
+       if( !document.getElementById("okCondiciones").checked){
+      document.getElementById("registrar").disabled = true;
+    } else {
+      document.getElementById("registrar").disabled = false;
+    }
 
 $('#okCondiciones').on('change',function(event){
   if( !document.getElementById("okCondiciones").checked){

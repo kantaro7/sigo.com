@@ -95,14 +95,14 @@ include_once "registro_empresas.php";
               <div class="row">
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="trif" data-position="top" data-tooltip="Documento de identidad de la empresa"> chrome_reader_mode</i>
-                  <select id="tipo" name="tipo" class="validate" required aria-required="true">
+                  <select id="tipo" name="tipo" class="validate" aria-required="true">
                     <option value="V">V</option>
                     <option value="J">J</option>
                     <option value="G">G</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
-                  <input id="rif" onkeyup="mascara('########-#',this,event,true)" name="rif" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo ($_POST["rif"]); ?>">
+                  <input id="rif" onkeyup="mascara('########-#',this,event,true)" name="rif" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo ($_POST["rif"]); ?>">
                   <label for="rif" class="black-text">Rif <span style="color:red">*</span></label>
                 </div>
                 <!-- <div class="input-field col l3 m3 s3">
@@ -114,7 +114,7 @@ include_once "registro_empresas.php";
               <div class="row">
                 <div class="input-field col s12 m12 l12">
                   <i class="material-icons prefix tooltipped" id="trazonSocial" data-position="top" data-tooltip="Razón social de la empresa">account_circle</i>
-                  <input maxlength="20" minlength="3" id="razonSocial" name="razonSocial" type="text" class="validate materialize" required="" aria-required="true" value="<?php echo ($_POST["razonSocial"]); ?>">
+                  <input maxlength="80" minlength="3" id="razonSocial" name="razonSocial" type="text" class="validate materialize" aria-required="true" value="<?php echo ($_POST["razonSocial"]); ?>">
                   <label for="razonSocial" class="black-text">Razón social <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -123,7 +123,7 @@ include_once "registro_empresas.php";
               <div class="row">
                 <div class="input-field col s12 m12 l12">
                   <i class="material-icons prefix tooltipped" id="trazonComercial" data-position="top" data-tooltip="Razón comercial de la empresa">account_circle</i>
-                  <input maxlength="20" minlength="3" id="razonComercial" name="razonComercial" type="text" class="validate" required="" aria-required="true" value="<?php echo ($_POST["razonComercial"]); ?>">
+                  <input maxlength="80" minlength="3" id="razonComercial" name="razonComercial" type="text" class="validate" aria-required="true" value="<?php echo ($_POST["razonComercial"]); ?>">
                   <label for="razonComercial" class="black-text">Razón comercial <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -131,8 +131,8 @@ include_once "registro_empresas.php";
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col l6 m12 s12">
-                  <i class="material-icons prefix tooltipped" id="testado" data-position="top" data-tooltip="Estado, Municipio, Parroquia">location_on</i>
-                  <select name="estado" id="estado" required aria-required="true">
+                  <i class="material-icons prefix tooltipped" id="testado" data-position="top" data-tooltip="Estado, Municipio">location_on</i>
+                  <select name="estado" id="estado" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <option value="1">Amazonas</option>
                     <option value="2">Anzoátegui</option>
@@ -163,7 +163,7 @@ include_once "registro_empresas.php";
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l6 m12 s12">
-                  <select name="municipio" id="municipio" required aria-required="true">
+                  <select name="municipio" id="municipio" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
@@ -171,14 +171,14 @@ include_once "registro_empresas.php";
               </div>
               <div class="row">
                 <div class="input-field col l6 m12 s12">
-                  <i class="material-icons prefix tooltipped" id="tciudad" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
-                  <select name="ciudad" id="ciudad" required aria-required="true">
+                  <i class="material-icons prefix tooltipped" id="tciudad" data-position="top" data-tooltip="Ciudad, Parroquia">location_on</i>
+                  <select name="ciudad" id="ciudad" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l6 m12 s12">
-                  <select name="parroquia" id="parroquia" required aria-required="true">
+                  <select name="parroquia" id="parroquia" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
@@ -188,8 +188,8 @@ include_once "registro_empresas.php";
             <div class="col s12 m12">
               <div class="row">
                 <div class="input-field col s12">
-                  <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
-                  <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" required="" aria-required="true"><?php echo ($_POST["direccion"]); ?></textarea>
+                  <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Dirección detallada de la empresa">location_on</i>
+                  <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" aria-required="true"><?php echo ($_POST["direccion"]); ?></textarea>
                   <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -198,7 +198,7 @@ include_once "registro_empresas.php";
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono de preferencia (058-4XX.XXX.XX.XX)">phone</i>
-                  <input id="telefono1" name="telefono1" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" required aria-required="true" value="<?php echo ($_POST["telefono1"]); ?>">
+                  <input id="telefono1" name="telefono1" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" aria-required="true" value="<?php echo ($_POST["telefono1"]); ?>">
                   <label for="telefono1" class="black-text">Número de teléfono <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -233,7 +233,7 @@ include_once "registro_empresas.php";
                   <label for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l1 m1 s1">
-                  <a id="checkrl" class="btn waves-effect waves-light" name="checkrl" value="checkrl"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
+                  <a id="checkrl" class="btn waves-effect waves-light" name="checkrl" value="checkrl" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
               <div class="row" id="datosRepresentanteRow" style="display:none;">
@@ -273,7 +273,7 @@ include_once "registro_empresas.php";
                   <label for="cedulapa1" class="black-text">Documento de identidad </label>
                 </div>
                 <div class="input-field col l3 m3 s3">
-                  <a id="checkpa1" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
+                  <a id="checkpa1" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
               <div class="row" id="datosAutorizado1Row" style="display:none;">
@@ -317,7 +317,7 @@ include_once "registro_empresas.php";
                   <label for="cedulapa2" class="black-text">Documento de identidad </label>
                 </div>
                 <div class="input-field col l3 m3 s3">
-                  <a id="checkpa2" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
+                  <a id="checkpa2" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
               <div class="row" id="datosAutorizado2Row" style="display:none;">
@@ -347,7 +347,7 @@ include_once "registro_empresas.php";
               <div class="col s12 m12 center" style="margin-top: 6px">
                 <a class="waves-effect waves-light btn modal-trigger" data-target="condiciones">Ver términos y condiciones</a>
                 <div class="input-field col s12 m12 l12">
-                  <input type="checkbox" id="okCondiciones" name="okCondiciones" />
+                  <input type="checkbox" id="okCondiciones" name="okCondiciones" value="false" />
                   <label for="okCondiciones">He leído, entendido y aceptado los términos y condiciones aquí establecidos</label>
                 </div>
               </div>
@@ -471,9 +471,13 @@ include_once "registro_empresas.php";
   <script type="text/javascript">
     $(document).ready(function() {
 
+     if( !document.getElementById("okCondiciones").checked){
+      document.getElementById("registrar").disabled = true;
+    } else {
+      document.getElementById("registrar").disabled = false;
+    }
+
       $('#condiciones').modal();
-
-
 
       $('#rif').on('focus', function() {
         $('#trif').trigger('mouseover');
@@ -687,18 +691,20 @@ include_once "registro_empresas.php";
       var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
       var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
 
-      if (cadena2 == cadena0 || cadena2 == cadena1) {
-        swal.fire({
-          type: 'warning',
-          title: 'Advertencia',
-          html: "La cédula que ingresó ya se encuentra en el formulario<br>"
-        });
-        $('#cedulapa2').val("");
-      }
+      if (cadena2 > 0 ) {
+        if (cadena2 == cadena0 || cadena2 == cadena1) {
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "La cédula que ingresó ya se encuentra en el formulario<br>"
+          });
+          $('#cedulapa2').val("");
+        }
 
-      if (cadena2 != cadenaAux) {
-        $('#datosAutorizado2Row').removeAttr('style');
-        $('#datosAutorizado2Row').attr('style', 'display:none !important;');
+        if (cadena2 != cadenaAux) {
+          $('#datosAutorizado2Row').removeAttr('style');
+          $('#datosAutorizado2Row').attr('style', 'display:none !important;');
+        }
       }
     });
 
@@ -708,18 +714,20 @@ include_once "registro_empresas.php";
       var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
       var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
 
-      if (cadena1 == cadena0 || cadena1 == cadena2) {
-        swal.fire({
-          type: 'warning',
-          title: 'Advertencia',
-          html: "La cédula que ingresó ya se encuentra en el formulario<br>"
-        });
-        $('#cedulapa1').val("");
-      }
+      if (cadena1 > 0) {
+        if (cadena1 == cadena0 || cadena1 == cadena2) {
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "La cédula que ingresó ya se encuentra en el formulario<br>"
+          });
+          $('#cedulapa1').val("");
+        }
 
-      if (cadena1 != cadenaAux) {
-        $('#datosAutorizado1Row').removeAttr('style');
-        $('#datosAutorizado1Row').attr('style', 'display:none !important;');
+        if (cadena1 != cadenaAux) {
+          $('#datosAutorizado1Row').removeAttr('style');
+          $('#datosAutorizado1Row').attr('style', 'display:none !important;');
+        }
       }
     });
 
@@ -729,20 +737,24 @@ include_once "registro_empresas.php";
       var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
       var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
 
-      if (cadena0 == cadena1 || cadena0 == cadena2) {
-        swal.fire({
-          type: 'warning',
-          title: 'Advertencia',
-          html: "La cédula que ingresó ya se encuentra en el formulario<br>"
-        });
-        $('#cedularl').val("");
-      }
-
-      if (cadena0 != cadenaAux) {
-        $('#datosRepresentanteRow').removeAttr('style');
-        $('#datosRepresentanteRow').attr('style', 'display:none !important;');
-      }
-    });
+      if (cadena0 > 0) {
+        if (cadena0 == cadena1 || cadena0 == cadena2) {
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "La cédula que ingresó ya se encuentra en el formulario<br>"
+          });
+          $('#cedularl').val("");
+        }
+        
+        if (cadena0 != cadenaAux) {
+          $('#datosRepresentanteRow').removeAttr('style');
+          $('#datosRepresentanteRow').attr('style', 'display:none !important;');
+        }
+    } else{
+      $('#checkrl').attr("disabled", "disabled");
+    }
+  });
 
     /////////////////////////////////
     $('#cedulapa2').on('keyup', function() {
@@ -751,8 +763,16 @@ include_once "registro_empresas.php";
 
       if (cadena.length < 7 && cadena.length >= 1) {
         $('#cedulapa2').removeClass("valid").addClass("invalid");
+        $('#checkpa2').attr("disabled", "disabled");
       } else {
         $('#cedulapa2').removeClass("invalid").addClass("valid");
+        $('#checkpa2').removeAttr("disabled");
+      }
+      
+      if (cadena == "") {
+        $('#checkpa2').attr("disabled", "disabled");
+      } else {
+        $('#checkpa2').removeAttr("disabled");
       }
     });
 
@@ -760,8 +780,16 @@ include_once "registro_empresas.php";
       var cadena = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
       if (cadena.length < 7 && cadena.length >= 1) {
         $('#cedulapa2').removeClass("valid").addClass("invalid");
+        $('#checkpa2').attr("disabled", "disabled");
       } else {
         $('#cedulapa2').removeClass("invalid").addClass("valid");
+        $('#checkpa2').removeAttr("disabled");
+      }
+
+      if (cadena == "") {
+        $('#checkpa2').attr("disabled", "disabled");
+      } else {
+        $('#checkpa2').removeAttr("disabled");
       }
     });
 
@@ -771,8 +799,16 @@ include_once "registro_empresas.php";
 
       if (cadena.length < 7 && cadena.length >= 1) {
         $('#cedulapa1').removeClass("valid").addClass("invalid");
+        $('#checkpa1').attr("disabled", "disabled");
       } else {
         $('#cedulapa1').removeClass("invalid").addClass("valid");
+        $('#checkpa1').removeAttr("disabled");
+      }
+
+      if (cadena == "") {
+        $('#checkpa1').attr("disabled", "disabled");
+      } else {
+        $('#checkpa1').removeAttr("disabled");
       }
     });
 
@@ -780,8 +816,16 @@ include_once "registro_empresas.php";
       var cadena = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
       if (cadena.length < 7 && cadena.length >= 1) {
         $('#cedulapa1').removeClass("valid").addClass("invalid");
+        $('#checkpa1').attr("disabled", "disabled");
       } else {
         $('#cedulapa1').removeClass("invalid").addClass("valid");
+        $('#checkpa1').removeAttr("disabled");
+      }
+
+      if (cadena == "") {
+        $('#checkpa1').attr("disabled", "disabled");
+      } else {
+        $('#checkpa1').removeAttr("disabled");
       }
     });
 
@@ -789,21 +833,37 @@ include_once "registro_empresas.php";
       var cadena = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
       $('#cedularl').val(cadena);
 
-      if (cadena.length < 7) {
+      if (cadena.length < 7 && cadena.length >= 1) {
         $('#cedularl').removeClass("valid").addClass("invalid");
+        $('#checkrl').attr("disabled", "disabled");
       } else {
         $('#cedularl').removeClass("invalid").addClass("valid");
+        $('#checkrl').removeAttr("disabled");
+      }
+
+      if (cadena == "") {
+        $('#checkrl').attr("disabled", "disabled");
+      } else {
+        $('#checkrl').removeAttr("disabled");
       }
     });
 
     $('#cedularl').on('blur', function() {
       var cadena = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
-      if (cadena.length < 7) {
+      if (cadena.length < 7 && cadena.length >= 1) {
         $('#cedularl').removeClass("valid").addClass("invalid");
+        $('#checkrl').attr("disabled", "disabled");
       } else {
         $('#cedularl').removeClass("invalid").addClass("valid");
+        $('#checkrl').removeAttr("disabled");
       }
-    });
+       
+      if (cadena == "") {
+        $('#checkrl').attr("disabled", "disabled");
+      } else {
+        $('#checkrl').removeAttr("disabled");
+      }
+     });
     /////////////////////////////////
   </script>
 
@@ -865,8 +925,8 @@ include_once "registro_empresas.php";
     function frm_vld_emplea() {
       var mnsj = ""
 
-      if (document.getElementById("cedula").value.length == 0) mnsj += " - Debe indicar el Rif de la empresa.<br>";
-      if (document.getElementById("cedula").value.length < 7) mnsj += " - Debe ingresar un Rif válido.<br>";
+      if (document.getElementById("rif").value.length == 0) mnsj += " - Debe indicar el Rif de la empresa.<br>";
+      if (document.getElementById("rif").value.length < 7) mnsj += " - Debe ingresar un Rif válido.<br>";
 
       if (document.getElementById("cedularl").value.length == 0) mnsj += " - Debe indicar una cédula para el representante legal.<br>";
       if (document.getElementById("cedularl").value.length < 7) mnsj += " - Debe ingresar una cédula válida para el representante legal.<br>";
