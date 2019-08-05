@@ -470,12 +470,59 @@ include_once "registro_empresas.php";
 
   <script type="text/javascript">
     $(document).ready(function() {
+      var cadena22 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
+      if (cadena22.length < 7 && cadena22.length >= 1) {
+        $('#cedulapa2').removeClass("valid").addClass("invalid");
+        $('#checkpa2').attr("disabled", "disabled");
+      } else {
+        $('#cedulapa2').removeClass("invalid").addClass("valid");
+        $('#checkpa2').removeAttr("disabled");
+      }
 
-     if( !document.getElementById("okCondiciones").checked){
-      document.getElementById("registrar").disabled = true;
-    } else {
-      document.getElementById("registrar").disabled = false;
-    }
+      if (cadena22 == "") {
+        $('#checkpa2').attr("disabled", "disabled");
+      } else {
+        $('#checkpa2').removeAttr("disabled");
+      }
+
+      cadena22 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
+      $('#cedulapa1').val(cadena);
+
+      if (cadena22.length < 7 && cadena22.length >= 1) {
+        $('#cedulapa1').removeClass("valid").addClass("invalid");
+        $('#checkpa1').attr("disabled", "disabled");
+      } else {
+        $('#cedulapa1').removeClass("invalid").addClass("valid");
+        $('#checkpa1').removeAttr("disabled");
+      }
+
+      if (cadena22 == "") {
+        $('#checkpa1').attr("disabled", "disabled");
+      } else {
+        $('#checkpa1').removeAttr("disabled");
+      }
+      cadena22 = formatNumber.new($('#cedularl').val().replace('.', '').replace('.', '').replace('.', ''));
+      $('#cedularl').val(cadena);
+
+      if (cadena22.length < 7 && cadena22.length >= 1) {
+        $('#cedularl').removeClass("valid").addClass("invalid");
+        $('#checkrl').attr("disabled", "disabled");
+      } else {
+        $('#cedularl').removeClass("invalid").addClass("valid");
+        $('#checkrl').removeAttr("disabled");
+      }
+
+      if (cadena22 == "") {
+        $('#checkrl').attr("disabled", "disabled");
+      } else {
+        $('#checkrl').removeAttr("disabled");
+      }
+
+      if (!document.getElementById("okCondiciones").checked) {
+        document.getElementById("registrar").disabled = true;
+      } else {
+        document.getElementById("registrar").disabled = false;
+      }
 
       $('#condiciones').modal();
 
@@ -691,7 +738,7 @@ include_once "registro_empresas.php";
       var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.', '').replace('.', '').replace('.', ''));
       var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
 
-      if (cadena2 > 0 ) {
+      if (cadena2 > 0) {
         if (cadena2 == cadena0 || cadena2 == cadena1) {
           swal.fire({
             type: 'warning',
@@ -746,15 +793,15 @@ include_once "registro_empresas.php";
           });
           $('#cedularl').val("");
         }
-        
+
         if (cadena0 != cadenaAux) {
           $('#datosRepresentanteRow').removeAttr('style');
           $('#datosRepresentanteRow').attr('style', 'display:none !important;');
         }
-    } else{
-      $('#checkrl').attr("disabled", "disabled");
-    }
-  });
+      } else {
+        $('#checkrl').attr("disabled", "disabled");
+      }
+    });
 
     /////////////////////////////////
     $('#cedulapa2').on('keyup', function() {
@@ -768,7 +815,7 @@ include_once "registro_empresas.php";
         $('#cedulapa2').removeClass("invalid").addClass("valid");
         $('#checkpa2').removeAttr("disabled");
       }
-      
+
       if (cadena == "") {
         $('#checkpa2').attr("disabled", "disabled");
       } else {
@@ -857,13 +904,13 @@ include_once "registro_empresas.php";
         $('#cedularl').removeClass("invalid").addClass("valid");
         $('#checkrl').removeAttr("disabled");
       }
-       
+
       if (cadena == "") {
         $('#checkrl').attr("disabled", "disabled");
       } else {
         $('#checkrl').removeAttr("disabled");
       }
-     });
+    });
     /////////////////////////////////
   </script>
 
@@ -927,14 +974,11 @@ include_once "registro_empresas.php";
 
       if (document.getElementById("rif").value.length == 0) mnsj += " - Debe indicar el Rif de la empresa.<br>";
       if (document.getElementById("rif").value.length < 7) mnsj += " - Debe ingresar un Rif válido.<br>";
-
       if (document.getElementById("cedularl").value.length == 0) mnsj += " - Debe indicar una cédula para el representante legal.<br>";
       if (document.getElementById("cedularl").value.length < 7) mnsj += " - Debe ingresar una cédula válida para el representante legal.<br>";
-      // if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el personal autorizado 1.<br>";
-      // if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el personal autorizado 1.<br>";
-      // if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el personal autorizado 2.<br>";
-      // if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el personal autorizado 2.<br>";
-
+      if (document.getElementById("cedularl").value.length > 0 && document.getElementById("rep").value == 0) mnsj += " - Debe confirmar la cédula del representante legal haciendo click en la lupa.<br>";
+      if (document.getElementById("cedulapa1").value.length > 0 && document.getElementById("aut1").value == 0) mnsj += " - Debe confirmar la cédula del primer personal autorizado haciendo click en la lupa.<br>";
+      if (document.getElementById("cedulapa2").value.length > 0 && document.getElementById("aut2").value == 0) mnsj += " - Debe confirmar la cédula del segundo personal autorizado haciendo click en la lupa.<br>";
       if (document.getElementById("razonSocial").value.length == 0) mnsj += " - Debe indicar la razón social de la empresa.<br>";
       if (document.getElementById("razonComercial").value.length == 0) mnsj += " - Debe indicar la razón comercial de la empresa.<br>";
       if (document.getElementById("telefono1").value.length == 0) mnsj += " - Debe indicar un teléfono de contacto.<br>";
@@ -988,8 +1032,8 @@ include_once "registro_empresas.php";
             if (e.length == 1) {
               $('#rep').val(e[0].id);
               $('#auxCedrep').val(e[0].cedula.substring(2, e[0].cedula.length));
-              $('#datosRepresentanteNombre').val(e[0].nombre1);
-              $('#datosRepresentanteApellido').val(e[0].apellido1);
+              $('#datosRepresentanteNombre').val(decodeURIComponent(escape(e[0].nombre1)));
+              $('#datosRepresentanteApellido').val(decodeURIComponent(escape(e[0].apellido1)));
               $('#datosRepresentanteNombreLabel').addClass('active');
               $('#datosRepresentanteApellidoLabel').addClass('active');
               $('#datosRepresentanteRow').removeAttr('style');
@@ -1104,7 +1148,6 @@ include_once "registro_empresas.php";
         });
       }
     });
-    ///////////////
   </script>
 
 
