@@ -61,7 +61,7 @@ if ($_POST["prcs"] == "S") {
 
 
 		$sql = "INSERT INTO us_pivot_sigoclub_empresas (id_empresa, id_sigoclub, tipo) 
-			VALUES ('" . $id . "', '" . $idR . "', '1')";
+			VALUES ('" . $id . "', '" . $idR . "', 1)";
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
 			trigger_error($db_pdo->error, E_USER_ERROR);
@@ -78,7 +78,7 @@ if ($_POST["prcs"] == "S") {
 
 		if ($idA1 != 0) {
 			$sql = "INSERT INTO us_pivot_sigoclub_empresas (id_empresa, id_sigoclub, tipo) 
-			VALUES ('" . $id . "', '" . $idA1 . "', '1')";
+			VALUES ('" . $id . "', '" . $idA1 . "', 2)";
 			$stmt1 = $db_pdo->prepare($sql);
 			if ($stmt1 === false) {
 				trigger_error($db_pdo->error, E_USER_ERROR);
@@ -96,7 +96,7 @@ if ($_POST["prcs"] == "S") {
 
 		if ($idA2 != 0) {
 			$sql = "INSERT INTO us_pivot_sigoclub_empresas (id_empresa, id_sigoclub, tipo) 
-			VALUES ('" . $id . "', '" . $idA2 . "', '1')";
+			VALUES ('" . $id . "', '" . $idA2 . "', 2)";
 			$stmt1 = $db_pdo->prepare($sql);
 			if ($stmt1 === false) {
 				trigger_error($db_pdo->error, E_USER_ERROR);
