@@ -215,6 +215,7 @@
             <div class="col s12 m12 l12"> 
                 <div class="row" style="margin-bottom: 0px;">
                   <input name="rep" id="rep" type="hidden" value="0" /> 
+                  <input name="auxCedrep" id="auxCedrep" type="hidden" value="" /> 
                   <div class="col l12 m12 s12" style="margin-left: 45px;">
                     <h6 class="black-text" >Representante legal</h6>
                   </div>
@@ -222,13 +223,13 @@
                 <div class="row">
                   <div class="input-field col l2 m3 s4">
                     <i class="material-icons prefix tooltipped" id="tcedularl" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
-                    <select id="tipo1" name="tipo1" class="validate" required aria-required="true">
+                    <select id="tipo1" name="tipo1">
                       <option value="V">V</option>
                       <option value="E">E</option>
                     </select>
                   </div>
                   <div class="input-field col l7 m6 s5">
-                    <input id="cedularl" onkeypress="return soloNumeros(event)" name="cedularl" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedularl"]); ?>">
+                    <input id="cedularl" onkeypress="return soloNumeros(event)" name="cedularl" type="text" maxlength="10" minlength="7" value="<?php echo($_POST["cedularl"]); ?>">
                     <label for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                   </div>
                   <div class="input-field col l1 m1 s1">
@@ -238,14 +239,13 @@
                 <div class="row" id="datosRepresentanteRow" style="display:none;">
                   <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
                     <div class="row">
-                      <div class="col l2 m2 s2">
-                        <span id="datosRepresentanteCedula"></span>                      
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datosRepresentanteNombre" name="datosRepresentanteNombre" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datosRepresentanteNombre" id="datosRepresentanteNombreLabel">Nombre </label>
                       </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datosRepresentanteNombre"></span>
-                      </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datosRepresentanteApellido"></span>
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datosRepresentanteApellido" name="datosRepresentanteApellido" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datosRepresentanteApellido" id="datosRepresentanteApellidoLabel">Apellido </label>
                       </div>
                     </div>
                   </div>
@@ -255,6 +255,7 @@
             <div class="col s12 m12 l12"> 
                 <div class="row" style="margin-bottom: 0px;">
                   <input name="aut1" id="aut1" type="hidden" value="0" /> 
+                  <input name="auxCedpa1" id="auxCedpa1" type="hidden" value="" /> 
                   <div class="col l12 m12 s12" style="margin-left: 45px;">
                     <h6 class="black-text" >Personal autorizado 1</h6>
                   </div>
@@ -262,14 +263,14 @@
               <div class="row">
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedulapa1" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
-                  <select id="tipo2" name="tipo2" class="validate" required aria-required="true">
+                  <select id="tipo2" name="tipo2">
                     <option value="V">V</option>
                     <option value="E">E</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
-                  <input id="cedulapa1" onkeypress="return soloNumeros(event)" name="cedulapa1" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedulapa1"]); ?>">
-                  <label for="cedulapa1" class="black-text">Documento de identidad <span style="color:red">*</span></label>
+                  <input id="cedulapa1" onkeypress="return soloNumeros(event)" name="cedulapa1" type="text" maxlength="10" minlength="7" value="<?php echo($_POST["cedulapa1"]); ?>">
+                  <label for="cedulapa1" class="black-text">Documento de identidad </label>
                 </div>
                 <div class="input-field col l3 m3 s3">
                   <a id="checkpa1" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
@@ -278,17 +279,17 @@
               <div class="row" id="datosAutorizado1Row" style="display:none;">
                   <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
                     <div class="row">
-                      <div class="col l2 m2 s2">
-                        <span id="datoAutorizado1Cedula"></span>                      
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datoAutorizado1Nombre" name="datoAutorizado1Nombre" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datoAutorizado1Nombre" id="datoAutorizado1NombreLabel">Nombre </label>
                       </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datoAutorizado1Nombre"></span>
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datosAutorizado1Apellido" name="datosAutorizado1Apellido" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datosAutorizado1Apellido" id="datosAutorizado1ApellidoLabel">Apellido </label>
                       </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datosAutorizado1Apellido"></span>
-                      </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datosAutorizado1Tlf"></span>
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datosAutorizado1Tlf" name="datosAutorizado1Tlf" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datosAutorizado1Tlf" id="datosAutorizado1TlfLabel">Teléfono </label>
                       </div>
                     </div>
                   </div>
@@ -298,6 +299,7 @@
             <div class="col s12 m12 l12"> 
                 <div class="row" style="margin-bottom: 0px;">
                   <input name="aut2" id="aut2" type="hidden" value="0" /> 
+                  <input name="auxCedpa2" id="auxCedpa2" type="hidden" value="" /> 
                   <div class="col l12 m12 s12" style="margin-left: 45px;">
                     <h6 class="black-text" >Personal autorizado 2</h6>
                   </div>
@@ -305,33 +307,33 @@
                 <div class="row">
                   <div class="input-field col l2 m3 s4">
                     <i class="material-icons prefix tooltipped" id="tcedulapa2" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
-                    <select id="tipo3" name="tipo3" class="validate" required aria-required="true">
+                    <select id="tipo3" name="tipo3">
                       <option value="V">V</option>
                       <option value="E">E</option>
                     </select>
                   </div>
                   <div class="input-field col l7 m6 s5">
-                    <input id="cedulapa2" onkeypress="return soloNumeros(event)" name="cedulapa2" type="text" class="validate" required aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedulapa2"]); ?>">
-                    <label for="cedulapa2" class="black-text">Documento de identidad <span style="color:red">*</span></label>
+                    <input id="cedulapa2" onkeypress="return soloNumeros(event)" name="cedulapa2" type="text" maxlength="10" minlength="7" value="<?php echo($_POST["cedulapa2"]); ?>">
+                    <label for="cedulapa2" class="black-text">Documento de identidad </label>
                   </div>
                   <div class="input-field col l3 m3 s3">
                     <a id="checkpa2" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                   </div>
                 </div>
                 <div class="row" id="datosAutorizado2Row" style="display:none;">
-                  <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
+                <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
                     <div class="row">
-                      <div class="col l2 m2 s2">
-                        <span id="datoAutorizado2Cedula"></span>                      
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datoAutorizado2Nombre" name="datoAutorizado2Nombre" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datoAutorizado2Nombre" id="datoAutorizado2NombreLabel">Nombre </label>
                       </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datoAutorizado2Nombre"></span>
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datosAutorizado2Apellido" name="datosAutorizado2Apellido" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datosAutorizado2Apellido" id="datosAutorizado2ApellidoLabel">Apellido </label>
                       </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datosAutorizado2Apellido"></span>
-                      </div>
-                      <div class="col l3 m3 s3">
-                        <span id="datosAutorizado2Tlf"></span>
+                      <div class="col l3 m3 s3 input-field">
+                        <input id="datosAutorizado2Tlf" name="datosAutorizado2Tlf" type="text" maxlength="10" minlength="7" disabled="disabled">
+                        <label for="datosAutorizado2Tlf" id="datosAutorizado2TlfLabel">Teléfono </label>
                       </div>
                     </div>
                   </div>
@@ -675,14 +677,76 @@ $(document).ready(function(){
       }
     }
 
+    /////////////////////////////////
+    $('#cedulapa2').on('change', function(){
+      var cadena0 = formatNumber.new($('#cedularl').val().replace('.','').replace('.','').replace('.',''));
+      var cadenaAux = $('#auxCedpa2').val();
+      var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.','').replace('.','').replace('.',''));
+      var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.','').replace('.','').replace('.',''));
+
+      if(cadena2 == cadena0 || cadena2 == cadena1){
+        swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          html: "La cédula que ingresó ya se encuentra en el formulario<br>"
+        });
+        $('#cedulapa2').val("");  
+      }
+
+      if (cadena2 != cadenaAux) {
+        $('#datosAutorizado2Row').removeAttr('style');
+        $('#datosAutorizado2Row').attr('style','display:none !important;');
+      }
+    });
+      
+    $('#cedulapa1').on('change', function(){
+      var cadena0 = formatNumber.new($('#cedularl').val().replace('.','').replace('.','').replace('.',''));
+      var cadenaAux = $('#auxCedpa1').val();
+      var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.','').replace('.','').replace('.',''));
+      var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.','').replace('.','').replace('.',''));
+      
+      if(cadena1 == cadena0 || cadena1 == cadena2){
+        swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          html: "La cédula que ingresó ya se encuentra en el formulario<br>"
+        });
+        $('#cedulapa1').val("");  
+      }
+
+      if (cadena1 != cadenaAux) {
+        $('#datosAutorizado1Row').removeAttr('style');
+        $('#datosAutorizado1Row').attr('style','display:none !important;');
+      }
+    });
     
+    $('#cedularl').on('change', function(){
+      var cadena0 = formatNumber.new($('#cedularl').val().replace('.','').replace('.','').replace('.',''));
+      var cadenaAux = $('#auxCedrep').val();
+      var cadena1 = formatNumber.new($('#cedulapa1').val().replace('.','').replace('.','').replace('.',''));
+      var cadena2 = formatNumber.new($('#cedulapa2').val().replace('.','').replace('.','').replace('.',''));
+
+      if(cadena0 == cadena1 || cadena0 == cadena2){
+        swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          html: "La cédula que ingresó ya se encuentra en el formulario<br>"
+        });
+        $('#cedularl').val("");  
+      }
+
+      if (cadena0 != cadenaAux) {
+        $('#datosRepresentanteRow').removeAttr('style');
+        $('#datosRepresentanteRow').attr('style','display:none !important;');
+      }
+    });
 
     /////////////////////////////////
     $('#cedulapa2').on('keyup', function(){
       var cadena = formatNumber.new($('#cedulapa2').val().replace('.','').replace('.','').replace('.',''));
       $('#cedulapa2').val(cadena);
 
-      if(cadena.length < 7){
+      if(cadena.length < 7 && cadena.length >= 1){
         $('#cedulapa2').removeClass("valid").addClass("invalid");
       }else{
          $('#cedulapa2').removeClass("invalid").addClass("valid");
@@ -691,7 +755,7 @@ $(document).ready(function(){
 
     $('#cedulapa2').on('blur', function(){
       var cadena = formatNumber.new($('#cedulapa2').val().replace('.','').replace('.','').replace('.',''));
-      if(cadena.length < 7){
+      if(cadena.length < 7 && cadena.length >= 1){
         $('#cedulapa2').removeClass("valid").addClass("invalid");
       }else{
          $('#cedulapa2').removeClass("invalid").addClass("valid");
@@ -702,7 +766,7 @@ $(document).ready(function(){
       var cadena = formatNumber.new($('#cedulapa1').val().replace('.','').replace('.','').replace('.',''));
       $('#cedulapa1').val(cadena);
 
-      if(cadena.length < 7){
+      if(cadena.length < 7 && cadena.length >= 1){
         $('#cedulapa1').removeClass("valid").addClass("invalid");
       }else{
          $('#cedulapa1').removeClass("invalid").addClass("valid");
@@ -711,7 +775,7 @@ $(document).ready(function(){
 
     $('#cedulapa1').on('blur', function(){
       var cadena = formatNumber.new($('#cedulapa1').val().replace('.','').replace('.','').replace('.',''));
-      if(cadena.length < 7){
+      if(cadena.length < 7 && cadena.length >= 1){
         $('#cedulapa1').removeClass("valid").addClass("invalid");
       }else{
          $('#cedulapa1').removeClass("invalid").addClass("valid");
@@ -802,12 +866,12 @@ $(document).ready(function(){
       if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar el Rif de la empresa.<br>";
       if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar un Rif válido.<br>";
 
-      if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el representante legal.<br>";
-      if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el representante legal.<br>";
-      if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el personal autorizado 1.<br>";
-      if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el personal autorizado 1.<br>";
-      if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el personal autorizado 2.<br>";
-      if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el personal autorizado 2.<br>";
+      if(document.getElementById("cedularl").value.length==0) mnsj+=" - Debe indicar una cédula para el representante legal.<br>";
+      if(document.getElementById("cedularl").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el representante legal.<br>";
+      // if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el personal autorizado 1.<br>";
+      // if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el personal autorizado 1.<br>";
+      // if(document.getElementById("cedula").value.length==0) mnsj+=" - Debe indicar una cédula para el personal autorizado 2.<br>";
+      // if(document.getElementById("cedula").value.length<7) mnsj+=" - Debe ingresar una cédula válida para el personal autorizado 2.<br>";
 
       if(document.getElementById("razonSocial").value.length==0) mnsj+=" - Debe indicar la razón social de la empresa.<br>";
       if(document.getElementById("razonComercial").value.length==0) mnsj+=" - Debe indicar la razón comercial de la empresa.<br>";
@@ -860,14 +924,17 @@ $(document).ready(function(){
             success:function(e){
               e = JSON.parse(e);
               if(e.length==1){
-                  $('#datosRepresentanteRow').removeAttr('style');
-                  $('#datosRepresentanteRow').attr('style','display:block !important;');
-                  $('#rep').val(e[0].id);
-                  $('#datosRepresentanteCedula').text(e[0].cedula);
-                  $('#datosRepresentanteNombre').text(e[0].nombre1);
-                  $('#datosRepresentanteApellido').text(e[0].apellido1);
-                
+                $('#rep').val(e[0].id);
+                $('#auxCedrep').val(e[0].cedula.substring(2,e[0].cedula.length));                
+                $('#datosRepresentanteNombre').val(e[0].nombre1);
+                $('#datosRepresentanteApellido').val(e[0].apellido1);
+                $('#datosRepresentanteNombreLabel').addClass('active');
+                $('#datosRepresentanteApellidoLabel').addClass('active');
+                $('#datosRepresentanteRow').removeAttr('style');
+                $('#datosRepresentanteRow').attr('style','display:block !important;');
               }else{
+                $('#datosRepresentanteRow').removeAttr('style');
+                $('#datosRepresentanteRow').attr('style','display:none !important;');
                 swal.fire({
                   type: 'warning',
                   title: 'Advertencia',
@@ -899,14 +966,19 @@ $(document).ready(function(){
             success:function(e){
               e = JSON.parse(e);
               if(e.length==1){
-                  $('#datosAutorizado1Row').removeAttr('style');
-                  $('#datosAutorizado1Row').attr('style','display:block !important;');
-                  $('#aut1').val(e[0].id);
-                  $('#datoAutorizado1Cedula').text(e[0].cedula);
-                  $('#datoAutorizado1Nombre').text(e[0].nombre1);
-                  $('#datosAutorizado1Apellido').text(e[0].apellido1);
-                  $('#datosAutorizado1Tlf').text(e[0].celular);
+                $('#aut1').val(e[0].id);
+                $('#auxCedpa1').val(e[0].cedula.substring(2,e[0].cedula.length));                
+                $('#datoAutorizado1Nombre').val(e[0].nombre1);
+                $('#datoAutorizado1NombreLabel').addClass('active');
+                $('#datosAutorizado1Apellido').val(e[0].apellido1);
+                $('#datosAutorizado1ApellidoLabel').addClass('active');
+                $('#datosAutorizado1Tlf').val(e[0].celular);
+                $('#datosAutorizado1TlfLabel').addClass('active');
+                $('#datosAutorizado1Row').removeAttr('style');
+                $('#datosAutorizado1Row').attr('style','display:block !important;');
               }else{
+                $('#datosAutorizado1Row').removeAttr('style');
+                $('#datosAutorizado1Row').attr('style','display:none !important;');
                 swal.fire({
                   type: 'warning',
                   title: 'Advertencia',
@@ -938,14 +1010,19 @@ $(document).ready(function(){
             success:function(e){
               e = JSON.parse(e);
               if(e.length==1){
-                  $('#datosAutorizado2Row').removeAttr('style');
-                  $('#datosAutorizado2Row').attr('style','display:block !important;');
-                  $('#aut2').val(e[0].id);
-                  $('#datoAutorizado2Cedula').text(e[0].cedula);
-                  $('#datoAutorizado2Nombre').text(e[0].nombre1);
-                  $('#datosAutorizado2Apellido').text(e[0].apellido1);
-                  $('#datosAutorizado2Tlf').text(e[0].celular);
+                $('#aut2').val(e[0].id);
+                $('#auxCedpa2').val(e[0].cedula.substring(2,e[0].cedula.length));
+                $('#datoAutorizado2Nombre').val(e[0].nombre1);
+                $('#datoAutorizado2NombreLabel').addClass('active');
+                $('#datosAutorizado2Apellido').val(e[0].apellido1);
+                $('#datosAutorizado2ApellidoLabel').addClass('active');
+                $('#datosAutorizado2Tlf').val(e[0].celular);
+                $('#datosAutorizado2TlfLabel').addClass('active');
+                $('#datosAutorizado2Row').removeAttr('style');
+                $('#datosAutorizado2Row').attr('style','display:block !important;');
               }else{
+                $('#datosAutorizado2Row').removeAttr('style');
+                $('#datosAutorizado2Row').attr('style','display:none !important;');
                 swal.fire({
                   type: 'warning',
                   title: 'Advertencia',
