@@ -14,3 +14,5 @@
     $cedula = $st1->fetchAll();
 
     echo json_encode($cedula);
+
+?>

@@ -9,7 +9,7 @@
     $db_pdo=new PDO("mysql:host=$host;dbname=$base", $user, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\''));
     $acentos = $db_pdo->query("SET NAMES 'utf8'");
     
-    $st1=$db_pdo->prepare("SELECT * FROM us_ciudades WHERE id_estado = ".$_POST['id']." ORDER BY ciudad ASC");
+    $st1=$db_pdo->prepare("SELECT id FROM us_estados WHERE id_estado = ".$_POST['id']." ORDER BY ciudad ASC");
     $st1->execute();
     $ciudades = $st1->fetchAll();
     

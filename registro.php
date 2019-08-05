@@ -81,10 +81,10 @@
                 <div class="col s10 m10 l10">
                   <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB</h4>
                 </div>
-                <!-- <div class="input-field col s2 m2 l2" style="margin: auto 0px !important;">
+                <div class="input-field col s2 m2 l2" style="margin: auto 0px !important;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
-                </div> -->
+                </div>
               </div>
 
               <div class="row">
@@ -106,8 +106,8 @@
                   <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedula"]); ?>">
                   <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l3 m3 s3" style="display:none;">
-                  <button id="check" onClick="Buscar()" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</button>
+                <div class="input-field col l3 m3 s3" id="checkBuscarDiv" style="display:none;">
+                  <a id="check" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</a>
                 </div>
               </div>
             </div>
@@ -116,11 +116,11 @@
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Primer y segundo nombre si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" aria-required="true" value="<?php echo($_POST["nombre1"]); ?>">
-                  <label for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
+                  <label id="nombre1Label" for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre2" name="nombre2" type="text" value="<?php echo($_POST["nombre2"]); ?>">
-                  <label for="nombre2" class="black-text">Segundo nombre</label>
+                  <label id="nombre2Label" for="nombre2" class="black-text">Segundo nombre</label>
                 </div>
               </div>        
             </div>
@@ -129,11 +129,11 @@
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" id="tapellidos" data-position="top" data-tooltip="Primer y segundo apellido si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" aria-required="true" value="<?php echo($_POST["apellido1"]); ?>">
-                  <label for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
+                  <label id="apellido1Label" for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col s12 m6 l6">
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido2" name="apellido2" type="text" value="<?php echo($_POST["apellido2"]); ?>">
-                  <label for="apellido2" class="black-text">Segundo apellido</label>
+                  <label id="apellido2Label" for="apellido2" class="black-text">Segundo apellido</label>
                 </div>
               </div>        
             </div>
@@ -169,7 +169,7 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
                   <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" aria-required="true" value="<?php echo($_POST["telefono"]); ?>">
-                  <label for="telefono" class="black-text">Número de teléfono celular <span style="color:red">*</span></label>
+                  <label id="telefonoLabel" for="telefono" class="black-text">Número de teléfono celular <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -178,7 +178,7 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="tcorreo" data-position="top" data-tooltip="Opcional: dirección de correo personal (usuarioCorreo12@email.com)">mail</i>
                   <input id="correo" name="correo" type="email" class="validate" value="<?php echo($_POST["correo"]); ?>">
-                  <label for="correo" class="black-text" >Email</label>
+                  <label id="correoLabel" for="correo" class="black-text" >Email</label>
                 </div>
               </div>
             </div>
@@ -268,13 +268,13 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" aria-required="true"><?php echo($_POST["direccion"]); ?></textarea>
-                  <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
+                  <label id="direccionLabel" for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
             <input name="prcs" id="prcs" type="hidden" value="S" /> 
             <!-- ///////////////////////////////////////   -->
-            <div class="row">
+            <div class="row" id="terminosRow">
                 <div class="col s12 m12 center" style="margin-top: 6px">
                   <a class="waves-effect waves-light btn modal-trigger" data-target="condiciones">Ver términos y condiciones</a>
                   <div class="input-field col s12 m12 l12">
@@ -400,29 +400,143 @@
 <script type="text/javascript">
   $(document).ready(function(){
     
-    $("#okCondiciones").attr('value', 'false');
+  $("#okCondiciones").attr('value', 'false');
+
+/////////////   busqueda para la validacion    ////////////
+  $('#check').on('click', function() {
+        var ced = $('#tipo').val() + '-' + $('#cedula').val();
+        var numerosCed =  $('#cedula').val();
+
+        if (numerosCed == "") {
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "Ingrese una cédula para realizar la búsqueda.",
+            showConfirmButton: true,
+            confirmButtonText: "Si",
+          });
+        } else {
+          if (ced != "") {
+            $.ajax({
+              type: 'POST',
+              encoding: "UTF-8",
+              url: 'ajaxSigoclub.php',
+              data: 'cedula=' + ced,
+              success: function(e) {
+                e = JSON.parse(e);
+                console.log(e);              
+                if (e.length == 1) {
+                  $('#nombre1').val(e[0].nombre1);
+                  $('#nombre1Label').addClass('active');
+                  $('#nombre2').val(e[0].nombre2);
+                  $('#nombre2Label').addClass('active');
+                  $('#apellido1').val(e[0].apellido1);
+                  $('#apellido1Label').addClass('active');
+                  $('#apellido2').val(e[0].apellido2);
+                  $('#apellido2Label').addClass('active');
+                  if (e[0].sexo == 'M')  {
+                     $("#sexo_m").prop('checked', true);
+                    } else {
+                     $("#sexo_f").prop('checked', true);
+                  }
+                  //fecha de nacimiento
+                  $('#telefono').val(e[0].celular);
+                  $('#telefonoLabel').addClass('active');
+                  $('#correo').val(e[0].correo);
+                  $('#correoLabel').addClass('active');
+                  // estado
+                  // municipio
+                  // parroquia
+                  // ciudad
+                  // zona
+                  // vivienda
+                  $('#direccion').val(e[0].direccion);
+                  $('#direccionLabel').addClass('active');
+                  
+                 
+
+                } else {
+                  swal.fire({
+                    type: 'warning',
+                    title: 'Advertencia',
+                    html: "La cédula que busca no está registrada.",
+                    showConfirmButton: true,
+                    confirmButtonText: "Si",
+                  });
+                }
+                var resultId = 0;
+                return resultId;
+
+                  // $('#aut2').val(e[0].id);
+                  // $('#auxCedpa2').val(e[0].cedula.substring(2, e[0].cedula.length));
+                  // $('#datoAutorizado2Nombre').val(e[0].nombre1);
+                  // $('#datoAutorizado2NombreLabel').addClass('active');
+                  // $('#datosAutorizado2Apellido').val(e[0].apellido1);
+                  // $('#datosAutorizado2ApellidoLabel').addClass('active');
+                  // $('#datosAutorizado2Tlf').val(e[0].celular);
+                  // $('#datosAutorizado2TlfLabel').addClass('active');
+                  // $('#datosAutorizado2Row').removeAttr('style');
+                  // $('#datosAutorizado2Row').attr('style', 'display:block !important;');
+              }
+            });
+          }
+        } 
+        
+      });
+////////////////////////
+
 
     /////     check validar  /////////////////////////
     $('#validar').on('change',function(){
+      
       if ($('#validar').is(':checked')) {
         swal.fire({
-                type: 'warning',
-                title: 'Advertencia',
-                html: "Debe ingresar credenciales válidas para continuar.<br>"+
-                      '<input id="swal-input1" class="">'+
-                      '<input id="swal-input2" class="">',
-                showConfirmButton: true,
-                confirmButtonText: "Continuar",
-                closeOnConfirm: false,
-                showCancelButton: true,
-                cancelButtonText: "Cancelar",
-                allowOutsideClick: false,
-                allowEscapeKey: false
-              }).then((result) => {
-                if (result.value) {
-                  // window.open('registro.php', '_blank');
-                }
-              })
+            type: 'warning',
+            title: 'Advertencia',
+            html: 'Debe ingresar credenciales válidas para continuar.<br>'+
+              '<div class="input-field col s2 m2 l2">'+
+              ' <input type="text" id="swal-input1" name="swal-input1"/>'+
+              ' <label for="swal-input1">Usuario</label>'+
+              '</div>'+
+              '<div class="input-field col s2 m2 l2">'+
+              '  <input type="password" id="swal-input2" name="swal-input2"/>'+
+              '  <label for="swal-input2">Contraseña</label>'+
+              '</div>'+
+              '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
+            showConfirmButton: true,
+            confirmButtonText: "Continuar",
+            closeOnConfirm: false,
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            preConfirm: (login) => {
+              var ced = $('#tipo').val() + '-' + $('#cedula').val();
+              var user = $("#swal-input1").val();
+              var pass = $("#swal-input2").val();
+              if (user == "" || pass == "") {
+                Swal.showValidationMessage(
+                  `Debe ingresar ambos campos para continuar.`
+                )
+              } else {
+                $('#checkBuscarDiv').attr('style','display:block');
+                $('#terminosRow').attr('style','display:none');
+                $("#okCondiciones").prop('checked', true);
+                document.getElementById("registrar").disabled = false;
+                $('#registrar').html('<i class="material-icons right">send</i>Validar');
+              }
+            },
+        }).then((result) => {
+          if (!result.value) {
+            $("#validar").prop('checked', false);
+          }
+        })
+      } else {
+        $('#checkBuscarDiv').attr('style','display:none');
+        $('#terminosRow').attr('style','display:block');
+        $("#okCondiciones").prop('checked', false);        
+        document.getElementById("registrar").disabled = true;
+        $('#registrar').html('<i class="material-icons right">send</i>Registrar');
       }
     });
     
