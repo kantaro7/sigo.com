@@ -98,12 +98,12 @@
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedula" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
-                    <option value="V">V</option>
-                    <option value="E">E</option>
+                    <option <?php echo( ($_GET["tipo"] == "V") ? "selected" : "" ) ; ?>  value="V">V</option>
+                    <option <?php echo( ($_GET["tipo"] == "E") ? "selected" : "" ) ; ?> value="E">E</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
-                  <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo($_POST["cedula"]); ?>">
+                  <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo( isset($_POST["cedula"]) ? $_POST["cedula"] : $_GET["cedula"]); ?>">
                   <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l3 m3 s3" id="checkBuscarDiv" style="display:none;">
@@ -218,13 +218,13 @@
                 </div>
                 <div class="input-field col l4 m12 s12">
                   <select name="municipio" id="municipio" aria-required="true">
-                    <option value="0" disabled selected>Seleccione una opción</option>
+                    <option value="0" disabled >Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l4 m12 s12">
                   <select name="parroquia" id="parroquia" aria-required="true">
-                    <option value="0" disabled selected>Seleccione una opción</option>
+                    <option value="0" disabled >Seleccione una opción</option>
                   </select>
                   <label>Parroquia <span style="color:red">*</span></label>
                 </div>
@@ -233,7 +233,7 @@
                 <div class="input-field col l4 m12 s12">
                  <i class="material-icons prefix tooltipped" id="tciudad" data-position="top" data-tooltip="Ciudad, Zona residencial, Tipo de residencia">location_on</i>
                   <select name="ciudad" id="ciudad" aria-required="true">
-                    <option value="0" disabled selected>Seleccione una opción</option>
+                    <option value="0" disabled >Seleccione una opción</option>
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
@@ -426,6 +426,7 @@
                 e = JSON.parse(e);
                 console.log(e);              
                 if (e.length == 1) {
+                  document.getElementById("cedula").disabled = true;
                   $('#nombre1').val(e[0].nombre1);
                   $('#nombre1Label').addClass('active');
                   $('#nombre2').val(e[0].nombre2);
@@ -439,22 +440,53 @@
                     } else {
                      $("#sexo_f").prop('checked', true);
                   }
-                  //fecha de nacimiento
+                  var sup_e_p_dt = $('#fecha_emplea').pickadate({
+                      format: 'dd/mm/yyyy',
+                      selectYears: true,
+                      selectMonths: true
+                  });
+                  var fechaArr = (e[0].fecha_nac).split('-');
+                  var fecha = fechaArr[2] + '/' + fechaArr[1] + '/' + fechaArr[0];
+                  var picker_end_date = sup_e_p_dt.pickadate('picker');
+                  picker_end_date.set('select', fecha, {format: 'dd/mm/yyyy'});
+
                   $('#telefono').val(e[0].celular);
                   $('#telefonoLabel').addClass('active');
                   $('#correo').val(e[0].correo);
                   $('#correoLabel').addClass('active');
-                  // estado
-                  // municipio
-                  // parroquia
-                  // ciudad
-                  // zona
-                  // vivienda
+                  console.log(e[0].id_parroquia);              
+                  $.ajax({
+                    type:'POST',
+                    encoding:"UTF-8",
+                    url:'ajaxEstado.php',
+                    data:'id='+e[0].id_parroquia,
+                    success:function(a){
+                        a = JSON.parse(a);
+                        console.log(a[0].id_municipio);              
+                        // estado
+                        $('#estado').val(a[0].id_estado).trigger('change');
+                        $('select').material_select();
+                        // municipio
+                        setTimeout(function(){
+                          $('#municipio').val(a[0].id_municipio).trigger('change');
+                          $('select').material_select();
+                          $('#ciudad').val(e[0].id_ciudad).trigger('change');
+                          $('select').material_select();
+                          setTimeout(function(){
+                            $('#parroquia').val(e[0].id_parroquia).trigger('change');
+                            $('select').material_select();
+                          },50);
+                        },50);
+                    }
+                  }); 
+                  $('#zona').prop('selectedIndex',e[0].id_zona);
+                  $('#zona').trigger('change');
+                  $('#vivienda').prop('selectedIndex',e[0].id_vivienda);
+                  $('#vivienda').trigger('change');
                   $('#direccion').val(e[0].direccion);
                   $('#direccionLabel').addClass('active');
-                  
-                 
-
+                    
+                  $('select').material_select();
                 } else {
                   swal.fire({
                     type: 'warning',
@@ -466,17 +498,6 @@
                 }
                 var resultId = 0;
                 return resultId;
-
-                  // $('#aut2').val(e[0].id);
-                  // $('#auxCedpa2').val(e[0].cedula.substring(2, e[0].cedula.length));
-                  // $('#datoAutorizado2Nombre').val(e[0].nombre1);
-                  // $('#datoAutorizado2NombreLabel').addClass('active');
-                  // $('#datosAutorizado2Apellido').val(e[0].apellido1);
-                  // $('#datosAutorizado2ApellidoLabel').addClass('active');
-                  // $('#datosAutorizado2Tlf').val(e[0].celular);
-                  // $('#datosAutorizado2TlfLabel').addClass('active');
-                  // $('#datosAutorizado2Row').removeAttr('style');
-                  // $('#datosAutorizado2Row').attr('style', 'display:block !important;');
               }
             });
           }
@@ -601,7 +622,7 @@
     });
 
       $('#estado').on('change',function(){
-        console.log($(this).val());
+        // console.log($(this).val());
           var estadoID = $(this).val();
           if(estadoID){
               $.ajax({
@@ -611,7 +632,7 @@
                   data:'id='+estadoID,
                   success:function(html){
                       $('#municipio').html(html);
-                      console.log(html);
+                      // console.log(html);
                       document.getElementById('parroquia').value=0;
                       $('select').material_select();
                   }
@@ -620,7 +641,7 @@
       });
       
       $('#estado').on('change',function(){
-        console.log($(this).val());
+        // console.log($(this).val());
           var estadoID = $(this).val();
           if(estadoID){
               $.ajax({
