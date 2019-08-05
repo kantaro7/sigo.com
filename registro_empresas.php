@@ -33,20 +33,14 @@ if ($_POST["prcs"] == "S") {
 	if ($status === false) {
 		trigger_error($stmt1->error, E_USER_ERROR);
 	}
-	if ($celulares1->rowCount() > 0) {
-		$celular1 = false;
-	} else {
-		$celular1 = true;
-	}
-	if ($celulares2->rowCount() > 0) {
-		$celular2 = false;
-	} else {
-		$celular2 = true;
-	}
+
+	$celular1 = ($celulares1->rowCount() > 0) ? false : true;
+	$celular2 = ($celulares2->rowCount() > 0) ? false : true;
 
 	if ($rifesV && $celular1 && $celular2) {
-		$sql = "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2) 
-			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $_POST["telefono2"] . "')";
+		$telefono2 = ($_POST["telefono2"] == "") ? "N/A" : $_POST["telefono2"];
+		$sql = "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2)
+			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $telefono2  . "')";
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
 			trigger_error($db_pdo->error, E_USER_ERROR);
