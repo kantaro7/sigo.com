@@ -160,8 +160,8 @@ if ($_POST["prcs"] == "V") {
 	if ($celular1 && $celular2) {
 		$telefono2 = ($_POST["telefono2"] == "") ? "N/A" : $_POST["telefono2"];
 		$sql = ($rifesV) ? "UPDATE us_empresas set razon_social = '" . $_POST["razonSocial"] . "', razon_comercial = '" . $_POST["razonComercial"] . "', id_parroquia= '" . $_POST["parroquia"] . "', id_ciudad ='" . $_POST["ciudad"] . "', direccion = '" . $_POST["direccion"] . "', telefono1 = '" . $_POST["telefono1"] . "', telefono2 ='" . $telefono2 . "', verificado = CURRENT_TIMESTAMP, verificador = '" . $_POST["usuario"] . "' WHERE rif = '" . $rif . "'"
-			: "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2, registrado, verificado, verificador )
-			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $telefono2  . "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, " . $_POST['usuario'] . ")";
+			: "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2, registrado, verificado, verificador)
+			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $telefono2  . "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ".$_POST['usuario'].")";
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
 			trigger_error($db_pdo->error, E_USER_ERROR);

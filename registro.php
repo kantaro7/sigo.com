@@ -528,7 +528,31 @@ include_once "registro_sigoclub.php";
           }
         });
       });
-
+      ////////////////////////
+      $('#cedula').on('blur', function() {
+        if ($("#prcs").val() == "S") {
+          var ced = $('#tipo').val() + '-' + $('#cedula').val();
+          $.ajax({
+            type: 'POST',
+            encoding: "UTF-8",
+            url: 'ajaxSigoclub.php',
+            data: 'cedula=' + ced,
+            async: true,
+            success: function(existe) {
+              existe = JSON.parse(existe);
+              console.log(existe);
+              if (existe.length == 1) {
+                $('#cedula').val('');
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "Esta cédula ya existe en el sistema"
+                });
+              }
+            }
+          });
+        }
+      });
       /////     check validar  /////////////////////////
       $('#validar').on('change', function() {
 
@@ -606,6 +630,7 @@ include_once "registro_sigoclub.php";
           $("#okCondiciones").prop('checked', false);
           document.getElementById("registrar").disabled = true;
           $('#registrar').html('<i class="material-icons right">send</i>Registrar');
+          $("#prcs").val("S");
         }
       });
 

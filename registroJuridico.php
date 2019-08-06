@@ -523,6 +523,33 @@ include_once "registro_empresas.php";
         document.getElementById("registrar").disabled = false;
       }
 
+    ////////////////////////
+    $('#rif').on('blur', function() {
+      if ($("#prcs").val() == "S") {
+          var rif = $('#tipo').val() + '-' + $('#rif').val();
+          $.ajax({
+            type: 'POST',
+            encoding: "UTF-8",
+            url: 'ajaxEmpresas.php',
+            data: 'rif=' + rif,
+            async: true,
+            success: function(existe) {
+              existe = JSON.parse(existe);
+              console.log(existe);
+              if (existe.length > 1) {
+                $('#rif').val('');
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "Este rif ya existe en el sistema"
+                });
+              }
+            }
+          });
+        }
+      });
+      ///// 
+
  /////     check validar  /////////////////////////
  $('#validar').on('change', function() {
 
@@ -599,6 +626,7 @@ if ($('#validar').is(':checked')) {
   $("#okCondiciones").prop('checked', false);
   document.getElementById("registrar").disabled = true;
   $('#registrar').html('<i class="material-icons right">send</i>Registrar');
+  $("#prcs").val("S");
 }
 });
 
@@ -821,7 +849,7 @@ if ($('#validar').is(':checked')) {
             $.ajax({
               type: 'POST',
               encoding: "UTF-8",
-              url: 'ajaxEmpresas.php', //// cambiar por el ajax correcto
+              url: 'ajaxEmpresas.php',
               data: 'rif=' + rif,
               success: function(e) {
                 e = JSON.parse(e);
@@ -860,7 +888,7 @@ if ($('#validar').is(':checked')) {
                   $('#direccionLabel').addClass('active');
                   $('#telefono1').val(e[0].telefono1);
                   $('#telefono1Label').addClass('active');
-                  if (e[0].telefono2 == "") {
+                  if (e[0].telefono2 == "" || e[0].telefono2 == "N/A") {
                     $('#telefono2').val("");
                   } else {
                     $('#telefono2').val(e[0].telefono2);
