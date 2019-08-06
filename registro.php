@@ -555,7 +555,6 @@ include_once "registro_sigoclub.php";
               '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
             showConfirmButton: true,
             confirmButtonText: "Continuar",
-            closeOnConfirm: false,
             showCancelButton: true,
             cancelButtonText: "Cancelar",
             allowOutsideClick: false,

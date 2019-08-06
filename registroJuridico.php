@@ -1311,7 +1311,7 @@ if ($('#validar').is(':checked')) {
           data: 'cedula=' + ced2,
           success: function(e) {
             e = JSON.parse(e);
-            if (e.length == 1) {
+            if (e.length > 0 && e.length < 4) {
               $('#aut2').val(e[0].id);
               $('#auxCedpa2').val(e[0].cedula.substring(2, e[0].cedula.length));
               $('#datoAutorizado2Nombre').val(e[0].nombre1);
