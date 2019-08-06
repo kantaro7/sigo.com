@@ -152,7 +152,6 @@ include_once "registro_sigoclub.php";
                     <label for="sexo_m">M</label>
                   </p>
                 </div>
-
               </div>
             </div>
 
@@ -574,7 +573,7 @@ include_once "registro_sigoclub.php";
                       swal.fire({
                         type: 'error',
                         title: 'Error',
-                        text: "Credenciales INCORRECTAS"
+                        text: "Credenciales incorrectas"
                       })
                       $("#validar").prop('checked', false);
                     }

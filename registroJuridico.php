@@ -85,10 +85,11 @@ include_once "registro_empresas.php";
                 <div class="col s10 m10 l10" id="sigoclub">
                   <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB (Empresas) </h4>
                 </div>
-                <!-- <div class="input-field col s2 m2 l2">
+                <div class="input-field col s2 m2 l2">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
-                </div> -->
+                </div>
+                <input name="usuario" id="usuario" type="hidden" value="0" />
               </div>
             </div>
             <div class="col s12 m12 l12">
@@ -96,18 +97,18 @@ include_once "registro_empresas.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="trif" data-position="top" data-tooltip="Documento de identidad de la empresa"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
-                    <option value="V">V</option>
-                    <option value="J">J</option>
-                    <option value="G">G</option>
+                    <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                    <option <?php echo (($_GET["tipo"] == "J") ? "selected" : ""); ?> value="J">J</option>
+                    <option <?php echo (($_GET["tipo"] == "G") ? "selected" : ""); ?> value="G">G</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
                   <input id="rif" onkeyup="mascara('########-#',this,event,true)" name="rif" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo ($_POST["rif"]); ?>">
                   <label for="rif" class="black-text">Rif <span style="color:red">*</span></label>
                 </div>
-                <!-- <div class="input-field col l3 m3 s3">
-                  <button id="check" onClick="Buscar()" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</button>
-                </div> -->
+                <div class="input-field col l3 m3 s3" id="checkBuscarDiv" style="display:none;">
+                  <a id="check" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</a>
+                </div>
               </div>
             </div>
             <div class="col s12 m12 l12">
@@ -224,8 +225,8 @@ include_once "registro_empresas.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedularl" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo1" name="tipo1">
-                    <option value="V">V</option>
-                    <option value="E">E</option>
+                    <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                    <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
@@ -264,8 +265,8 @@ include_once "registro_empresas.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedulapa1" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo2" name="tipo2">
-                    <option value="V">V</option>
-                    <option value="E">E</option>
+                    <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                    <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
@@ -308,8 +309,8 @@ include_once "registro_empresas.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedulapa2" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo3" name="tipo3">
-                    <option value="V">V</option>
-                    <option value="E">E</option>
+                    <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                    <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
