@@ -523,6 +523,88 @@ include_once "registro_empresas.php";
         document.getElementById("registrar").disabled = false;
       }
 
+ /////     check validar  /////////////////////////
+ $('#validar').on('change', function() {
+
+if ($('#validar').is(':checked')) {
+  $("#prcs").val("V");
+  swal.fire({
+    type: 'warning',
+    title: 'Advertencia',
+    html: 'Debe ingresar credenciales válidas para continuar.<br>' +
+      '<div class="input-field col s2 m2 l2">' +
+      ' <input type="text" id="swal-input1" name="swal-input1" maxlength="50" />' +
+      ' <label for="swal-input1">Usuario</label>' +
+      '</div>' +
+      '<div class="input-field col s2 m2 l2">' +
+      '  <input type="password" id="swal-input2" name="swal-input2" maxlength="50" />' +
+      '  <label for="swal-input2">Contraseña</label>' +
+      '</div>' +
+      '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
+    showConfirmButton: true,
+    confirmButtonText: "Continuar",
+    closeOnConfirm: false,
+    showCancelButton: true,
+    cancelButtonText: "Cancelar",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    preConfirm: (login) => {
+      var ced = $('#tipo').val() + '-' + $('#cedula').val();
+      var user = $("#swal-input1").val();
+      var pass = $("#swal-input2").val();
+      if (user == "" || pass == "") {
+        Swal.showValidationMessage(
+          `Debe ingresar ambos campos para continuar.`
+        )
+      } else {
+        /////////////////////
+        $.ajax({
+          type: 'POST',
+          encoding: "UTF-8",
+          url: 'ajaxVerificadores.php',
+          data: {
+            usuario: user,
+            pass: pass
+          },
+          success: function(result2) {
+            console.log(result2);
+            if (result2 != 0) {
+              $('#checkBuscarDiv').attr('style', 'display:block');
+              $('#terminosRow').attr('style', 'display:none');
+              $("#okCondiciones").prop('checked', true);
+              document.getElementById("registrar").disabled = false;
+              $('#registrar').html('<i class="material-icons right">send</i>Validar');
+              $("#usuario").val(result2);
+            } else {
+              swal.fire({
+                type: 'error',
+                title: 'Error',
+                text: "Credenciales incorrectas"
+              })
+              $("#validar").prop('checked', false);
+            }
+          }
+        });
+        ////////////////////
+      }
+    },
+  }).then((result) => {
+    if (!result.value) {
+      $("#validar").prop('checked', false);
+      $("#prcs").val("S");
+    }
+  })
+} else {
+  $('#checkBuscarDiv').attr('style', 'display:none');
+  $('#terminosRow').attr('style', 'display:block');
+  $("#okCondiciones").prop('checked', false);
+  document.getElementById("registrar").disabled = true;
+  $('#registrar').html('<i class="material-icons right">send</i>Registrar');
+}
+});
+
+//////////////////////////////
+
       $('#condiciones').modal();
 
       $('#rif').on('focus', function() {
@@ -1007,8 +1089,11 @@ include_once "registro_empresas.php";
       if (document.getElementById("cedularl").value.length == 0) mnsj += " - Debe indicar una cédula para el representante legal.<br>";
       if (document.getElementById("cedularl").value.length < 7) mnsj += " - Debe ingresar una cédula válida para el representante legal.<br>";
       if (document.getElementById("cedularl").value.length > 0 && document.getElementById("rep").value == 0) mnsj += " - Debe confirmar la cédula del representante legal haciendo click en la lupa.<br>";
+      if (document.getElementById("cedularl").value.length == 0 && document.getElementById("rep").value != 0) mnsj += " - Debe indicar la cédula del representante legal haciendo click en la lupa.<br>";
       if (document.getElementById("cedulapa1").value.length > 0 && document.getElementById("aut1").value == 0) mnsj += " - Debe confirmar la cédula del primer personal autorizado haciendo click en la lupa.<br>";
+      if (document.getElementById("cedulapa1").value.length == 0 && document.getElementById("aut1").value != 0) mnsj += " - Debe indicar la cédula del primer personal autorizado haciendo click en la lupa.<br>";
       if (document.getElementById("cedulapa2").value.length > 0 && document.getElementById("aut2").value == 0) mnsj += " - Debe confirmar la cédula del segundo personal autorizado haciendo click en la lupa.<br>";
+      if (document.getElementById("cedulapa2").value.length == 0 && document.getElementById("aut2").value != 0) mnsj += " - Debe indicar la cédula del segundo personal autorizado haciendo click en la lupa.<br>";
       if (document.getElementById("razonSocial").value.length == 0) mnsj += " - Debe indicar la razón social de la empresa.<br>";
       if (document.getElementById("razonComercial").value.length == 0) mnsj += " - Debe indicar la razón comercial de la empresa.<br>";
       if (document.getElementById("telefono1").value.length == 0) mnsj += " - Debe indicar un teléfono de contacto.<br>";
@@ -1080,11 +1165,14 @@ include_once "registro_empresas.php";
                 showConfirmButton: true,
                 confirmButtonText: "Si",
                 showCancelButton: true,
-                cancelButtonText: "No"
+                cancelButtonText: "No",
+                onClose: function () {
+                  // if($(".swal2-container"))
+                  //   $(".swal2-container").remove();
+                  }
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedularl').val() + '&tipo=' + $('#tipo1').val(), '_blank');
-                  Swal.close();
                 }
               })
             }
@@ -1124,11 +1212,14 @@ include_once "registro_empresas.php";
                 showConfirmButton: true,
                 confirmButtonText: "Si",
                 showCancelButton: true,
-                cancelButtonText: "No"
+                cancelButtonText: "No",
+                onClose: function () {
+                  // if($(".swal2-container"))
+                  //   $(".swal2-container").remove();
+                  }
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedulapa1').val() + '&tipo=' + $('#tipo2').val(), '_blank');
-                  Swal.close();                  
                 }
               })
             }
@@ -1168,11 +1259,14 @@ include_once "registro_empresas.php";
                 showConfirmButton: true,
                 confirmButtonText: "Si",
                 showCancelButton: true,
-                cancelButtonText: "No"
+                cancelButtonText: "No",
+                onClose: function () {
+                  // if($(".swal2-container"))
+                  //   $(".swal2-container").remove();
+                  }
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedulapa2').val() + '&tipo=' + $('#tipo3').val(), '_blank');
-                  Swal.close();
                 }
               })
             }
