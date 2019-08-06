@@ -104,7 +104,7 @@ include_once "registro_empresas.php";
                 </div>
                 <div class="input-field col l7 m6 s5">
                   <input id="rif" onkeyup="mascara('########-#',this,event,true)" name="rif" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo ($_POST["rif"]); ?>">
-                  <label for="rif" class="black-text">Rif <span style="color:red">*</span></label>
+                  <label id="rifLabel" for="rif" class="black-text">Rif <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l3 m3 s3" id="checkBuscarDiv" style="display:none;">
                   <a id="check" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</a>
@@ -116,7 +116,7 @@ include_once "registro_empresas.php";
                 <div class="input-field col s12 m12 l12">
                   <i class="material-icons prefix tooltipped" id="trazonSocial" data-position="top" data-tooltip="Razón social de la empresa">account_circle</i>
                   <input maxlength="80" minlength="3" id="razonSocial" name="razonSocial" type="text" class="validate materialize" aria-required="true" value="<?php echo ($_POST["razonSocial"]); ?>">
-                  <label for="razonSocial" class="black-text">Razón social <span style="color:red">*</span></label>
+                  <label id="razonSocialLabel" for="razonSocial" class="black-text">Razón social <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@ include_once "registro_empresas.php";
                 <div class="input-field col s12 m12 l12">
                   <i class="material-icons prefix tooltipped" id="trazonComercial" data-position="top" data-tooltip="Razón comercial de la empresa">account_circle</i>
                   <input maxlength="80" minlength="3" id="razonComercial" name="razonComercial" type="text" class="validate" aria-required="true" value="<?php echo ($_POST["razonComercial"]); ?>">
-                  <label for="razonComercial" class="black-text">Razón comercial <span style="color:red">*</span></label>
+                  <label id="razonComercialLabel" for="razonComercial" class="black-text">Razón comercial <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -191,7 +191,7 @@ include_once "registro_empresas.php";
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Dirección detallada de la empresa">location_on</i>
                   <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" aria-required="true"><?php echo ($_POST["direccion"]); ?></textarea>
-                  <label for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
+                  <label id="direccionLabel" for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@ include_once "registro_empresas.php";
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono de preferencia (058-4XX.XXX.XX.XX)">phone</i>
                   <input id="telefono1" name="telefono1" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" aria-required="true" value="<?php echo ($_POST["telefono1"]); ?>">
-                  <label for="telefono1" class="black-text">Número de teléfono <span style="color:red">*</span></label>
+                  <label id="telefono1Label" for="telefono1" class="black-text">Número de teléfono <span style="color:red">*</span></label>
                 </div>
               </div>
             </div>
@@ -208,7 +208,7 @@ include_once "registro_empresas.php";
               <div class="row">
                 <div class="input-field col s12">
                   <input id="telefono2" name="telefono2" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="materialize'textarea" value="<?php echo ($_POST["telefono2"]); ?>">
-                  <label for="telefono2" class="black-text">Número de teléfono</label>
+                  <label id="telefono2Label" for="telefono2" class="black-text">Número de teléfono</label>
                 </div>
               </div>
             </div>
@@ -231,7 +231,7 @@ include_once "registro_empresas.php";
                 </div>
                 <div class="input-field col l7 m6 s5">
                   <input id="cedularl" onkeypress="return soloNumeros(event)" name="cedularl" type="text" maxlength="10" minlength="7" value="<?php echo ($_POST["cedularl"]); ?>">
-                  <label for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
+                  <label id="cedularlLabel" for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
                 <div class="input-field col l1 m1 s1">
                   <a id="checkrl" class="btn waves-effect waves-light" name="checkrl" value="checkrl" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
@@ -271,7 +271,7 @@ include_once "registro_empresas.php";
                 </div>
                 <div class="input-field col l7 m6 s5">
                   <input id="cedulapa1" onkeypress="return soloNumeros(event)" name="cedulapa1" type="text" maxlength="10" minlength="7" value="<?php echo ($_POST["cedulapa1"]); ?>">
-                  <label for="cedulapa1" class="black-text">Documento de identidad </label>
+                  <label id="cedulapa1Label" for="cedulapa1" class="black-text">Documento de identidad </label>
                 </div>
                 <div class="input-field col l3 m3 s3">
                   <a id="checkpa1" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
@@ -315,7 +315,7 @@ include_once "registro_empresas.php";
                 </div>
                 <div class="input-field col l7 m6 s5">
                   <input id="cedulapa2" onkeypress="return soloNumeros(event)" name="cedulapa2" type="text" maxlength="10" minlength="7" value="<?php echo ($_POST["cedulapa2"]); ?>">
-                  <label for="cedulapa2" class="black-text">Documento de identidad </label>
+                  <label id="cedulapa2Label" for="cedulapa2" class="black-text">Documento de identidad </label>
                 </div>
                 <div class="input-field col l3 m3 s3">
                   <a id="checkpa2" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
@@ -344,7 +344,7 @@ include_once "registro_empresas.php";
 
             <input name="prcs" id="prcs" type="hidden" value="S" />
             <!-- ///////////////////////////////////////   -->
-            <div class="row">
+            <div class="row" id="terminosRow">
               <div class="col s12 m12 center" style="margin-top: 6px">
                 <a class="waves-effect waves-light btn modal-trigger" data-target="condiciones">Ver términos y condiciones</a>
                 <div class="input-field col s12 m12 l12">
@@ -543,7 +543,6 @@ if ($('#validar').is(':checked')) {
       '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
     showConfirmButton: true,
     confirmButtonText: "Continuar",
-    closeOnConfirm: false,
     showCancelButton: true,
     cancelButtonText: "Cancelar",
     allowOutsideClick: false,
@@ -804,7 +803,99 @@ if ($('#validar').is(':checked')) {
 
 
     ///////////////////////////////////////////////////////////////
+ /////////////   busqueda para la validacion    ////////////
+ $('#check').on('click', function() {
+        var ced = $('#tipo').val() + '-' + $('#rif').val();
+        var numerosCed = $('#rif').val();
 
+        if (numerosCed == "") {
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: "Ingrese un rif válido para realizar la búsqueda.",
+            showConfirmButton: true,
+            confirmButtonText: "Si",
+          });
+        } else {
+          if (ced != "") {
+            $.ajax({
+              type: 'POST',
+              encoding: "UTF-8",
+              url: 'ajaxSigoclub.php', //// cambiar por el ajax correcto
+              data: 'rif=' + ced,
+              success: function(e) {
+                e = JSON.parse(e);
+                console.log(e);
+                if (e.length == 1) {
+                  $("rif").attr('readonly', 'readonly');
+                  $('#razonSocial').val(e[0].razon_social);
+                  $('#razonSocialLabel').addClass('active');
+                  $('#razonComercial').val(e[0].razon_comercial);
+                  $('#razonComercialLabel').addClass('active');
+                  console.log(e[0].id_ciudad);
+                  $.ajax({
+                    type: 'POST',
+                    encoding: "UTF-8",
+                    url: 'ajaxEstado.php',
+                    data: 'id=' + e[0].id_parroquia,
+                    success: function(a) {
+                      a = JSON.parse(a);
+                      // estado
+                      $('#estado').val(a[0].id_estado).trigger('change');
+                      $('select').material_select();
+                      // municipio
+                      setTimeout(function() {
+                        $('#municipio').val(a[0].id_municipio).trigger('change');
+                        $('select').material_select();
+                        $('#ciudad').val(e[0].id_ciudad).trigger('change');
+                        $('select').material_select();
+                        setTimeout(function() {
+                          $('#parroquia').val(e[0].id_parroquia).trigger('change');
+                          $('select').material_select();
+                        }, 500);
+                      }, 500);
+                    }
+                  });
+                  $('#direccion').val(decodeURIComponent(escape(e[0].direccion)));
+                  $('#direccionLabel').addClass('active');
+                  $('#telefono1').val(e[0].nombre2);
+                  $('#telefono1Label').addClass('active');
+                  $('#telefono2').val(e[0].apellido1);
+                  $('#telefono2Label').addClass('active');
+
+                  $('#cedularl').val(e[0].apellido2);
+                  $('#cedularlLabel').addClass('active');
+                  $('#cedulapa1').val(e[0].apellido2);
+                  $('#cedulapa1Label').addClass('active');
+                  $('#cedulapa2').val(e[0].apellido2);
+                  $('#cedulapa2Label').addClass('active');
+
+
+                  $('select').material_select();
+                } else {
+                  swal.fire({
+                    type: 'warning',
+                    title: 'Advertencia',
+                    html: "La cédula que busca no está registrada.",
+                    showConfirmButton: true,
+                    confirmButtonText: "Si",
+                  });
+                  $('#checkBuscarDiv').attr('style', 'display:none');
+                  $('#terminosRow').attr('style', 'display:block');
+                  $("#okCondiciones").prop('checked', false);
+                  document.getElementById("registrar").disabled = true;
+                  $('#registrar').html('<i class="material-icons right">send</i>Registrar');
+                  $("#validar").prop('checked', false);
+                }
+                var resultId = 0;
+                return resultId;
+              }
+            });
+          }
+        }
+
+      });
+      ////////////////////////
 
     ///////////////////////////////////////////////////////
 
@@ -1166,10 +1257,6 @@ if ($('#validar').is(':checked')) {
                 confirmButtonText: "Si",
                 showCancelButton: true,
                 cancelButtonText: "No",
-                onClose: function () {
-                  // if($(".swal2-container"))
-                  //   $(".swal2-container").remove();
-                  }
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedularl').val() + '&tipo=' + $('#tipo1').val(), '_blank');
@@ -1213,10 +1300,6 @@ if ($('#validar').is(':checked')) {
                 confirmButtonText: "Si",
                 showCancelButton: true,
                 cancelButtonText: "No",
-                onClose: function () {
-                  // if($(".swal2-container"))
-                  //   $(".swal2-container").remove();
-                  }
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedulapa1').val() + '&tipo=' + $('#tipo2').val(), '_blank');
@@ -1260,10 +1343,6 @@ if ($('#validar').is(':checked')) {
                 confirmButtonText: "Si",
                 showCancelButton: true,
                 cancelButtonText: "No",
-                onClose: function () {
-                  // if($(".swal2-container"))
-                  //   $(".swal2-container").remove();
-                  }
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedulapa2').val() + '&tipo=' + $('#tipo3').val(), '_blank');
