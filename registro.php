@@ -498,9 +498,9 @@ include_once "registro_sigoclub.php";
                     showConfirmButton: true,
                     confirmButtonText: "Si",
                   });
-                  $('#checkBuscarDiv').attr('style','display:none');
-                  $('#terminosRow').attr('style','display:block');
-                  $("#okCondiciones").prop('checked', false);        
+                  $('#checkBuscarDiv').attr('style', 'display:none');
+                  $('#terminosRow').attr('style', 'display:block');
+                  $("#okCondiciones").prop('checked', false);
                   document.getElementById("registrar").disabled = true;
                   $('#registrar').html('<i class="material-icons right">send</i>Registrar');
                   $("#validar").prop('checked', false);
@@ -514,7 +514,26 @@ include_once "registro_sigoclub.php";
 
       });
       ////////////////////////
-
+      $('#telefono').on('blur', function() {
+        var telefono = $(this).val();
+        $.ajax({
+          type: 'POST',
+          encoding: "UTF-8",
+          url: 'ajaxTelefonoNatural.php',
+          data: 'telefono=' + telefono,
+          async: true,
+          success: function(existe) {
+            if (existe == 1) {
+              $('#telefono').val('');
+              swal.fire({
+                type: 'warning',
+                title: 'Advertencia',
+                html: "Este número de teléfono no es válido o ya existe en el sistema"
+              });
+            }
+          }
+        });
+      });
 
       /////     check validar  /////////////////////////
       $('#validar').on('change', function() {
