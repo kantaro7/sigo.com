@@ -14,8 +14,10 @@ $st1->execute();
 
 if ($st1->rowCount() == 0) {
     echo 0;
+}else{
+    $cedula = $st1->fetchAll();
+
+    echo ($cedula[0]);
 }
 
-$cedula = $st1->fetchAll();
 
-echo ($cedula[0][0]);

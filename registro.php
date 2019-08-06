@@ -539,11 +539,32 @@
                   `Debe ingresar ambos campos para continuar.`
                 )
               } else {
-                $('#checkBuscarDiv').attr('style','display:block');
-                $('#terminosRow').attr('style','display:none');
-                $("#okCondiciones").prop('checked', true);
-                document.getElementById("registrar").disabled = false;
-                $('#registrar').html('<i class="material-icons right">send</i>Validar');
+                /////////////////////
+                $.ajax({
+                  type:'POST',
+                  encoding:"UTF-8",
+                  url:'ajaxVerificadores.php',
+                  data: { usuario: ced, pass: pass },
+                  success:function(result2){
+                    console.log(result2);
+                    
+                    if (result2 != 0) {
+                      $('#checkBuscarDiv').attr('style','display:block');
+                      $('#terminosRow').attr('style','display:none');
+                      $("#okCondiciones").prop('checked', true);
+                      document.getElementById("registrar").disabled = false;
+                      $('#registrar').html('<i class="material-icons right">send</i>Validar');
+                    } else {
+                      swal.fire({
+                        type: 'error',
+                        title: 'Error',
+                        text: "Credenciales INCORRECTAS"
+                      })
+                      $("#validar").prop('checked', false);
+                    }
+                  }
+                 }); 
+                ////////////////////
               }
             },
         }).then((result) => {
