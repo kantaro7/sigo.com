@@ -1083,6 +1083,7 @@ include_once "registro_empresas.php";
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedularl').val() + '&tipo=' + $('#tipo1').val(), '_blank');
+                  Swal.close();
                 }
               })
             }
@@ -1126,6 +1127,7 @@ include_once "registro_empresas.php";
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedulapa1').val() + '&tipo=' + $('#tipo2').val(), '_blank');
+                  Swal.close();                  
                 }
               })
             }
@@ -1169,6 +1171,7 @@ include_once "registro_empresas.php";
               }).then((result) => {
                 if (result.value) {
                   window.open('registro.php?cedula=' + $('#cedulapa2').val() + '&tipo=' + $('#tipo3').val(), '_blank');
+                  Swal.close();
                 }
               })
             }
