@@ -85,7 +85,7 @@
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
-                  <input name="usuario" id="usuario" type="hidden" value="0" /> 
+                <input name="usuario" id="usuario" type="hidden" value="0" /> 
               </div>
 
               <div class="row">
@@ -511,6 +511,7 @@
     $('#validar').on('change',function(){
       
       if ($('#validar').is(':checked')) {
+        $("#prcs").val("V");
         swal.fire({
             type: 'warning',
             title: 'Advertencia',
@@ -572,6 +573,7 @@
         }).then((result) => {
           if (!result.value) {
             $("#validar").prop('checked', false);
+            $("#prcs").val("S");
           }
         })
       } else {
