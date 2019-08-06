@@ -142,9 +142,9 @@ if ($_POST["prcs"] == "V") {
 		if (isset($_POST["sexo_f"])) $sexo = "F";
 		if (isset($_POST["sexo_m"])) $sexo = "M";
 
-		$sql = $cedulaV ? "UPDATE us_sigoclub set nombre1 = '" . $_POST["nombre1"] . "', nombre2 = '" . $_POST["nombre2"] . "', apellido1 = '" . $_POST["apellido1"] . "', apellido2 = '" . $_POST["apellido2"] . "', sexo = '" . $sexo . "', fecha_nac = '" . $date . "', celular = '" . $_POST["telefono"] . "', correo = '" . $_POST["correo"] . "', id_ciudad = '" . $_POST["ciudad"] . "', id_parroquia = '" . $_POST["parroquia"] . "', id_vivienda = '" . $_POST["vivienda"] . "', id_zona = '" . $_POST["zona"] . "', direccion = '" . $_POST["direccion"] . "', verificado = CURRENT_TIMESTAMP"
-			: "INSERT INTO us_sigoclub (nombre1, nombre2, apellido1, apellido2, cedula, sexo, fecha_nac, celular, correo, id_ciudad, id_parroquia, id_vivienda, id_zona, direccion) 
-			VALUES ('" . $_POST["nombre1"] . "', '" . $_POST["nombre2"] . "', '" . $_POST["apellido1"] . "', '" . $_POST["apellido2"] . "', '" . $cedula . "', '" . $sexo . "', '" . $date . "', '" . $_POST["telefono"] . "', '" . $_POST["correo"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["vivienda"] . "', '" . $_POST["zona"] . "', '" . $_POST["direccion"] . "')";
+		$sql = $cedulaV ? "UPDATE us_sigoclub set nombre1 = '" . $_POST["nombre1"] . "', nombre2 = '" . $_POST["nombre2"] . "', apellido1 = '" . $_POST["apellido1"] . "', apellido2 = '" . $_POST["apellido2"] . "', sexo = '" . $sexo . "', fecha_nac = '" . $date . "', celular = '" . $_POST["telefono"] . "', correo = '" . $_POST["correo"] . "', id_ciudad = '" . $_POST["ciudad"] . "', id_parroquia = '" . $_POST["parroquia"] . "', id_vivienda = '" . $_POST["vivienda"] . "', id_zona = '" . $_POST["zona"] . "', direccion = '" . $_POST["direccion"] . "', verificado = CURRENT_TIMESTAMP, verificador= '" . $_POST["usuario"] . "'"
+			: "INSERT INTO us_sigoclub (nombre1, nombre2, apellido1, apellido2, cedula, sexo, fecha_nac, celular, correo, id_ciudad, id_parroquia, id_vivienda, id_zona, direccion, verificado, verificador) 
+			VALUES ('" . $_POST["nombre1"] . "', '" . $_POST["nombre2"] . "', '" . $_POST["apellido1"] . "', '" . $_POST["apellido2"] . "', '" . $cedula . "', '" . $sexo . "', '" . $date . "', '" . $_POST["telefono"] . "', '" . $_POST["correo"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["vivienda"] . "', '" . $_POST["zona"] . "', '" . $_POST["direccion"] . "', CURRENT_TIMESTAMP, '" . $_POST["usuario"] . "')";
 
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
@@ -159,9 +159,6 @@ if ($_POST["prcs"] == "V") {
 			$_SESSION["save_error"] = "OK";
 			$_POST = array();
 		}
-	} elseif (!$celularV && !$celularV) {
-		$_POST["prcs"] = "";
-		$_SESSION["save_error"] = "El teléfono y la cédula ingresados ya existen en nuestra base de datos";
 	} elseif (!$celularV) {
 		$_POST["prcs"] = "";
 		$_SESSION["save_error"] = "El teléfono ingresado ya existe en nuestra base de datos";
@@ -173,6 +170,6 @@ if ($_POST["prcs"] == "V") {
 		$_SESSION["save_error"] = "Debe de ser mayor de edad para registrarse en el sistema";
 	} else {
 		$_POST["prcs"] = "";
-		$_SESSION["save_error"] = "La cédula ingresada ya existe en nuestra base de datos";
+		$_SESSION["save_error"] = "Error en el sistema";
 	}
 }
