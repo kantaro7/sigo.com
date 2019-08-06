@@ -805,10 +805,10 @@ if ($('#validar').is(':checked')) {
     ///////////////////////////////////////////////////////////////
  /////////////   busqueda para la validacion    ////////////
  $('#check').on('click', function() {
-        var ced = $('#tipo').val() + '-' + $('#rif').val();
-        var numerosCed = $('#rif').val();
+        var rif = $('#tipo').val() + '-' + $('#rif').val();
+        var numerosRif = $('#rif').val();
 
-        if (numerosCed == "") {
+        if (numerosRif == "") {
           swal.fire({
             type: 'warning',
             title: 'Advertencia',
@@ -817,20 +817,20 @@ if ($('#validar').is(':checked')) {
             confirmButtonText: "Si",
           });
         } else {
-          if (ced != "") {
+          if (rif != "") {
             $.ajax({
               type: 'POST',
               encoding: "UTF-8",
-              url: 'ajaxSigoclub.php', //// cambiar por el ajax correcto
-              data: 'rif=' + ced,
+              url: 'ajaxEmpresas.php', //// cambiar por el ajax correcto
+              data: 'rif=' + rif,
               success: function(e) {
                 e = JSON.parse(e);
                 console.log(e);
                 if (e.length == 1) {
                   $("rif").attr('readonly', 'readonly');
-                  $('#razonSocial').val(e[0].razon_social);
+                  $('#razonSocial').val(e[0].social);
                   $('#razonSocialLabel').addClass('active');
-                  $('#razonComercial').val(e[0].razon_comercial);
+                  $('#razonComercial').val(e[0].comercial);
                   $('#razonComercialLabel').addClass('active');
                   console.log(e[0].id_ciudad);
                   $.ajax({
@@ -858,16 +858,29 @@ if ($('#validar').is(':checked')) {
                   });
                   $('#direccion').val(decodeURIComponent(escape(e[0].direccion)));
                   $('#direccionLabel').addClass('active');
-                  $('#telefono1').val(e[0].nombre2);
+                  $('#telefono1').val(e[0].telefono1);
                   $('#telefono1Label').addClass('active');
-                  $('#telefono2').val(e[0].apellido1);
+                  $('#telefono2').val(e[0].telefono2);
                   $('#telefono2Label').addClass('active');
-                  $('#cedularl').val(e[0].apellido2);
-                  $('#cedularlLabel').addClass('active');
-                  $('#cedulapa1').val(e[0].apellido2);
-                  $('#cedulapa1Label').addClass('active');
-                  $('#cedulapa2').val(e[0].apellido2);
-                  $('#cedulapa2Label').addClass('active');
+                  
+                  for (let i = 0; i < e.length; i++) {
+                    if (e[i].tipo == 1) {
+                      $('#cedularl').val(e[i].cedula.substring(2, e[i].cedula.length));
+                      $('#cedularlLabel').addClass('active');
+                      $('#checkrl').trigger('click');
+                      
+                      
+                    } else {
+                      $('#cedulapa'+i).val(e[i].cedula.substring(2, e[i].cedula.length));
+                      $('#cedulapa'+i+'Label').addClass('active');
+                      $('#checkpa'+i).trigger('click');
+                    }
+                  }
+                      
+                      // $('#cedulapa1').val(e[0].apellido2);
+                      // $('#cedulapa1Label').addClass('active');
+                      // $('#cedulapa2').val(e[0].apellido2);
+                      // $('#cedulapa2Label').addClass('active');
 
                   $('select').material_select();
                 } else {
