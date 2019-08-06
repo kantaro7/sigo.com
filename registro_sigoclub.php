@@ -96,7 +96,6 @@ if ($_POST["prcs"] == "S") {
 
 if ($_POST["prcs"] == "V") {
 	$cedula = $_POST["tipo"] . "-" . $_POST["cedula"];
-	var_dump($cedula);
 	$cedulas = $db_pdo->prepare("SELECT id  FROM us_sigoclub WHERE cedula = '" . $cedula . "' limit 1");
 	if ($cedulas === false) {
 		trigger_error($db_pdo->error, E_USER_ERROR);
@@ -120,14 +119,17 @@ if ($_POST["prcs"] == "V") {
 	if ($status === false) {
 		trigger_error($stmt1->error, E_USER_ERROR);
 	}
-	if ($celulares->rowCount() > 0 && !$cedulaV) {
-		if ($celulares->rowCount() > 1) {
+	$celulares = $celulares->fetchAll();
+	if (count($celulares) > 0 && !$cedulaV) {
+		if (count($celulares) > 1) {
 			$celularV = false;
 		} else {
 			$celularV = true;
 		}
-	} elseif ($celulares->rowCount() > 0 && $cedulaV) {
+	} elseif (count($celulares) > 0 && $cedulaV) {
 		$celularV = false;
+	} else {
+		$celularV = true;
 	}
 	$date = $_POST["fecha_nac"];
 
@@ -146,11 +148,9 @@ if ($_POST["prcs"] == "V") {
 		$sexo = "I";
 		if (isset($_POST["sexo_f"])) $sexo = "F";
 		if (isset($_POST["sexo_m"])) $sexo = "M";
-		var_dump($cedula);
 		$sql = !$cedulaV ? "UPDATE us_sigoclub set nombre1 = '" . $_POST["nombre1"] . "', nombre2 = '" . $_POST["nombre2"] . "', apellido1 = '" . $_POST["apellido1"] . "', apellido2 = '" . $_POST["apellido2"] . "', sexo = '" . $sexo . "', fecha_nac = '" . $date . "', celular = '" . $_POST["telefono"] . "', correo = '" . $_POST["correo"] . "', id_ciudad = '" . $_POST["ciudad"] . "', id_parroquia = '" . $_POST["parroquia"] . "', id_vivienda = '" . $_POST["vivienda"] . "', id_zona = '" . $_POST["zona"] . "', direccion = '" . $_POST["direccion"] . "', verificado = CURRENT_TIMESTAMP, verificador= '" . $_POST["usuario"] . "' WHERE cedula = '" . $cedula . "'"
 			: "INSERT INTO us_sigoclub (nombre1, nombre2, apellido1, apellido2, cedula, sexo, fecha_nac, celular, correo, id_ciudad, id_parroquia, id_vivienda, id_zona, direccion, verificado, verificador) 
 			VALUES ('" . $_POST["nombre1"] . "', '" . $_POST["nombre2"] . "', '" . $_POST["apellido1"] . "', '" . $_POST["apellido2"] . "', '" . $cedula . "', '" . $sexo . "', '" . $date . "', '" . $_POST["telefono"] . "', '" . $_POST["correo"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["vivienda"] . "', '" . $_POST["zona"] . "', '" . $_POST["direccion"] . "', CURRENT_TIMESTAMP, '" . $_POST["usuario"] . "')";
-		var_dump($sql);
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
 			trigger_error($db_pdo->error, E_USER_ERROR);
