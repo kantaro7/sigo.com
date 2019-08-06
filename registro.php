@@ -85,6 +85,7 @@
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
+                  <input name="usuario" id="usuario" type="hidden" value="0" /> 
               </div>
 
               <div class="row">
@@ -544,16 +545,17 @@
                   type:'POST',
                   encoding:"UTF-8",
                   url:'ajaxVerificadores.php',
-                  data: { usuario: ced, pass: pass },
+                  data: { usuario: user, pass: pass },
                   success:function(result2){
                     console.log(result2);
-                    
+                    console.log(result2);
                     if (result2 != 0) {
                       $('#checkBuscarDiv').attr('style','display:block');
                       $('#terminosRow').attr('style','display:none');
                       $("#okCondiciones").prop('checked', true);
                       document.getElementById("registrar").disabled = false;
                       $('#registrar').html('<i class="material-icons right">send</i>Validar');
+                      $("#usuario").val(result2);
                     } else {
                       swal.fire({
                         type: 'error',

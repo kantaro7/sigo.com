@@ -11,13 +11,11 @@ $acentos = $db_pdo->query("SET NAMES 'utf8'");
 
 $st1 = $db_pdo->prepare("SELECT id FROM us_verificadores WHERE usuario = '" . $_POST['usuario'] . "' AND pass = '" . $_POST['pass'] . "' limit 1");
 $st1->execute();
-
-if ($st1->rowCount() == 0) {
+$cedula = $st1->fetchAll();
+if (count($cedula) == 0) {
     echo 0;
 }else{
-    $cedula = $st1->fetchAll();
-
-    echo ($cedula[0]);
+    echo ($cedula[0]['id']);
 }
 
 
