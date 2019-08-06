@@ -1011,6 +1011,8 @@ include_once "registro_empresas.php";
       if (document.getElementById("razonSocial").value.length == 0) mnsj += " - Debe indicar la razón social de la empresa.<br>";
       if (document.getElementById("razonComercial").value.length == 0) mnsj += " - Debe indicar la razón comercial de la empresa.<br>";
       if (document.getElementById("telefono1").value.length == 0) mnsj += " - Debe indicar un teléfono de contacto.<br>";
+      if (document.getElementById("telefono1").value.length < 17) mnsj += " - Debe indicar un teléfono de contacto válido.<br>";
+      if (document.getElementById("telefono2").value.length > 0 && document.getElementById("telefono2").value.length < 17) mnsj += " - Debe indicar su teléfono secundario válido.<br>";
       if (document.getElementById("estado").value == 0) mnsj += " - Debe indicar un estado.<br>";
       if (document.getElementById("municipio").value == 0) mnsj += " - Debe indicar un municipio.<br>";
       if (document.getElementById("parroquia").value == 0) mnsj += " - Debe indicar una parroquia.<br>";
