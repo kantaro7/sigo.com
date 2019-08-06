@@ -862,7 +862,6 @@ if ($('#validar').is(':checked')) {
                   $('#telefono1Label').addClass('active');
                   $('#telefono2').val(e[0].apellido1);
                   $('#telefono2Label').addClass('active');
-
                   $('#cedularl').val(e[0].apellido2);
                   $('#cedularlLabel').addClass('active');
                   $('#cedulapa1').val(e[0].apellido2);
@@ -870,13 +869,12 @@ if ($('#validar').is(':checked')) {
                   $('#cedulapa2').val(e[0].apellido2);
                   $('#cedulapa2Label').addClass('active');
 
-
                   $('select').material_select();
                 } else {
                   swal.fire({
                     type: 'warning',
                     title: 'Advertencia',
-                    html: "La cédula que busca no está registrada.",
+                    html: "El rif que busca no está registrado.",
                     showConfirmButton: true,
                     confirmButtonText: "Si",
                   });
@@ -1117,15 +1115,6 @@ if ($('#validar').is(':checked')) {
     /////////////////////////////////
   </script>
 
-  <?php if (isset($_POST["fecha"]) && $_POST["fecha"] != "") { ?>
-    <script>
-      var date = new Date(<?php echo (substr($_POST["fecha_nac"], 6, 4) . ", " . (intval(substr($_POST["fecha_nac"], 3, 2)) - 1) . ", " . substr($_POST["fecha_nac"], 0, 2)); ?>);
-      $('#fecha_emplea').set('select', date);
-    </script>
-  <?php } ?>
-
-
-
   <!-- Scroll Smoot -->
   <script>
     $(function() {
@@ -1160,18 +1149,6 @@ if ($('#validar').is(':checked')) {
 
   <!-- Validación Formulario 1 y 2 -->
   <script language="JavaScript">
-    function validarFecha(fecha) {
-      if (fecha.length == 0) {
-        return false;
-      }
-      var fechanacimiento = moment(fecha, "DD-MM-YYYY");
-      if (!fechanacimiento.isValid())
-        return false;
-      var years = moment().diff(fechanacimiento, 'years');
-      console.log(years);
-      return years > 18;
-    }
-
     function frm_vld_emplea() {
       var mnsj = ""
 
