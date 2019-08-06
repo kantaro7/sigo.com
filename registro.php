@@ -495,6 +495,12 @@
                     showConfirmButton: true,
                     confirmButtonText: "Si",
                   });
+                  $('#checkBuscarDiv').attr('style','display:none');
+                  $('#terminosRow').attr('style','display:block');
+                  $("#okCondiciones").prop('checked', false);        
+                  document.getElementById("registrar").disabled = true;
+                  $('#registrar').html('<i class="material-icons right">send</i>Registrar');
+                  $("#validar").prop('checked', false);
                 }
                 var resultId = 0;
                 return resultId;
