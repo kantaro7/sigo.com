@@ -140,14 +140,10 @@ if ($_POST["prcs"] == "V") {
 		trigger_error($stmt1->error, E_USER_ERROR);
 	}
 
-	if ($rifes->rowCount() > 0) {
-		$rifesV = false;
-	} else {
-		$rifesV = true;
-	}
+	$rifesV = ($rifes->rowCount() > 0) ? true : false;
 
-	$celulares1 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE telefono1 = '" . $_POST["telefono1"] . "' OR telefono2 = '" . $_POST["telefono1"] . "' limit 1");
-	$celulares2 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE telefono2 = '" . $_POST["telefono2"] . "' OR telefono2 = '" . $_POST["telefono2"] . "' limit 1");
+	$celulares1 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE telefono1 = '" . $_POST["telefono1"] . "' OR telefono2 = '" . $_POST["telefono1"] . "'");
+	$celulares2 = $db_pdo->prepare("SELECT id FROM us_empresas WHERE telefono2 = '" . $_POST["telefono2"] . "' OR telefono2 = '" . $_POST["telefono2"] . "'");
 	if ($celulares1 === false || $celulares2 === false) {
 		trigger_error($db_pdo->error, E_USER_ERROR);
 	}
@@ -157,12 +153,13 @@ if ($_POST["prcs"] == "V") {
 		trigger_error($stmt1->error, E_USER_ERROR);
 	}
 
-	$celular1 = ($celulares1->rowCount() > 0) ? false : true;
-	$celular2 = ($celulares2->rowCount() > 0) ? false : true;
+	$celular1 = (($celulares1->rowCount() == 0) || ($celulares1->rowCount() == 1 && $rifes)) ? true : false;
+	$celular2 = (($celulares2->rowCount() == 0) || ($celulares2->rowCount() == 1 && $rifes)) ? true : false;
 
-	if ($rifesV && $celular1 && $celular2) {
+	if ($celular1 && $celular2) {
 		$telefono2 = ($_POST["telefono2"] == "") ? "N/A" : $_POST["telefono2"];
-		$sql = "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2)
+		$sql = ($rifes) ? "UPDATE us_empresas set razon_social = '" . $_POST["razonSocial"] . "', razon_comercial = '" . $_POST["razonComercial"] . "', id_parroquia= '" . $_POST["parroquia"] . "', id_ciudad ='" . $_POST["ciudad"] . "', direccion = '" . $_POST["direccion"] . "', telefono1 = '" . $_POST["telefono1"] . "', telefono 2 ='" . $telefono2 . "', verificado = CURRENT_TIMESTAMP, verificador = '" . $_POST["usuario"] . "' WHERE rif = '" . $rif . "'"
+			: "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2)
 			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $telefono2  . "')";
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
@@ -182,6 +179,12 @@ if ($_POST["prcs"] == "V") {
 		$id = $st1->fetchAll();
 		$id = $id[0][0];
 
+		$sql = "DELETE us_pivot_sigoclub_empresas WHERE id_empresa = " . $id;
+		$s = $db_pdo->prepare($sql);
+		if ($s === false) {
+			trigger_error($db_pdo->error, E_USER_ERROR);
+		}
+		$s->execute();
 
 		$sql = "INSERT INTO us_pivot_sigoclub_empresas (id_empresa, id_sigoclub, tipo) 
 			VALUES ('" . $id . "', '" . $idR . "', 1)";
