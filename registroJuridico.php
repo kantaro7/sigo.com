@@ -826,7 +826,7 @@ if ($('#validar').is(':checked')) {
               success: function(e) {
                 e = JSON.parse(e);
                 console.log(e);
-                if (e.length == 1) {
+                if (e.length > 0 && e.length < 4) {
                   $("rif").attr('readonly', 'readonly');
                   $('#razonSocial').val(e[0].social);
                   $('#razonSocialLabel').addClass('active');
@@ -860,16 +860,18 @@ if ($('#validar').is(':checked')) {
                   $('#direccionLabel').addClass('active');
                   $('#telefono1').val(e[0].telefono1);
                   $('#telefono1Label').addClass('active');
-                  $('#telefono2').val(e[0].telefono2);
-                  $('#telefono2Label').addClass('active');
+                  if (e[0].telefono2 == "") {
+                    $('#telefono2').val("");
+                  } else {
+                    $('#telefono2').val(e[0].telefono2);
+                    $('#telefono2Label').addClass('active');
+                  } 
                   
                   for (let i = 0; i < e.length; i++) {
                     if (e[i].tipo == 1) {
                       $('#cedularl').val(e[i].cedula.substring(2, e[i].cedula.length));
                       $('#cedularlLabel').addClass('active');
                       $('#checkrl').trigger('click');
-                      
-                      
                     } else {
                       $('#cedulapa'+i).val(e[i].cedula.substring(2, e[i].cedula.length));
                       $('#cedulapa'+i+'Label').addClass('active');
@@ -877,11 +879,6 @@ if ($('#validar').is(':checked')) {
                     }
                   }
                       
-                      // $('#cedulapa1').val(e[0].apellido2);
-                      // $('#cedulapa1Label').addClass('active');
-                      // $('#cedulapa2').val(e[0].apellido2);
-                      // $('#cedulapa2Label').addClass('active');
-
                   $('select').material_select();
                 } else {
                   swal.fire({
@@ -891,12 +888,6 @@ if ($('#validar').is(':checked')) {
                     showConfirmButton: true,
                     confirmButtonText: "Si",
                   });
-                  $('#checkBuscarDiv').attr('style', 'display:none');
-                  $('#terminosRow').attr('style', 'display:block');
-                  $("#okCondiciones").prop('checked', false);
-                  document.getElementById("registrar").disabled = true;
-                  $('#registrar').html('<i class="material-icons right">send</i>Registrar');
-                  $("#validar").prop('checked', false);
                 }
                 var resultId = 0;
                 return resultId;
@@ -1311,7 +1302,7 @@ if ($('#validar').is(':checked')) {
           data: 'cedula=' + ced2,
           success: function(e) {
             e = JSON.parse(e);
-            if (e.length > 0 && e.length < 4) {
+            if (e.length == 1) {
               $('#aut2').val(e[0].id);
               $('#auxCedpa2').val(e[0].cedula.substring(2, e[0].cedula.length));
               $('#datoAutorizado2Nombre').val(e[0].nombre1);
