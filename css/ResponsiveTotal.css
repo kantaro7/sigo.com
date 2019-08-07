@@ -51,6 +51,14 @@
         padding: 0;
     }
 
+    #direccion{
+        padding-bottom: 1em;
+    }
+
+    #sexoRow{
+        display: flex;
+    }
+
 }
 
 @media screen and (min-width:359px) and (max-width:426px){

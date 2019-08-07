@@ -156,15 +156,15 @@ include_once "registro_sigoclub.php";
                 </div>
               </div>
             </div>
-            <div class="col s12 m3 l3">
-              <div class="row">
-                <div class="col s12 m3">
+            <div class="col s10 m3 l3 offset-s2">
+              <div class="row" id="sexoRow">
+                <div class="col s12 m3 s6">
                   <p>
                     <input id="sexo_f" name="sexo_f" type="checkbox" onchange="toggle_chckbx(this.value, 'sexo_m');" <?php if ($_POST["sexo_f"] != "") echo ("checked"); ?> />
                     <label for="sexo_f">F</label>
                   </p>
                 </div>
-                <div class="col s12 m3">
+                <div class="col s12 m3 s6">
                   <p>
                     <input id="sexo_m" name="sexo_m" type="checkbox" onchange="toggle_chckbx(this.value, 'sexo_f');" <?php if ($_POST["sexo_m"] != "") echo ("checked"); ?> />
                     <label for="sexo_m">M</label>
@@ -267,7 +267,7 @@ include_once "registro_sigoclub.php";
                   </select>
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l4m11 offset-m1 s10 offset-s2">
+                <div class="input-field col l4 m11 offset-m1 s10 offset-s2">
                   <select name="vivienda" id="vivienda" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <?php
