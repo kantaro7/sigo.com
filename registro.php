@@ -18,7 +18,11 @@ $db_pdo = new PDO("mysql:host=$host;dbname=$base", $user, $pass);
 
 //Establecer variable random para evitar cache de fotos
 $random = md5(uniqid(rand(), 1));
-
+if (isset($_POST['usuario'])) {
+  $usuarioLog = $_POST['usuario'];
+} else {
+  $usuarioLog = 0;
+}
 //Indicador de Lenguaje
 $lng = "esp";
 
@@ -50,6 +54,7 @@ include_once "registro_sigoclub.php";
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
   <link href="css/Icon.css" rel="stylesheet">
+  <script></script>
 
 </head>
 
@@ -89,10 +94,10 @@ include_once "registro_sigoclub.php";
               </div>
 
               <!-- <div class="row">
-                <div class="col s12 m12 l12" style="display: flex;">
-                  <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto; display:">Registro de empresas</a>
-                </div>
-              </div> -->
+                  <div class="col s12 m12 l12" style="display: flex;">
+                    <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto; display:">Registro de empresas</a>
+                  </div>
+                </div> -->
             </div>
             <div class="col s12 m12 l12">
               <div class="row">
@@ -417,8 +422,8 @@ include_once "registro_sigoclub.php";
         var validacion = 0;
       <?php } ?>
 
-      <?php if (isset($_POST['usuario'])) { ?>
-        var usuario = <?php echo ($_POST['usuario']) ?>;
+      <?php if (isset($usuarioLog)) { ?>
+        var usuario = <?php echo ($usuarioLog) ?>;
       <?php } else { ?>
         var usuario = 0;
       <?php } ?>
