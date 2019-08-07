@@ -90,7 +90,7 @@ include_once "registro_sigoclub.php";
 
               <div class="row">
                 <div class="col s12 m12 l12" style="display: flex;">
-                  <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto;" hidden>Registro de empresas</a>
+                  <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto; display:">Registro de empresas</a>
                 </div>
               </div>
             </div>

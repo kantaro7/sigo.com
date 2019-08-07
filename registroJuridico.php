@@ -97,14 +97,14 @@ include_once "registro_empresas.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="trif" data-position="top" data-tooltip="Documento de identidad de la empresa"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
-                    <optgroup label="Persona Natural">
-                      <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
-                      <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
-                    </optgroup>
                     <optgroup label="Empresa">
                       <option <?php echo (($_GET["tipo"] == "Ve") ? "selected" : ""); ?> value="Ve">V</option>
                       <option <?php echo (($_GET["tipo"] == "J") ? "selected" : ""); ?> value="J">J</option>
                       <option <?php echo (($_GET["tipo"] == "G") ? "selected" : ""); ?> value="G">G</option>
+                    </optgroup>
+                    <optgroup label="Persona Natural">
+                      <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                      <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                     </optgroup>
                   </select>
                 </div>
@@ -481,9 +481,9 @@ include_once "registro_empresas.php";
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "V") {
-          window.open("registro.php/?tipo=V");
+          window.open("registro.php?tipo=V");
         } else if (tipo == "E") {
-          window.open("registro.php/?tipo=E");
+          window.open("registro.php?tipo=E");
         }
       });
 
