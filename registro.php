@@ -662,6 +662,7 @@ include_once "registro_sigoclub.php";
                       document.getElementById("registrar").disabled = false;
                       $('#registrar').html('<i class="material-icons right">send</i>Validar');
                       $("#usuario").val(result2);
+                      usuario = result2;
                     } else {
                       swal.fire({
                         type: 'error',
