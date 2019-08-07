@@ -1,22 +1,28 @@
-@media screen and (orientation: landscape)and (min-width:319px) and (max-width:600px){
+@media screen and (orientation: landscape) and (min-width:319px) and (max-width:740px){
     #imagenContactoDiv,
-    .slider{
+    .slider,
+    #logo-container{
         display: none !important;
+    }
+    
+    .menu_sigo {
+        width: 20%;
     }
 }
 
-@media screen and (orientation: portrait)and (min-width:319px) and (max-width:600px){
+@media screen and (orientation: portrait )and (min-width:319px) and (max-width:740px){
     #imagenContactoDiv,
-    .slider{
+    .slider,
+    #logo-container{
         display: none !important;
     }
 }
 
 @media screen and (min-width:319px) and (max-width:426px){
-    #imagenContactoDiv,
+    /* #imagenContactoDiv,
     .slider{
         display: none !important;
-    }
+    } */
     
     #sigoclub{
         margin: 0 auto !important;
