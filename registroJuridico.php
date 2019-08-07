@@ -492,7 +492,7 @@ include_once "registro_empresas.php";
         var validacion = 0;
       <?php } ?>
 
-      <?php if (isset($usuarioLog)) { ?>
+      <?php if ($usuarioLog != 0) { ?>
         var usuario = <?php echo ($usuarioLog) ?>;
       <?php } else { ?>
         <?php if (isset($_GET['chi'])) { ?>
