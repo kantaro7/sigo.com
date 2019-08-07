@@ -18,7 +18,11 @@ $db_pdo = new PDO("mysql:host=$host;dbname=$base", $user, $pass);
 
 //Establecer variable random para evitar cache de fotos
 $random = md5(uniqid(rand(), 1));
-
+if (isset($_POST['usuario'])) {
+  $usuarioLog = $_POST['usuario'];
+} else {
+  $usuarioLog = 0;
+}
 //Indicador de Lenguaje
 $lng = "esp";
 
@@ -89,7 +93,7 @@ include_once "registro_empresas.php";
                     <span> Regístrate en SIGOCLUB (Empresas) </span>
                   </h4>
                 </div>
-                <div class="input-field col s2 m2 l2" style="display:none;">
+                <div class="input-field col s2 m2 l2" id="checkValDiv" style="display:none;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
@@ -482,12 +486,25 @@ include_once "registro_empresas.php";
   <script type="text/javascript">
     $(document).ready(function() {
 
+      <?php if (isset($_GET['val'])) { ?>
+        var validacion = <?php echo ($_GET['val']) ?>;
+      <?php } else { ?>
+        var validacion = 0;
+      <?php } ?>
+
+      <?php if (isset($usuarioLog)) { ?>
+        var usuario = <?php echo ($usuarioLog) ?>;
+      <?php } else { ?>
+        var usuario = 0;
+      <?php } ?>
+
+
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "V") {
-          window.open("registro.php?tipo=V");
+          window.location.href = "registro.php?tipo=V";
         } else if (tipo == "E") {
-          window.open("registro.php?tipo=E");
+          window.location.href = "registro.php?tipo=E";
         }
       });
 
@@ -680,12 +697,20 @@ include_once "registro_empresas.php";
 
       $('#telefono1').on('focus', function() {
         $('#ttelefono').trigger('mouseover');
+        var tel = $('#telefono1').val();
+        if (tel == '') {
+          $('#telefono1').val('058-').trigger('change');
+        }
       });
       $('#telefono1').on('blur', function() {
         $('#ttelefono').trigger('mouseout');
       });
       $('#telefono2').on('focus', function() {
         $('#ttelefono').trigger('mouseover');
+        var tel = $('#telefono2').val();
+        if (tel == '') {
+          $('#telefono2').val('058-').trigger('change');
+        }
       });
       $('#telefono2').on('blur', function() {
         $('#ttelefono').trigger('mouseout');
@@ -693,6 +718,7 @@ include_once "registro_empresas.php";
 
       $('#direccion').on('focus', function() {
         $('#tdireccion').trigger('mouseover');
+
       });
       $('#direccion').on('blur', function() {
         $('#tdireccion').trigger('mouseout');
@@ -833,12 +859,7 @@ include_once "registro_empresas.php";
           });
         }
       });
-    });
-  </script>
 
-  <!-- Carousel -->
-  <script>
-    $(document).ready(function() {
 
       $('select').material_select();
 
@@ -849,7 +870,10 @@ include_once "registro_empresas.php";
           document.getElementById("registrar").disabled = false;
         }
       });
-
+      if (validacion == 8254327 && usuario == 0) {
+        $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
+        $('#validar').trigger('click');
+      }
     });
 
 
@@ -946,7 +970,10 @@ include_once "registro_empresas.php";
           });
         }
       }
-
+      if (validacion == 8254327 && usuario == 0) {
+        $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
+        $('#validar').trigger('click');
+      }
     });
     ////////////////////////
 
