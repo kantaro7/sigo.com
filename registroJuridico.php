@@ -508,7 +508,11 @@ include_once "registro_empresas.php";
 
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
-        if (tipo == "V") {
+        if (tipo == "V" && usuario != 0) {
+          window.location.href = "registro.php?tipo=V&val=8254327";
+        } else if (tipo == "V" && usuario != 0) {
+          window.location.href = "registro.php?tipo=E&val=8254327";
+        } else if (tipo == "V") {
           window.location.href = "registro.php?tipo=V";
         } else if (tipo == "E") {
           window.location.href = "registro.php?tipo=E";
