@@ -1,11 +1,11 @@
-@media screen and (orientation: landscape){
+@media screen and (orientation: landscape)and (min-width:319px) and (max-width:426px){
     #imagenContactoDiv,
     .slider{
         display: none !important;
     }
 }
 
-@media screen and (orientation: portrait){
+@media screen and (orientation: portrait)and (min-width:319px) and (max-width:426px){
     #imagenContactoDiv,
     .slider{
         display: none !important;
