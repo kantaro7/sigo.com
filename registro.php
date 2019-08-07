@@ -430,7 +430,11 @@ include_once "registro_sigoclub.php";
       <?php if (isset($usuarioLog)) { ?>
         var usuario = <?php echo ($usuarioLog) ?>;
       <?php } else { ?>
-        var usuario = 0;
+        <?php if (isset($_GET['chi'])) { ?>
+          var validacion = <?php echo ($_GET['val']) ?>;
+        <?php } else { ?>
+          var usuario = 0;
+        <?php } ?>
       <?php } ?>
 
 
@@ -445,11 +449,11 @@ include_once "registro_sigoclub.php";
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "Ve" && usuario != 0) {
-          window.location.href = "registroJuridico.php?tipo=Ve&val=8254327";
+          window.location.href = "registroJuridico.php?tipo=Ve&val=8254327&chi=" + usuario;
         } else if (tipo == "J" && usuario != 0) {
-          window.location.href = "registroJuridico.php?tipo=J&val=8254327";
+          window.location.href = "registroJuridico.php?tipo=J&val=8254327&chi=" + usuario;
         } else if (tipo == "G" && usuario != 0) {
-          window.location.href = "registroJuridico.php?tipo=G&val=8254327";
+          window.location.href = "registroJuridico.php?tipo=G&val=8254327&chi=" + usuario;
         } else if (tipo == "Ve") {
           window.location.href = "registroJuridico.php?tipo=Ve";
         } else if (tipo == "J") {

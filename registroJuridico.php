@@ -495,7 +495,11 @@ include_once "registro_empresas.php";
       <?php if (isset($usuarioLog)) { ?>
         var usuario = <?php echo ($usuarioLog) ?>;
       <?php } else { ?>
-        var usuario = 0;
+        <?php if (isset($_GET['chi'])) { ?>
+          var validacion = <?php echo ($_GET['val']) ?>;
+        <?php } else { ?>
+          var usuario = 0;
+        <?php } ?>
       <?php } ?>
 
 
@@ -509,9 +513,9 @@ include_once "registro_empresas.php";
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "V" && usuario != 0) {
-          window.location.href = "registro.php?tipo=V&val=8254327";
+          window.location.href = "registro.php?tipo=V&val=8254327&chi=" + usuario;
         } else if (tipo == "V" && usuario != 0) {
-          window.location.href = "registro.php?tipo=E&val=8254327";
+          window.location.href = "registro.php?tipo=E&val=8254327&chi" + usuario;
         } else if (tipo == "V") {
           window.location.href = "registro.php?tipo=V";
         } else if (tipo == "E") {
