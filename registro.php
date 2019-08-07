@@ -409,6 +409,8 @@ include_once "registro_sigoclub.php";
   <script type="text/javascript">
     $(document).ready(function() {
 
+
+
       <?php if (isset($_GET['val'])) { ?>
         var validacion = <?php echo ($_GET['val']) ?>;
       <?php } else { ?>
@@ -699,6 +701,11 @@ include_once "registro_sigoclub.php";
 
       $('#telefono').on('focus', function() {
         $('#ttelefono').trigger('mouseover');
+        var tel = $('#telefono').val();
+        if (tel == '') {
+          $('#telefono').val('058-4').trigger('change');
+        }
+
       });
       $('#telefono').on('blur', function() {
         $('#ttelefono').trigger('mouseout');
@@ -1011,7 +1018,7 @@ include_once "registro_sigoclub.php";
       if ((!document.getElementById("sexo_f").checked) && (!document.getElementById("sexo_m").checked)) mnsj += " - Debe seleccionar su sexo.<br>";
       if (document.getElementById("fecha_emplea").value.length == 0) mnsj += " - Debe indicar su fecha de nacimiento.<br>";
       if (!validarFecha(document.getElementById("fecha_emplea").value)) mnsj += " - Debe ser mayor de edad.<br>";
-      if (document.getElementById("telefono").value.length == 0) mnsj += " - Debe indicar su teléfono celular.<br>";
+      if (document.getElementById("telefono").value.length == 0) mnsj += " - Debe indicar su número de teléfono celular.<br>";
       if (document.getElementById("estado").value == 0) mnsj += " - Debe indicar un estado.<br>";
       if (document.getElementById("municipio").value == 0) mnsj += " - Debe indicar un municipio.<br>";
       if (document.getElementById("parroquia").value == 0) mnsj += " - Debe indicar una parroquia.<br>";
