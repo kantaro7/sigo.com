@@ -146,8 +146,11 @@
 @media screen and (min-width:319px) and (max-width:769px){
     #checkrlPadre > a,
     #checkpa1Padre > a,
-    #checkpa2Padre > a{
+    #checkpa2Padre > a,
+    #checkBuscarDiv > a
+    {
         width: 100%;
         display: flex;
+        justify-content: center;
     }
 } 
