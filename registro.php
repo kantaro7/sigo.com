@@ -185,7 +185,7 @@ include_once "registro_sigoclub.php";
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono celular de preferencia (058-4XX.XXX.XX.XX)">phone</i>
-                  <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize'textarea" aria-required="true" value="<?php echo ($_POST["telefono"]); ?>">
+                  <input id="telefono" name="telefono" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="validate materialize-textarea" aria-required="true" value="<?php echo ($_POST["telefono"]); ?>">
                   <label id="telefonoLabel" for="telefono" class="black-text">Número de teléfono celular <span style="color:red">*</span></label>
                 </div>
               </div>
@@ -284,7 +284,7 @@ include_once "registro_sigoclub.php";
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="tdireccion" data-position="top" data-tooltip="Edificio/Casa, N° Apto/Casa, Punto de referencia">location_on</i>
-                  <textarea id="direccion" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" aria-required="true"><?php echo ($_POST["direccion"]); ?></textarea>
+                  <textarea id="direccion" rows="3" maxlength="500" minlength="10" data-length="500" name="direccion" class="materialize-textarea validate" aria-required="true"><?php echo ($_POST["direccion"]); ?></textarea>
                   <label id="direccionLabel" for="direccion" class="black-text">Detalles de la dirección <span style="color:red">*</span></label>
                 </div>
               </div>
