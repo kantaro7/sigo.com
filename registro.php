@@ -417,6 +417,12 @@ include_once "registro_sigoclub.php";
         var validacion = 0;
       <?php } ?>
 
+      <?php if (isset($_POST['usuario'])) { ?>
+        var usuario = <?php echo ($_POST['usuario']) ?>;
+      <?php } else { ?>
+        var usuario = 0;
+      <?php } ?>
+
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "Ve") {
@@ -795,7 +801,7 @@ include_once "registro_sigoclub.php";
       $('textarea#direccion').characterCounter();
 
 
-      if (validacion == 8254327) {
+      if (validacion == 8254327 && usuario == 0) {
         $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
         $('#validar').trigger('click');
       }
