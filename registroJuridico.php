@@ -47,6 +47,7 @@ include_once "registro_empresas.php";
   <link href="css/Roboto.css" rel="stylesheet">
   <link href="css/DroidSans.css" rel="stylesheet">
   <link href="css/Dosis.css" rel="stylesheet">
+  <link href="css/ResponsiveTotal.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
   <link href="css/Icon.css" rel="stylesheet">
@@ -71,7 +72,7 @@ include_once "registro_empresas.php";
   <!-- begin: Formularios -->
   <div class="section" style="padding: 0">
     <div class="row">
-      <div class="col s12 m4">
+      <div class="col s12 m4" id="imagenContactoDiv">
         <img src="img/contacto/image.jpg" width="100%" alt="">
       </div>
       <div class="col s12 m8">
@@ -81,11 +82,14 @@ include_once "registro_empresas.php";
           <form class="formValidate" id="empleate" name="empleate" method="post" action="" enctype="multipart/form-data">
 
             <div class="col s12 m12 l12">
-              <div class="row">
+              <div class="row" style="display:flex;">
                 <div class="col s10 m10 l10" id="sigoclub">
-                  <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB (Empresas) </h4>
+                  <h4>
+                    <img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt="">
+                    <span> Regístrate en SIGOCLUB (Empresas) </span>
+                  </h4>
                 </div>
-                <div class="input-field col s2 m2 l2">
+                <div class="input-field col s2 m2 l2" style="display:none;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
@@ -93,8 +97,8 @@ include_once "registro_empresas.php";
               </div>
             </div>
             <div class="col s12 m12 l12">
-              <div class="row">
-                <div class="input-field col l2 m3 s4">
+              <div class="row" id="cedulaRow">
+                <div class="input-field col l2 m3 s12">
                   <i class="material-icons prefix tooltipped" id="trif" data-position="top" data-tooltip="Documento de identidad de la empresa"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
                     <optgroup label="Empresa">
@@ -108,7 +112,7 @@ include_once "registro_empresas.php";
                     </optgroup>
                   </select>
                 </div>
-                <div class="input-field col l7 m6 s5">
+                <div class="input-field col l7 m6 s10 offset-s2">
                   <input id="rif" onkeyup="mascara('########-#',this,event,true)" name="rif" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo ($_POST["rif"]); ?>">
                   <label id="rifLabel" for="rif" class="black-text">Rif <span style="color:red">*</span></label>
                 </div>
@@ -169,7 +173,7 @@ include_once "registro_empresas.php";
                   </select>
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l6 m12 s12">
+                <div class="input-field col l6 m11 offset-m1 s10 offset-s2">
                   <select name="municipio" id="municipio" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
@@ -184,7 +188,7 @@ include_once "registro_empresas.php";
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l6 m12 s12">
+                <div class="input-field col l6 m11 offset-m1 s10 offset-s2">
                   <select name="parroquia" id="parroquia" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                   </select>
@@ -201,7 +205,7 @@ include_once "registro_empresas.php";
                 </div>
               </div>
             </div>
-            <div class="col s6 m6 l6">
+            <div class="col s12 m6 l6">
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix tooltipped" id="ttelefono" data-position="top" data-tooltip="Teléfono de preferencia (058-4XX.XXX.XX.XX)">phone</i>
@@ -210,9 +214,9 @@ include_once "registro_empresas.php";
                 </div>
               </div>
             </div>
-            <div class="col s6 m6 l6">
+            <div class="col s12 m6 l6">
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col l12 s10 offset-s2">
                   <input id="telefono2" name="telefono2" onkeyup="mascara('###-###.###.##.##',this,event,true)" maxlength="17" minlength="17" type="text" class="materialize'textarea" value="<?php echo ($_POST["telefono2"]); ?>">
                   <label id="telefono2Label" for="telefono2" class="black-text">Número de teléfono</label>
                 </div>
@@ -228,18 +232,18 @@ include_once "registro_empresas.php";
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col l2 m3 s4">
+                <div class="input-field col l2 m3 s12">
                   <i class="material-icons prefix tooltipped" id="tcedularl" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo1" name="tipo1">
                     <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
                     <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                   </select>
                 </div>
-                <div class="input-field col l7 m6 s5">
+                <div class="input-field col l7 m6 s12">
                   <input id="cedularl" onkeypress="return soloNumeros(event)" name="cedularl" type="text" maxlength="10" minlength="7" value="<?php echo ($_POST["cedularl"]); ?>">
                   <label id="cedularlLabel" for="cedularl" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l1 m1 s1">
+                <div class="input-field col l1 m1 s12" id="checkrlPadre">
                   <a id="checkrl" class="btn waves-effect waves-light" name="checkrl" value="checkrl" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
@@ -268,18 +272,18 @@ include_once "registro_empresas.php";
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col l2 m3 s4">
+                <div class="input-field col l2 m3 s12">
                   <i class="material-icons prefix tooltipped" id="tcedulapa1" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo2" name="tipo2">
                     <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
                     <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                   </select>
                 </div>
-                <div class="input-field col l7 m6 s5">
+                <div class="input-field col l7 m6 s12">
                   <input id="cedulapa1" onkeypress="return soloNumeros(event)" name="cedulapa1" type="text" maxlength="10" minlength="7" value="<?php echo ($_POST["cedulapa1"]); ?>">
                   <label id="cedulapa1Label" for="cedulapa1" class="black-text">Documento de identidad </label>
                 </div>
-                <div class="input-field col l3 m3 s3">
+                <div class="input-field col l3 m3 s12" id="checkpa1Padre">
                   <a id="checkpa1" class="btn waves-effect waves-light" name="checkpa1" value="checkpa1" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
@@ -312,18 +316,18 @@ include_once "registro_empresas.php";
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col l2 m3 s4">
+                <div class="input-field col l2 m3 s12">
                   <i class="material-icons prefix tooltipped" id="tcedulapa2" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo3" name="tipo3">
                     <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
                     <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
                   </select>
                 </div>
-                <div class="input-field col l7 m6 s5">
+                <div class="input-field col l7 m6 s12">
                   <input id="cedulapa2" onkeypress="return soloNumeros(event)" name="cedulapa2" type="text" maxlength="10" minlength="7" value="<?php echo ($_POST["cedulapa2"]); ?>">
                   <label id="cedulapa2Label" for="cedulapa2" class="black-text">Documento de identidad </label>
                 </div>
-                <div class="input-field col l3 m3 s3">
+                <div class="input-field col l3 m3 s12" id="checkpa2Padre">
                   <a id="checkpa2" class="btn waves-effect waves-light" name="checkpa2" value="checkpa2" disabled="disabled"><i class="material-icons right" style="margin: 0 auto;">search</i></a>
                 </div>
               </div>
@@ -355,7 +359,7 @@ include_once "registro_empresas.php";
                 <a class="waves-effect waves-light btn modal-trigger" data-target="condiciones">Ver términos y condiciones</a>
                 <div class="input-field col s12 m12 l12">
                   <input type="checkbox" id="okCondiciones" name="okCondiciones" value="false" />
-                  <label for="okCondiciones">He leído, entendido y aceptado los términos y condiciones aquí establecidos</label>
+                  <label id="okCondicionesLabel" for="okCondiciones">He leído, entendido y aceptado los términos y condiciones aquí establecidos</label>
                 </div>
               </div>
             </div>
