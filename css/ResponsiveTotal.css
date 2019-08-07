@@ -45,13 +45,6 @@
         font-size: 140%;
     }
 
-    #checkrlPadre,
-    #checkpa1Padre,
-    #checkpa2Padre{
-        text-align: center;
-    }
-
-   
 }
 
 @media screen and (min-width:359px) and (max-width:426px){
@@ -108,7 +101,11 @@
     }
 }
 
-/* @media screen and (min-width:) and (max-width:){
-
-
-}  */
+@media screen and (min-width:319px) and (max-width:769px){
+    #checkrlPadre > a,
+    #checkpa1Padre > a,
+    #checkpa2Padre > a{
+        width: 100%;
+        display: flex;
+    }
+} 

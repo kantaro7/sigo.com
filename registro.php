@@ -51,6 +51,7 @@ include_once "registro_sigoclub.php";
   <link href="css/Roboto.css" rel="stylesheet">
   <link href="css/DroidSans.css" rel="stylesheet">
   <link href="css/Dosis.css" rel="stylesheet">
+  <link href="css/ResponsiveTotal.css" rel="stylesheet">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
   <link href="css/Icon.css" rel="stylesheet">
@@ -72,7 +73,7 @@ include_once "registro_sigoclub.php";
   <!-- begin: Formularios -->
   <div class="section" style="padding: 0">
     <div class="row">
-      <div class="col s12 m4">
+      <div class="col s12 m4" id="imagenContactoDiv">
         <img src="img/contacto/image.jpg" width="100%" alt="">
       </div>
       <div class="col s12 m8">
@@ -83,8 +84,13 @@ include_once "registro_sigoclub.php";
 
             <div class="col s12 m12 l12">
               <div class="row" style="display: flex;">
-                <div class="col s10 m10 l10">
-                  <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB</h4>
+                <div class="col s10 m10 l10" id="sigoclub">
+                  <h4>
+                    <img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt="">
+                    <span> 
+                      Regístrate en SIGOCLUB
+                    </span> 
+                  </h4>
                 </div>
                 <div class="input-field col s2 m2 l2" id="checkValDiv" style="margin: auto 0px !important; display: none;">
                   <input type="checkbox" id="validar" name="validar" />
@@ -100,8 +106,8 @@ include_once "registro_sigoclub.php";
                 </div> -->
             </div>
             <div class="col s12 m12 l12">
-              <div class="row">
-                <div class="input-field col l2 m3 s4">
+              <div class="row" id="cedulaRow">
+                <div class="input-field col l2 m3 s12">
                   <i class="material-icons prefix tooltipped" id="tcedula" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
                     <optgroup label="Persona Natural">
@@ -115,7 +121,7 @@ include_once "registro_sigoclub.php";
                     </optgroup>
                   </select>
                 </div>
-                <div class="input-field col l7 m6 s5">
+                <div class="input-field col l7 m6 s10 offset-s2">
                   <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo (isset($_POST["cedula"]) ? $_POST["cedula"] : $_GET["cedula"]); ?>">
                   <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
@@ -124,14 +130,14 @@ include_once "registro_sigoclub.php";
                 </div>
               </div>
             </div>
-            <div class="col s12 m12 l9">
+            <div class="col s12 m12 l12">
               <div class="row">
                 <div class="input-field col s12 m6 l6">
                   <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Primer y segundo nombre si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" aria-required="true" value="<?php echo ($_POST["nombre1"]); ?>">
                   <label id="nombre1Label" for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col l6 m11 offset-m1 s10 offset-s2">
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre2" name="nombre2" type="text" value="<?php echo ($_POST["nombre2"]); ?>">
                   <label id="nombre2Label" for="nombre2" class="black-text">Segundo nombre</label>
                 </div>
@@ -144,7 +150,7 @@ include_once "registro_sigoclub.php";
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" aria-required="true" value="<?php echo ($_POST["apellido1"]); ?>">
                   <label id="apellido1Label" for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col l6 m11 offset-m1 s10 offset-s2">
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido2" name="apellido2" type="text" value="<?php echo ($_POST["apellido2"]); ?>">
                   <label id="apellido2Label" for="apellido2" class="black-text">Segundo apellido</label>
                 </div>
@@ -228,13 +234,13 @@ include_once "registro_sigoclub.php";
                   </select>
                   <label>Estado <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l4 m12 s12">
+                <div class="input-field col l4 m11 offset-m1 s10 offset-s2">
                   <select name="municipio" id="municipio" aria-required="true">
                     <option value="0" disabled>Seleccione una opción</option>
                   </select>
                   <label>Municipio <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l4 m12 s12">
+                <div class="input-field col l4 m11 offset-m1 s10 offset-s2">
                   <select name="parroquia" id="parroquia" aria-required="true">
                     <option value="0" disabled>Seleccione una opción</option>
                   </select>
@@ -249,7 +255,7 @@ include_once "registro_sigoclub.php";
                   </select>
                   <label>Ciudad <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l4 m6 s12">
+                <div class="input-field col l4 m11 offset-m1 s10 offset-s2">
                   <select name="zona" id="zona" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <?php
@@ -261,7 +267,7 @@ include_once "registro_sigoclub.php";
                   </select>
                   <label>Zona residencial <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l4 m6 s12">
+                <div class="input-field col l4m11 offset-m1 s10 offset-s2">
                   <select name="vivienda" id="vivienda" aria-required="true">
                     <option value="0" disabled selected>Seleccione una opción</option>
                     <?php
@@ -291,7 +297,7 @@ include_once "registro_sigoclub.php";
                 <a class="waves-effect waves-light btn modal-trigger" data-target="condiciones">Ver términos y condiciones</a>
                 <div class="input-field col s12 m12 l12">
                   <input type="checkbox" id="okCondiciones" name="okCondiciones" value="false" />
-                  <label for="okCondiciones">He leído, entendido y aceptado los términos y condiciones aquí establecidos</label>
+                  <label id="okCondicionesLabel" for="okCondiciones">He leído, entendido y aceptado los términos y condiciones aquí establecidos</label>
                 </div>
               </div>
             </div>
