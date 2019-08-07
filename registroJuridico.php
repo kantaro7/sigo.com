@@ -499,6 +499,8 @@ include_once "registro_empresas.php";
       <?php } ?>
 
 
+
+
       $("#direccion").keypress(function(e) {
         if (e.keyCode != 13) return;
         return false;
@@ -843,7 +845,7 @@ include_once "registro_empresas.php";
             data: 'id=' + estadoID,
             success: function(html) {
               $('#ciudad').html(html);
-              $('select').material_select();
+              $('#ciudad').material_select();
             }
           });
         }
@@ -859,7 +861,7 @@ include_once "registro_empresas.php";
             data: 'id=' + municipioID,
             success: function(html) {
               $('#parroquia').html(html);
-              $('select').material_select();
+              $('#parroquia').material_select();
             }
           });
         }
@@ -875,10 +877,13 @@ include_once "registro_empresas.php";
           document.getElementById("registrar").disabled = false;
         }
       });
+
       if (validacion == 8254327 && usuario == 0) {
         $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
         $('#validar').trigger('click');
       }
+
+
     });
 
 
@@ -932,7 +937,7 @@ include_once "registro_empresas.php";
                       setTimeout(function() {
                         $('#parroquia').val(e[0].id_parroquia).trigger('change');
                         $('select').material_select();
-                      }, 500);
+                      }, 200);
                     }, 500);
                   }
                 });
@@ -959,7 +964,7 @@ include_once "registro_empresas.php";
                   }
                 }
 
-                $('select').material_select();
+                //$('select').material_select();
               } else {
                 swal.fire({
                   type: 'warning',
@@ -975,11 +980,9 @@ include_once "registro_empresas.php";
           });
         }
       }
-      if (validacion == 8254327 && usuario == 0) {
-        $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
-        $('#validar').trigger('click');
-      }
     });
+
+
     ////////////////////////
 
     ///////////////////////////////////////////////////////
