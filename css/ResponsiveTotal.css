@@ -1,14 +1,21 @@
-@media screen and (orientation: portrait) and (orientation: landscape) and (min-width:319px) and (max-width:426px){
+@media screen and (orientation: landscape){
     #imagenContactoDiv,
     .slider{
-        display: none;
+        display: none !important;
+    }
+}
+
+@media screen and (orientation: portrait){
+    #imagenContactoDiv,
+    .slider{
+        display: none !important;
     }
 }
 
 @media screen and (min-width:319px) and (max-width:426px){
     #imagenContactoDiv,
     .slider{
-        display: none;
+        display: none !important;
     }
     
     #sigoclub{
