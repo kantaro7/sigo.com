@@ -499,6 +499,11 @@ include_once "registro_empresas.php";
       <?php } ?>
 
 
+      $("#direccion").keypress(function(e) {
+        if (e.keyCode != 13) return;
+        return false;
+      });
+
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "V") {

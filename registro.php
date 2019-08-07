@@ -87,9 +87,9 @@ include_once "registro_sigoclub.php";
                 <div class="col s10 m10 l10" id="sigoclub">
                   <h4>
                     <img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt="">
-                    <span> 
+                    <span>
                       Regístrate en SIGOCLUB
-                    </span> 
+                    </span>
                   </h4>
                 </div>
                 <div class="input-field col s2 m2 l2" id="checkValDiv" style="margin: auto 0px !important; display: none;">
@@ -433,6 +433,15 @@ include_once "registro_sigoclub.php";
       <?php } else { ?>
         var usuario = 0;
       <?php } ?>
+
+
+
+      $("#direccion").keypress(function(e) {
+        if (e.keyCode != 13) return;
+        return false;
+      });
+
+
 
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
