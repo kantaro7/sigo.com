@@ -1098,7 +1098,7 @@ include_once "registro_empresas.php";
     });
 
     $('#cedulapa1').on('change', function() {
-      var cadena0 = $('#cedularl');
+      var cadena0 = $('#cedularl').val();
       var cadenaAux = $('#auxCedpa1').val();
       var cadena1 = $('#cedulapa1').val();
       var cadena2 = $('#cedulapa2').val();
