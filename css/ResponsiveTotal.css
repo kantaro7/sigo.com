@@ -45,6 +45,12 @@
         font-size: 140%;
     }
 
+    datosRepresentanteRow,
+    datosAutorizado1Row,
+    datosAutorizado2Row{
+        padding: 0;
+    }
+
 }
 
 @media screen and (min-width:359px) and (max-width:426px){

@@ -252,13 +252,13 @@ include_once "registro_empresas.php";
                 </div>
               </div>
               <div class="row" id="datosRepresentanteRow" style="display:none;">
-                <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
+                <div class="col l12 m12 s12">
                   <div class="row">
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l6 m6 s6 input-field">
                       <input id="datosRepresentanteNombre" name="datosRepresentanteNombre" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datosRepresentanteNombre" id="datosRepresentanteNombreLabel">Nombre </label>
                     </div>
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l6 m6 s6 input-field">
                       <input id="datosRepresentanteApellido" name="datosRepresentanteApellido" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datosRepresentanteApellido" id="datosRepresentanteApellidoLabel">Apellido </label>
                     </div>
@@ -292,17 +292,17 @@ include_once "registro_empresas.php";
                 </div>
               </div>
               <div class="row" id="datosAutorizado1Row" style="display:none;">
-                <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
+                <div class="col l12 m12 s12">
                   <div class="row">
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l4 m4 s4 input-field">
                       <input id="datoAutorizado1Nombre" name="datoAutorizado1Nombre" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datoAutorizado1Nombre" id="datoAutorizado1NombreLabel">Nombre </label>
                     </div>
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l4 m4 s4 input-field">
                       <input id="datosAutorizado1Apellido" name="datosAutorizado1Apellido" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datosAutorizado1Apellido" id="datosAutorizado1ApellidoLabel">Apellido </label>
                     </div>
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l4 m4 s4 input-field">
                       <input id="datosAutorizado1Tlf" name="datosAutorizado1Tlf" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datosAutorizado1Tlf" id="datosAutorizado1TlfLabel">Teléfono </label>
                     </div>
@@ -336,17 +336,17 @@ include_once "registro_empresas.php";
                 </div>
               </div>
               <div class="row" id="datosAutorizado2Row" style="display:none;">
-                <div class="col l12 m12 s12 offset-l2 offset-m2 offset-s2">
+                <div class="col l12 m12 s12">
                   <div class="row">
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l4 m4 s4 input-field">
                       <input id="datoAutorizado2Nombre" name="datoAutorizado2Nombre" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datoAutorizado2Nombre" id="datoAutorizado2NombreLabel">Nombre </label>
                     </div>
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l4 m4 s4 input-field">
                       <input id="datosAutorizado2Apellido" name="datosAutorizado2Apellido" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datosAutorizado2Apellido" id="datosAutorizado2ApellidoLabel">Apellido </label>
                     </div>
-                    <div class="col l3 m3 s3 input-field">
+                    <div class="col l4 m4 s4 input-field">
                       <input id="datosAutorizado2Tlf" name="datosAutorizado2Tlf" type="text" maxlength="10" minlength="7" disabled="disabled">
                       <label for="datosAutorizado2Tlf" id="datosAutorizado2TlfLabel">Teléfono </label>
                     </div>
