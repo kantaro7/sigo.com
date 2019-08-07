@@ -55,7 +55,6 @@ include_once "registro_sigoclub.php";
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="img/fav.png" type="image/x-icon" />
   <link href="css/Icon.css" rel="stylesheet">
-  <script></script>
 
 </head>
 
