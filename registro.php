@@ -81,18 +81,18 @@ include_once "registro_sigoclub.php";
                 <div class="col s10 m10 l10">
                   <h4><img style="vertical-align: -36px; margin-left: 42px" src="img/contacto/icono_1.png" alt=""> Regístrate en SIGOCLUB</h4>
                 </div>
-                <div class="input-field col s2 m2 l2" style="margin: auto 0px !important;">
+                <div class="input-field col s2 m2 l2" id="checkValDiv" style="margin: auto 0px !important; display: none;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
                 <input name="usuario" id="usuario" type="hidden" value="0" />
               </div>
 
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col s12 m12 l12" style="display: flex;">
                   <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto; display:">Registro de empresas</a>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="col s12 m12 l12">
               <div class="row">
@@ -409,15 +409,20 @@ include_once "registro_sigoclub.php";
   <script type="text/javascript">
     $(document).ready(function() {
 
+      <?php if (isset($_GET['val'])) { ?>
+        var validacion = <?php echo ($_GET['val']) ?>;
+      <?php } else { ?>
+        var validacion = 0;
+      <?php } ?>
 
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
         if (tipo == "Ve") {
-          window.open("registroJuridico.php/?tipo=Ve");
+          window.location.href = "registroJuridico.php?tipo=Ve";
         } else if (tipo == "J") {
-          window.open("registroJuridico.php/?tipo=J");
+          window.location.href = "registroJuridico.php?tipo=J";
         } else if (tipo == "G") {
-          window.open("registroJuridico.php/?tipo=G");
+          window.location.href = "registroJuridico.php?tipo=G";
         }
       });
 
@@ -764,12 +769,7 @@ include_once "registro_sigoclub.php";
           });
         }
       });
-    });
-  </script>
 
-  <!-- Carousel -->
-  <script>
-    $(document).ready(function() {
       if (!document.getElementById("okCondiciones").checked) {
         document.getElementById("registrar").disabled = true;
       } else {
@@ -786,7 +786,18 @@ include_once "registro_sigoclub.php";
 
       $('.carousel').carousel();
       $('textarea#direccion').characterCounter();
+
+
+      if (validacion == 8254327) {
+        $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
+        $('#validar').trigger('click');
+      }
+
+
+
     });
+
+
     //Date Picker
     var fecha = new Date();
     $('select').material_select();

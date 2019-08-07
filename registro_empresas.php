@@ -3,7 +3,11 @@
 $pattern = "/^(0?[1-9]|[12][0-9]|[3][01])[\/|-](0?[1-9]|[1][12])[\/|-]((19|20)?[0-9]{2})$/";
 
 if ($_POST["prcs"] == "S") {
-	$rif = $_POST["tipo"] . "-" . $_POST["rif"];
+	if ($_POST["tipo"] == "Ve") {
+		$rif = "V-" . $_POST["rif"];
+	} else {
+		$rif = $_POST["tipo"] . "-" . $_POST["rif"];
+	}
 	$idR = $_POST["rep"];
 	$idA1 = $_POST["aut1"];
 	$idA2 = $_POST["aut2"];
@@ -161,7 +165,7 @@ if ($_POST["prcs"] == "V") {
 		$telefono2 = ($_POST["telefono2"] == "") ? "N/A" : $_POST["telefono2"];
 		$sql = ($rifesV) ? "UPDATE us_empresas set razon_social = '" . $_POST["razonSocial"] . "', razon_comercial = '" . $_POST["razonComercial"] . "', id_parroquia= '" . $_POST["parroquia"] . "', id_ciudad ='" . $_POST["ciudad"] . "', direccion = '" . $_POST["direccion"] . "', telefono1 = '" . $_POST["telefono1"] . "', telefono2 ='" . $telefono2 . "', verificado = CURRENT_TIMESTAMP, verificador = '" . $_POST["usuario"] . "' WHERE rif = '" . $rif . "'"
 			: "INSERT INTO us_empresas (razon_social, rif, razon_comercial, id_parroquia, id_ciudad, direccion, telefono1, telefono2, registrado, verificado, verificador)
-			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $telefono2  . "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ".$_POST['usuario'].")";
+			VALUES ('" . $_POST["razonSocial"] . "', '" . $rif . "', '" . $_POST["razonComercial"] . "', '" . $_POST["parroquia"] . "', '" . $_POST["ciudad"] . "', '" . $_POST["direccion"] . "', '" . $_POST["telefono1"] . "', '" . $telefono2  . "', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, " . $_POST['usuario'] . ")";
 		$stmt1 = $db_pdo->prepare($sql);
 		if ($stmt1 === false) {
 			trigger_error($db_pdo->error, E_USER_ERROR);
