@@ -93,7 +93,7 @@ include_once "registro_empresas.php";
                     <span> Regístrate en SIGOCLUB (Empresas) </span>
                   </h4>
                 </div>
-                <div class="input-field col s2 m2 l2" id="checkValDiv" style="display:none;">
+                <div class="input-field col s6 m2 l2" id="checkValDiv" style="display:none;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
@@ -120,7 +120,7 @@ include_once "registro_empresas.php";
                   <input id="rif" onkeyup="mascara('########-#',this,event,true)" name="rif" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo ($_POST["rif"]); ?>">
                   <label id="rifLabel" for="rif" class="black-text">Rif <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l3 m3 s3" id="checkBuscarDiv" style="display:none;">
+                <div class="input-field col l3 m3 s11 offset-s1" id="checkBuscarDiv" style="display:none;">
                   <a id="check" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</a>
                 </div>
               </div>

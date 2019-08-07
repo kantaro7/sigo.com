@@ -91,7 +91,7 @@ include_once "registro_sigoclub.php";
                     </span>
                   </h4>
                 </div>
-                <div class="input-field col s2 m2 l2" id="checkValDiv" style="margin: auto 0px !important; display: none;">
+                <div class="input-field col s6 m2 l2" id="checkValDiv" style="display: none;">
                   <input type="checkbox" id="validar" name="validar" />
                   <label for="validar">Validación</label>
                 </div>
@@ -124,7 +124,7 @@ include_once "registro_sigoclub.php";
                   <input id="cedula" onkeypress="return soloNumeros(event)" name="cedula" type="text" class="validate" aria-required="true" maxlength="10" minlength="7" value="<?php echo (isset($_POST["cedula"]) ? $_POST["cedula"] : $_GET["cedula"]); ?>">
                   <label for="cedula" class="black-text">Documento de identidad <span style="color:red">*</span></label>
                 </div>
-                <div class="input-field col l3 m3 s3" id="checkBuscarDiv" style="display:none;">
+                <div class="input-field col l3 m3 s11 offset-s1" id="checkBuscarDiv" style="display:none;">
                   <a id="check" class="btn waves-effect waves-light" name="check" value="check"><i class="material-icons right">search</i>Buscar</a>
                 </div>
               </div>
@@ -832,10 +832,10 @@ include_once "registro_sigoclub.php";
 
 
       if (validacion == 8254327 && usuario == 0) {
-        $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
+        $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
         $('#validar').trigger('click');
       } else if (validacion == 8254327 && usuario != 0) {
-        $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
+        $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
         $('#validar').prop('checked', 'true');
         $('#checkBuscarDiv').attr('style', 'display:block');
         $('#terminosRow').attr('style', 'display:none');

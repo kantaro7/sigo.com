@@ -79,7 +79,28 @@
 
     #sexoRow{
         display: flex;
+        flex-direction: row !important;
     }
+
+    #checkBuscarDiv > a
+    {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #empleate > div > div {
+        flex-direction: column;
+    }
+
+    #empleate > div > div > div {
+        justify-content: center;
+    }
+
+    #checkValDiv{
+        margin: 0 auto;
+    }
+
 
 }
 
@@ -105,9 +126,7 @@
     div.input-field.col.l6.s10.offset-s2,
     div.input-field.col.l12.s10.offset-s2,
     div.input-field.col.l7.m6.s10.offset-s2,
-    /* ///////////////////////// */
     div.input-field.col.l4.m11.offset-m1.s10.offset-s2 {
-    /* ///////////////////////// */
         margin-left: 12% !important;
         width: 88%;
     }
@@ -146,11 +165,11 @@
 @media screen and (min-width:319px) and (max-width:769px){
     #checkrlPadre > a,
     #checkpa1Padre > a,
-    #checkpa2Padre > a,
-    #checkBuscarDiv > a
+    #checkpa2Padre > a
     {
         width: 100%;
         display: flex;
         justify-content: center;
     }
+
 } 
