@@ -1,0 +1,114 @@
+@media screen and (min-width:319px) and (max-width:426px){
+    #imagenContactoDiv,
+    .slider{
+        display: none;
+    }
+    
+    #sigoclub{
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    #sigoclub > h4 > img{
+        width: 20% !important;
+        margin: auto !important;
+        display: flex;
+    }
+
+    #sigoclub > h4 > span{
+        font-size: 1em;
+    }
+
+    #sigoclub > h4 {
+        text-align: center !important;
+    }
+
+    #cedulaRow{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0px;
+    }
+
+    div.input-field{
+        max-height: 3.5em;
+    }
+
+    #okCondicionesLabel{
+        font-size: smaller;
+    }
+
+    #condiciones{
+        font-size: 75%;
+    }
+
+    #condiciones > div > h5{
+        font-size: 140%;
+    }
+
+    #checkrlPadre,
+    #checkpa1Padre,
+    #checkpa2Padre{
+        text-align: center;
+    }
+
+   
+}
+
+@media screen and (min-width:359px) and (max-width:426px){
+    #sigoclub{
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    #sigoclub > h4 > img{
+        margin: auto !important;
+        display: flex;
+    }
+
+    #sigoclub > h4 > span{
+        font-size: 1.1em;
+    }
+
+    #sigoclub > h4 {
+        text-align: center !important;
+    }
+
+    div.input-field.col.l6.s10.offset-s2,
+    div.input-field.col.l12.s10.offset-s2,
+    div.input-field.col.l7.m6.s10.offset-s2 {
+        margin-left: 12% !important;
+        width: 88%;
+    }
+} 
+
+@media screen and (min-width:424px) and (max-width:767px) {
+    div.input-field.col.l6.s10.offset-s2,
+    div.input-field.col.l12.s10.offset-s2,
+    div.input-field.col.l7.m6.s10.offset-s2 {
+        margin-left: 11% !important;
+        width: 89%;
+    }
+    
+    #okCondicionesLabel {
+        font-size: medium;
+    }
+
+}
+
+@media screen and (width:768){
+    div.input-field.col.l6.m12.s10.offset-s2,
+    div.input-field.col.l12.s10.offset-s2,
+    div.input-field.col.l7.m6.s10.offset-s2{
+        margin-left: 9% !important;
+        width: 91%;
+    }
+
+    #okCondicionesLabel {
+        font-size: larger;
+    }
+}
+
+/* @media screen and (min-width:) and (max-width:){
+
+
+}  */
