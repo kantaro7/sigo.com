@@ -431,7 +431,7 @@ include_once "registro_sigoclub.php";
         var usuario = <?php echo ($usuarioLog) ?>;
       <?php } else { ?>
         <?php if (isset($_GET['chi'])) { ?>
-          var validacion = <?php echo ($_GET['chi']) ?>;
+          var usuario = <?php echo ($_GET['chi']) ?>;
         <?php } else { ?>
           var usuario = 0;
         <?php } ?>
