@@ -97,9 +97,15 @@ include_once "registro_empresas.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="trif" data-position="top" data-tooltip="Documento de identidad de la empresa"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
-                    <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
-                    <option <?php echo (($_GET["tipo"] == "J") ? "selected" : ""); ?> value="J">J</option>
-                    <option <?php echo (($_GET["tipo"] == "G") ? "selected" : ""); ?> value="G">G</option>
+                    <optgroup label="Persona Natural">
+                      <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                      <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
+                    </optgroup>
+                    <optgroup label="Empresa">
+                      <option <?php echo (($_GET["tipo"] == "Ve") ? "selected" : ""); ?> value="Ve">V</option>
+                      <option <?php echo (($_GET["tipo"] == "J") ? "selected" : ""); ?> value="J">J</option>
+                      <option <?php echo (($_GET["tipo"] == "G") ? "selected" : ""); ?> value="G">G</option>
+                    </optgroup>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
@@ -471,6 +477,19 @@ include_once "registro_empresas.php";
 
   <script type="text/javascript">
     $(document).ready(function() {
+
+      $('#tipo').on('change', function() {
+        var tipo = $(this).val();
+        if (tipo == "V") {
+          window.open("registro.php/?tipo=V");
+        } else if (tipo == "E") {
+          window.open("registro.php/?tipo=E");
+        }
+      });
+
+
+
+
       var cadena22 = formatNumber.new($('#cedulapa2').val().replace('.', '').replace('.', '').replace('.', ''));
       if (cadena22.length < 7 && cadena22.length >= 1) {
         $('#cedulapa2').removeClass("valid").addClass("invalid");
@@ -523,9 +542,9 @@ include_once "registro_empresas.php";
         document.getElementById("registrar").disabled = false;
       }
 
-    ////////////////////////
-    $('#rif').on('blur', function() {
-      if ($("#prcs").val() == "S") {
+      ////////////////////////
+      $('#rif').on('blur', function() {
+        if ($("#prcs").val() == "S") {
           var rif = $('#tipo').val() + '-' + $('#rif').val();
           $.ajax({
             type: 'POST',
@@ -550,87 +569,87 @@ include_once "registro_empresas.php";
       });
       ///// 
 
- /////     check validar  /////////////////////////
- $('#validar').on('change', function() {
+      /////     check validar  /////////////////////////
+      $('#validar').on('change', function() {
 
-if ($('#validar').is(':checked')) {
-  $("#prcs").val("V");
-  swal.fire({
-    type: 'warning',
-    title: 'Advertencia',
-    html: 'Debe ingresar credenciales válidas para continuar.<br>' +
-      '<div class="input-field col s2 m2 l2">' +
-      ' <input type="text" id="swal-input1" name="swal-input1" maxlength="50" />' +
-      ' <label for="swal-input1">Usuario</label>' +
-      '</div>' +
-      '<div class="input-field col s2 m2 l2">' +
-      '  <input type="password" id="swal-input2" name="swal-input2" maxlength="50" />' +
-      '  <label for="swal-input2">Contraseña</label>' +
-      '</div>' +
-      '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
-    showConfirmButton: true,
-    confirmButtonText: "Continuar",
-    showCancelButton: true,
-    cancelButtonText: "Cancelar",
-    allowOutsideClick: false,
-    allowEscapeKey: false,
-    preConfirm: (login) => {
-      var ced = $('#tipo').val() + '-' + $('#cedula').val();
-      var user = $("#swal-input1").val();
-      var pass = $("#swal-input2").val();
-      if (user == "" || pass == "") {
-        Swal.showValidationMessage(
-          `Debe ingresar ambos campos para continuar.`
-        )
-      } else {
-        /////////////////////
-        $.ajax({
-          type: 'POST',
-          encoding: "UTF-8",
-          url: 'ajaxVerificadores.php',
-          data: {
-            usuario: user,
-            pass: pass
-          },
-          success: function(result2) {
-            console.log(result2);
-            if (result2 != 0) {
-              $('#checkBuscarDiv').attr('style', 'display:block');
-              $('#terminosRow').attr('style', 'display:none');
-              $("#okCondiciones").prop('checked', true);
-              document.getElementById("registrar").disabled = false;
-              $('#registrar').html('<i class="material-icons right">send</i>Validar');
-              $("#usuario").val(result2);
-            } else {
-              swal.fire({
-                type: 'error',
-                title: 'Error',
-                text: "Credenciales incorrectas"
-              })
+        if ($('#validar').is(':checked')) {
+          $("#prcs").val("V");
+          swal.fire({
+            type: 'warning',
+            title: 'Advertencia',
+            html: 'Debe ingresar credenciales válidas para continuar.<br>' +
+              '<div class="input-field col s2 m2 l2">' +
+              ' <input type="text" id="swal-input1" name="swal-input1" maxlength="50" />' +
+              ' <label for="swal-input1">Usuario</label>' +
+              '</div>' +
+              '<div class="input-field col s2 m2 l2">' +
+              '  <input type="password" id="swal-input2" name="swal-input2" maxlength="50" />' +
+              '  <label for="swal-input2">Contraseña</label>' +
+              '</div>' +
+              '<label id="error1" style="display:none;">Debe ingresar ambos campos para continuar</label>',
+            showConfirmButton: true,
+            confirmButtonText: "Continuar",
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            preConfirm: (login) => {
+              var ced = $('#tipo').val() + '-' + $('#cedula').val();
+              var user = $("#swal-input1").val();
+              var pass = $("#swal-input2").val();
+              if (user == "" || pass == "") {
+                Swal.showValidationMessage(
+                  `Debe ingresar ambos campos para continuar.`
+                )
+              } else {
+                /////////////////////
+                $.ajax({
+                  type: 'POST',
+                  encoding: "UTF-8",
+                  url: 'ajaxVerificadores.php',
+                  data: {
+                    usuario: user,
+                    pass: pass
+                  },
+                  success: function(result2) {
+                    console.log(result2);
+                    if (result2 != 0) {
+                      $('#checkBuscarDiv').attr('style', 'display:block');
+                      $('#terminosRow').attr('style', 'display:none');
+                      $("#okCondiciones").prop('checked', true);
+                      document.getElementById("registrar").disabled = false;
+                      $('#registrar').html('<i class="material-icons right">send</i>Validar');
+                      $("#usuario").val(result2);
+                    } else {
+                      swal.fire({
+                        type: 'error',
+                        title: 'Error',
+                        text: "Credenciales incorrectas"
+                      })
+                      $("#validar").prop('checked', false);
+                    }
+                  }
+                });
+                ////////////////////
+              }
+            },
+          }).then((result) => {
+            if (!result.value) {
               $("#validar").prop('checked', false);
+              $("#prcs").val("S");
             }
-          }
-        });
-        ////////////////////
-      }
-    },
-  }).then((result) => {
-    if (!result.value) {
-      $("#validar").prop('checked', false);
-      $("#prcs").val("S");
-    }
-  })
-} else {
-  $('#checkBuscarDiv').attr('style', 'display:none');
-  $('#terminosRow').attr('style', 'display:block');
-  $("#okCondiciones").prop('checked', false);
-  document.getElementById("registrar").disabled = true;
-  $('#registrar').html('<i class="material-icons right">send</i>Registrar');
-  $("#prcs").val("S");
-}
-});
+          })
+        } else {
+          $('#checkBuscarDiv').attr('style', 'display:none');
+          $('#terminosRow').attr('style', 'display:block');
+          $("#okCondiciones").prop('checked', false);
+          document.getElementById("registrar").disabled = true;
+          $('#registrar').html('<i class="material-icons right">send</i>Registrar');
+          $("#prcs").val("S");
+        }
+      });
 
-//////////////////////////////
+      //////////////////////////////
 
       $('#condiciones').modal();
 
@@ -831,101 +850,101 @@ if ($('#validar').is(':checked')) {
 
 
     ///////////////////////////////////////////////////////////////
- /////////////   busqueda para la validacion    ////////////
- $('#check').on('click', function() {
-        var rif = $('#tipo').val() + '-' + $('#rif').val();
-        var numerosRif = $('#rif').val();
+    /////////////   busqueda para la validacion    ////////////
+    $('#check').on('click', function() {
+      var rif = $('#tipo').val() + '-' + $('#rif').val();
+      var numerosRif = $('#rif').val();
 
-        if (numerosRif == "") {
-          swal.fire({
-            type: 'warning',
-            title: 'Advertencia',
-            html: "Ingrese un rif válido para realizar la búsqueda.",
-            showConfirmButton: true,
-            confirmButtonText: "Si",
-          });
-        } else {
-          if (rif != "") {
-            $.ajax({
-              type: 'POST',
-              encoding: "UTF-8",
-              url: 'ajaxEmpresas.php',
-              data: 'rif=' + rif,
-              success: function(e) {
-                e = JSON.parse(e);
-                console.log(e);
-                if (e.length > 0 && e.length < 4) {
-                  $("rif").attr('readonly', 'readonly');
-                  $('#razonSocial').val(e[0].social);
-                  $('#razonSocialLabel').addClass('active');
-                  $('#razonComercial').val(e[0].comercial);
-                  $('#razonComercialLabel').addClass('active');
-                  console.log(e[0].id_ciudad);
-                  $.ajax({
-                    type: 'POST',
-                    encoding: "UTF-8",
-                    url: 'ajaxEstado.php',
-                    data: 'id=' + e[0].id_parroquia,
-                    success: function(a) {
-                      a = JSON.parse(a);
-                      // estado
-                      $('#estado').val(a[0].id_estado).trigger('change');
+      if (numerosRif == "") {
+        swal.fire({
+          type: 'warning',
+          title: 'Advertencia',
+          html: "Ingrese un rif válido para realizar la búsqueda.",
+          showConfirmButton: true,
+          confirmButtonText: "Si",
+        });
+      } else {
+        if (rif != "") {
+          $.ajax({
+            type: 'POST',
+            encoding: "UTF-8",
+            url: 'ajaxEmpresas.php',
+            data: 'rif=' + rif,
+            success: function(e) {
+              e = JSON.parse(e);
+              console.log(e);
+              if (e.length > 0 && e.length < 4) {
+                $("rif").attr('readonly', 'readonly');
+                $('#razonSocial').val(e[0].social);
+                $('#razonSocialLabel').addClass('active');
+                $('#razonComercial').val(e[0].comercial);
+                $('#razonComercialLabel').addClass('active');
+                console.log(e[0].id_ciudad);
+                $.ajax({
+                  type: 'POST',
+                  encoding: "UTF-8",
+                  url: 'ajaxEstado.php',
+                  data: 'id=' + e[0].id_parroquia,
+                  success: function(a) {
+                    a = JSON.parse(a);
+                    // estado
+                    $('#estado').val(a[0].id_estado).trigger('change');
+                    $('select').material_select();
+                    // municipio
+                    setTimeout(function() {
+                      $('#municipio').val(a[0].id_municipio).trigger('change');
                       $('select').material_select();
-                      // municipio
+                      $('#ciudad').val(e[0].id_ciudad).trigger('change');
+                      $('select').material_select();
                       setTimeout(function() {
-                        $('#municipio').val(a[0].id_municipio).trigger('change');
+                        $('#parroquia').val(e[0].id_parroquia).trigger('change');
                         $('select').material_select();
-                        $('#ciudad').val(e[0].id_ciudad).trigger('change');
-                        $('select').material_select();
-                        setTimeout(function() {
-                          $('#parroquia').val(e[0].id_parroquia).trigger('change');
-                          $('select').material_select();
-                        }, 500);
                       }, 500);
-                    }
-                  });
-                  $('#direccion').val(decodeURIComponent(escape(e[0].direccion)));
-                  $('#direccionLabel').addClass('active');
-                  $('#telefono1').val(e[0].telefono1);
-                  $('#telefono1Label').addClass('active');
-                  if (e[0].telefono2 == "" || e[0].telefono2 == "N/A") {
-                    $('#telefono2').val("");
-                  } else {
-                    $('#telefono2').val(e[0].telefono2);
-                    $('#telefono2Label').addClass('active');
-                  } 
-                  
-                  for (let i = 0; i < e.length; i++) {
-                    if (e[i].tipo == 1) {
-                      $('#cedularl').val(e[i].cedula.substring(2, e[i].cedula.length));
-                      $('#cedularlLabel').addClass('active');
-                      $('#checkrl').trigger('click');
-                    } else {
-                      $('#cedulapa'+i).val(e[i].cedula.substring(2, e[i].cedula.length));
-                      $('#cedulapa'+i+'Label').addClass('active');
-                      $('#checkpa'+i).trigger('click');
-                    }
+                    }, 500);
                   }
-                      
-                  $('select').material_select();
+                });
+                $('#direccion').val(decodeURIComponent(escape(e[0].direccion)));
+                $('#direccionLabel').addClass('active');
+                $('#telefono1').val(e[0].telefono1);
+                $('#telefono1Label').addClass('active');
+                if (e[0].telefono2 == "" || e[0].telefono2 == "N/A") {
+                  $('#telefono2').val("");
                 } else {
-                  swal.fire({
-                    type: 'warning',
-                    title: 'Advertencia',
-                    html: "El rif que busca no está registrado.",
-                    showConfirmButton: true,
-                    confirmButtonText: "Si",
-                  });
+                  $('#telefono2').val(e[0].telefono2);
+                  $('#telefono2Label').addClass('active');
                 }
-                var resultId = 0;
-                return resultId;
-              }
-            });
-          }
-        }
 
-      });
-      ////////////////////////
+                for (let i = 0; i < e.length; i++) {
+                  if (e[i].tipo == 1) {
+                    $('#cedularl').val(e[i].cedula.substring(2, e[i].cedula.length));
+                    $('#cedularlLabel').addClass('active');
+                    $('#checkrl').trigger('click');
+                  } else {
+                    $('#cedulapa' + i).val(e[i].cedula.substring(2, e[i].cedula.length));
+                    $('#cedulapa' + i + 'Label').addClass('active');
+                    $('#checkpa' + i).trigger('click');
+                  }
+                }
+
+                $('select').material_select();
+              } else {
+                swal.fire({
+                  type: 'warning',
+                  title: 'Advertencia',
+                  html: "El rif que busca no está registrado.",
+                  showConfirmButton: true,
+                  confirmButtonText: "Si",
+                });
+              }
+              var resultId = 0;
+              return resultId;
+            }
+          });
+        }
+      }
+
+    });
+    ////////////////////////
 
     ///////////////////////////////////////////////////////
 

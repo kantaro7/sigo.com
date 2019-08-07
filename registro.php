@@ -90,7 +90,7 @@ include_once "registro_sigoclub.php";
 
               <div class="row">
                 <div class="col s12 m12 l12" style="display: flex;">
-                  <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto;">Registro de empresas</a>
+                  <a class="waves-effect waves-light btn modal-trigger" id="RegistroEmpresas" href="registroJuridico.php" style="margin: 0 auto;" hidden>Registro de empresas</a>
                 </div>
               </div>
             </div>
@@ -99,8 +99,15 @@ include_once "registro_sigoclub.php";
                 <div class="input-field col l2 m3 s4">
                   <i class="material-icons prefix tooltipped" id="tcedula" data-position="top" data-tooltip="Cédula venezolana natural o extranjera"> chrome_reader_mode</i>
                   <select id="tipo" name="tipo" class="validate" aria-required="true">
-                    <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
-                    <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
+                    <optgroup label="Persona Natural">
+                      <option <?php echo (($_GET["tipo"] == "V") ? "selected" : ""); ?> value="V">V</option>
+                      <option <?php echo (($_GET["tipo"] == "E") ? "selected" : ""); ?> value="E">E</option>
+                    </optgroup>
+                    <optgroup label="Empresa">
+                      <option <?php echo (($_GET["tipo"] == "Ve") ? "selected" : ""); ?> value="Ve">V</option>
+                      <option <?php echo (($_GET["tipo"] == "J") ? "selected" : ""); ?> value="J">J</option>
+                      <option <?php echo (($_GET["tipo"] == "G") ? "selected" : ""); ?> value="G">G</option>
+                    </optgroup>
                   </select>
                 </div>
                 <div class="input-field col l7 m6 s5">
@@ -401,6 +408,18 @@ include_once "registro_sigoclub.php";
 
   <script type="text/javascript">
     $(document).ready(function() {
+
+
+      $('#tipo').on('change', function() {
+        var tipo = $(this).val();
+        if (tipo == "Ve") {
+          window.open("registroJuridico.php/?tipo=Ve");
+        } else if (tipo == "J") {
+          window.open("registroJuridico.php/?tipo=J");
+        } else if (tipo == "G") {
+          window.open("registroJuridico.php/?tipo=G");
+        }
+      });
 
       $("#okCondiciones").attr('value', 'false');
 
