@@ -881,9 +881,16 @@ include_once "registro_empresas.php";
       if (validacion == 8254327 && usuario == 0) {
         $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
         $('#validar').trigger('click');
+      } else if (validacion == 8254327 && usuario != 0) {
+        $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
+        $('#validar').prop('checked', 'true')
+        $('#checkBuscarDiv').attr('style', 'display:block');
+        $('#terminosRow').attr('style', 'display:none');
+        $("#okCondiciones").prop('checked', true);
+        $("#registrar").removeAttr('disabled');
+        $('#registrar').html('<i class="material-icons right">send</i>Validar');
+        $("#usuario").val(usuario);
       }
-
-
     });
 
 
