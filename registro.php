@@ -132,7 +132,7 @@ include_once "registro_sigoclub.php";
             </div>
             <div class="col s12 m12 l12">
               <div class="row">
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m12 l6">
                   <i class="material-icons prefix tooltipped" id="tnombres" data-position="top" data-tooltip="Primer y segundo nombre si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="nombre1" name="nombre1" type="text" class="validate materialize" aria-required="true" value="<?php echo ($_POST["nombre1"]); ?>">
                   <label id="nombre1Label" for="nombre1" class="black-text">Primer nombre <span style="color:red">*</span></label>
@@ -145,7 +145,7 @@ include_once "registro_sigoclub.php";
             </div>
             <div class="col s12 m12 l9">
               <div class="row">
-                <div class="input-field col s12 m6 l6">
+                <div class="input-field col s12 m12 l6">
                   <i class="material-icons prefix tooltipped" id="tapellidos" data-position="top" data-tooltip="Primer y segundo apellido si los posee">account_circle</i>
                   <input maxlength="20" minlength="3" onkeypress="return soloLetras(event)" id="apellido1" name="apellido1" type="text" class="validate" aria-required="true" value="<?php echo ($_POST["apellido1"]); ?>">
                   <label id="apellido1Label" for="apellido1" class="black-text">Primer apellido <span style="color:red">*</span></label>
@@ -156,15 +156,15 @@ include_once "registro_sigoclub.php";
                 </div>
               </div>
             </div>
-            <div class="col s10 m3 l3 offset-s2">
+            <div class="col s10 m11 l3 offset-s2 offset-m1">
               <div class="row" id="sexoRow">
-                <div class="col s12 m3 s6">
+                <div class="col s12 m6">
                   <p>
                     <input id="sexo_f" name="sexo_f" type="checkbox" onchange="toggle_chckbx(this.value, 'sexo_m');" <?php if ($_POST["sexo_f"] != "") echo ("checked"); ?> />
                     <label for="sexo_f">F</label>
                   </p>
                 </div>
-                <div class="col s12 m3 s6">
+                <div class="col s12 m6">
                   <p>
                     <input id="sexo_m" name="sexo_m" type="checkbox" onchange="toggle_chckbx(this.value, 'sexo_f');" <?php if ($_POST["sexo_m"] != "") echo ("checked"); ?> />
                     <label for="sexo_m">M</label>
