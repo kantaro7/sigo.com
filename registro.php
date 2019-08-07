@@ -444,7 +444,13 @@ include_once "registro_sigoclub.php";
 
       $('#tipo').on('change', function() {
         var tipo = $(this).val();
-        if (tipo == "Ve") {
+        if (tipo == "Ve" && usuario != 0) {
+          window.location.href = "registroJuridico.php?tipo=Ve&val=8254327";
+        } else if (tipo == "J" && usuario != 0) {
+          window.location.href = "registroJuridico.php?tipo=J&val=8254327";
+        } else if (tipo == "G" && usuario != 0) {
+          window.location.href = "registroJuridico.php?tipo=G&val=8254327";
+        } else if (tipo == "Ve") {
           window.location.href = "registroJuridico.php?tipo=Ve";
         } else if (tipo == "J") {
           window.location.href = "registroJuridico.php?tipo=J";
@@ -823,6 +829,16 @@ include_once "registro_sigoclub.php";
       if (validacion == 8254327 && usuario == 0) {
         $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
         $('#validar').trigger('click');
+      } else if (validacion == 8254327 && usuario != 0) {
+        $('#checkValDiv').removeAttr('style').attr('style', 'margin: auto 0px !important; display: block;');
+        $('#validar').prop('checked', 'true');
+        $('#checkBuscarDiv').attr('style', 'display:block');
+        $('#terminosRow').attr('style', 'display:none');
+        $("#okCondiciones").prop('checked', true);
+        $("#registrar").removeAttr('disabled');
+        $('#registrar').html('<i class="material-icons right">send</i>Validar');
+        $("#usuario").val(usuario);
+        $("#prcs").val("V");
       }
 
 

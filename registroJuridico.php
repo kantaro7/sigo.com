@@ -887,13 +887,14 @@ include_once "registro_empresas.php";
         $('#validar').trigger('click');
       } else if (validacion == 8254327 && usuario != 0) {
         $('#checkValDiv').removeAttr('style').attr('style', 'display: block;');
-        $('#validar').prop('checked', 'true')
+        $('#validar').prop('checked', 'true');
         $('#checkBuscarDiv').attr('style', 'display:block');
         $('#terminosRow').attr('style', 'display:none');
         $("#okCondiciones").prop('checked', true);
         $("#registrar").removeAttr('disabled');
         $('#registrar').html('<i class="material-icons right">send</i>Validar');
         $("#usuario").val(usuario);
+        $("#prcs").val("V");
       }
     });
 
@@ -901,7 +902,7 @@ include_once "registro_empresas.php";
     ///////////////////////////////////////////////////////////////
     /////////////   busqueda para la validacion    ////////////
     $('#check').on('click', function() {
-      var rif = $('#tipo').val() + '-' + $('#rif').val();
+      var rif = $('#tipo').val()[0] + '-' + $('#rif').val();
       var numerosRif = $('#rif').val();
 
       if (numerosRif == "") {
