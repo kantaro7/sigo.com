@@ -1,4 +1,4 @@
-@media screen and (orientation: landscape) and (min-width:319px) and (max-width:740px){
+@media screen and (orientation: landscape) and (min-width:199px) and (max-width:740px){
     #imagenContactoDiv,
     .slider,
     #logo-container{
@@ -10,7 +10,62 @@
     }
 }
 
-@media screen and (orientation: portrait )and (min-width:319px) and (max-width:740px){
+@media screen and (min-width:199px) and (max-width:319px){
+    div.input-field > label,
+    input,
+    li > span, 
+    p > label,
+    #registrar{
+        font-size: x-small !important;
+    }
+
+    body {
+        font-size: xx-small !important;
+    }
+
+    #condiciones > div > h5 {
+        font-size: small !important;
+    }
+
+    #terminosRow > div > a {
+        line-height: inherit !important;
+        padding-top: 4px !important;
+    }
+
+    #sigoclub{
+        margin: 0 auto !important;
+        text-align: center !important;
+    }
+
+    #sigoclub > h4 > img{
+        width: 20% !important;
+        margin: auto !important;
+        display: flex;
+    }
+
+    #sigoclub > h4 > span{
+        font-size: 0.5em;
+    }
+
+    #sigoclub > h4 {
+        text-align: center !important;
+    }
+
+    .button-collapse{
+        margin-left: -10px !important;
+    }
+
+    #sexoRow{
+        display: flex;
+        flex-direction: row !important;
+    }
+
+    #okCondicionesLabel{
+        line-height: 1.5em;
+    }
+}
+
+@media screen and (orientation: portrait )and (min-width:199px) and (max-width:740px){
     #imagenContactoDiv,
     .slider,
     #logo-container{
